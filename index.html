@@ -4,15 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>reveal.js – The HTML Presentation Framework</title>
-
-        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-        <meta name="author" content="Hakim El Hattab">
-
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Getting Started with Vue js 2.0</title>
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/black.css" id="theme">
@@ -41,145 +33,134 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>Reveal.js</h1>
-                    <h3>The HTML Presentation Framework</h3>
+                    <h2>The Progressive JavaScript Framework</h2>
+                    <h3>Getting Started with Vue js 2.0</h3>
                     <p>
-                        <small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+                        <small>Presentation By: Madhu Sudhan Subedi</small>
                     </p>
                 </section>
 
                 <section>
-                    <h2>Hello There</h2>
+                    <h2>Who am I ?</h2>
                     <p>
-                        reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+                        Hello I am Madhu Sudhan Subedi
+                    </p>
+                    <p>
+                        
                     </p>
                 </section>
 
                 <!-- Example of nested vertical slides -->
                 <section>
                     <section>
-                        <h2>Vertical Slides</h2>
-                        <p>Slides can be nested inside of each other.</p>
-                        <p>Use the <em>Space</em> key to navigate through all slides.</p>
-                        <br>
-                        <a href="#" class="navigate-down">
-                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
+                        <h2>Installation</h2>
+                        <p><h3>#CDN -</h3>  
+                                https://unpkg.com/vue@2.1.8/dist/vue.js
+                                https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js
+                        </p>
+                        <p><h3>#NPM - </h3>
+                                # latest stable <br>
+                                $ npm install vue
+                        </p>
+                    </section>
+
+                    <section>
+                        <p><h3>#CLI -</h3>  
+                            <ul>
+                                <li>
+                                    # install vue-cli
+                                </li>
+                                <li>
+                                    $ npm install --global vue-cli 
+                                </li>
+                                <li>
+                                    # create a new project using the "webpack" template
+                                </li>
+                                <li>
+                                    $ vue init webpack my-project
+                                </li>
+                                <li>
+                                    # install dependencies and go!
+                                </li>
+                                <li>
+                                    $ cd my-project
+                                </li>
+                                <li>
+                                    $ npm install
+                                </li>
+                                <li>
+                                    $ npm run dev
+                                </li>
+                            </ul>
+                        </p>
                     </section>
                     <section>
-                        <h2>Basement Level 1</h2>
-                        <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+                        <p><h3>#Bower - </h3>
+                            <ul>
+                                <li>
+                                    - # latest stable 
+                                </li>
+                                <li>
+                                    - $ bower install vue   
+                                </li>
+                            </ul>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>What is Vue.js?</h2>
+                    <ul>
+                        <li>
+                             Javascript framework for building user interfaces.       
+                        </li>
+                        <li>
+                            The core library is focused on the view layer only.
+                        </li>
+                        <li>
+                             Perfect for Sophisticated Single-Page Applications. 
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Get Started</h2>
+                    <p>
+                        &lt;script src="https://unpkg.com/vue/dist/vue.js"&gt; &lt;/script&gt; 
+                    </p>
+                </section>
+
+                <section>
+                    <section id="transitions">
+                        <h2>Declarative Rendering</h2>
+                        <p>
+                            <pre>
+                                <code class="hljs" data-trim contenteditable>
+                                    &lt;div id="app"&gt;
+                                      {{ message }}
+                                    &lt;/div&gt;
+
+                                    //Javascript Part
+                                    var app = new Vue({
+                                      el: '#app',
+                                      data: {
+                                        message: 'Hello Vue!'
+                                      }
+                                    })
+                                </code>
+                            </pre>
+                        </p>
                     </section>
                     <section>
-                        <h2>Basement Level 2</h2>
-                        <p>That's it, time to go back up.</p>
-                        <br>
-                        <a href="#/2">
-                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-                        </a>
+                        <h2>This will Print</h2>
+                        <p>Hello Vue!</p>
                     </section>
                 </section>
-
-                <section>
-                    <h2>Slides</h2>
-                    <p>
-                        Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Point of View</h2>
-                    <p>
-                        Press <strong>ESC</strong> to enter the slide overview.
-                    </p>
-                    <p>
-                        Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Touch Optimized</h2>
-                    <p>
-                        Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-                    </p>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Markdown support
-
-                        Write content using inline or external Markdown.
-                        Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-                        ```
-                        <section data-markdown>
-                          ## Markdown support
-
-                          Write content using inline or external Markdown.
-                          Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-                        </section>
-                        ```
-                    </script>
-                </section>
-
-                <section>
-                    <section id="fragments">
-                        <h2>Fragments</h2>
-                        <p>Hit the next arrow...</p>
-                        <p class="fragment">... to step through ...</p>
-                        <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-                        <aside class="notes">
-                            This slide has fragments which are also stepped through in the notes window.
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Fragment Styles</h2>
-                        <p>There's different types of fragments, like:</p>
-                        <p class="fragment grow">grow</p>
-                        <p class="fragment shrink">shrink</p>
-                        <p class="fragment fade-out">fade-out</p>
-                        <p class="fragment fade-up">fade-up (also down, left and right!)</p>
-                        <p class="fragment current-visible">current-visible</p>
-                        <p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-                    </section>
-                </section>
-
-                <section id="transitions">
-                    <h2>Transition Styles</h2>
-                    <p>
-                        You can select from different transitions, like: <br>
-                        <a href="?transition=none#/transitions">None</a> -
-                        <a href="?transition=fade#/transitions">Fade</a> -
-                        <a href="?transition=slide#/transitions">Slide</a> -
-                        <a href="?transition=convex#/transitions">Convex</a> -
-                        <a href="?transition=concave#/transitions">Concave</a> -
-                        <a href="?transition=zoom#/transitions">Zoom</a>
-                    </p>
-                </section>
-
-                <section id="themes">
-                    <h2>Themes</h2>
-                    <p>
-                        reveal.js comes with a few themes built in: <br>
-                        <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-                    </p>
-                </section>
+            
 
                 <section>
                     <section data-background="#dddddd">
-                        <h2>Slide Backgrounds</h2>
+                        <h2>Declarative Rendering</h2>
                         <p>
                             Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
                         </p>
