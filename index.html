@@ -1,247 +1,410 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-}
+<!doctype html>
+<html lang="en">
 
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    opacity: 0.7;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    <head>
+        <meta charset="utf-8">
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-    background-image: url('img_parallax1.jpg');
-    min-height: 100%;
-}
+        <title>reveal.js – The HTML Presentation Framework</title>
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("img_parallax2.jpg");
-    min-height: 400px;
-}
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
 
-/* Third image (Contact) */
-.bgimg-3 {
-    background-image: url("img_parallax3.jpg");
-    min-height: 400px;
-}
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-#googleMap {
-    width: 100%;
-    height: 400px;
-    -webkit-filter: grayscale(90%);
-    filter: grayscale(90%);
-}
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-/* Turn off parallax scrolling for tablets and mobiles */
-@media only screen and (max-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Reveal.js</h1>
+                    <h3>The HTML Presentation Framework</h3>
+                    <p>
+                        <small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Hello There</h2>
+                    <p>
+                        reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+                    </p>
+                </section>
+
+                <!-- Example of nested vertical slides -->
+                <section>
+                    <section>
+                        <h2>Vertical Slides</h2>
+                        <p>Slides can be nested inside of each other.</p>
+                        <p>Use the <em>Space</em> key to navigate through all slides.</p>
+                        <br>
+                        <a href="#" class="navigate-down">
+                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+                        </a>
+                    </section>
+                    <section>
+                        <h2>Basement Level 1</h2>
+                        <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+                    </section>
+                    <section>
+                        <h2>Basement Level 2</h2>
+                        <p>That's it, time to go back up.</p>
+                        <br>
+                        <a href="#/2">
+                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+                        </a>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Slides</h2>
+                    <p>
+                        Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Point of View</h2>
+                    <p>
+                        Press <strong>ESC</strong> to enter the slide overview.
+                    </p>
+                    <p>
+                        Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Touch Optimized</h2>
+                    <p>
+                        Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+                    </p>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Markdown support
+
+                        Write content using inline or external Markdown.
+                        Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+                        ```
+                        <section data-markdown>
+                          ## Markdown support
+
+                          Write content using inline or external Markdown.
+                          Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+                        </section>
+                        ```
+                    </script>
+                </section>
+
+                <section>
+                    <section id="fragments">
+                        <h2>Fragments</h2>
+                        <p>Hit the next arrow...</p>
+                        <p class="fragment">... to step through ...</p>
+                        <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+                        <aside class="notes">
+                            This slide has fragments which are also stepped through in the notes window.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Fragment Styles</h2>
+                        <p>There's different types of fragments, like:</p>
+                        <p class="fragment grow">grow</p>
+                        <p class="fragment shrink">shrink</p>
+                        <p class="fragment fade-out">fade-out</p>
+                        <p class="fragment fade-up">fade-up (also down, left and right!)</p>
+                        <p class="fragment current-visible">current-visible</p>
+                        <p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+                    </section>
+                </section>
+
+                <section id="transitions">
+                    <h2>Transition Styles</h2>
+                    <p>
+                        You can select from different transitions, like: <br>
+                        <a href="?transition=none#/transitions">None</a> -
+                        <a href="?transition=fade#/transitions">Fade</a> -
+                        <a href="?transition=slide#/transitions">Slide</a> -
+                        <a href="?transition=convex#/transitions">Convex</a> -
+                        <a href="?transition=concave#/transitions">Concave</a> -
+                        <a href="?transition=zoom#/transitions">Zoom</a>
+                    </p>
+                </section>
+
+                <section id="themes">
+                    <h2>Themes</h2>
+                    <p>
+                        reveal.js comes with a few themes built in: <br>
+                        <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+                    </p>
+                </section>
+
+                <section>
+                    <section data-background="#dddddd">
+                        <h2>Slide Backgrounds</h2>
+                        <p>
+                            Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+                        </p>
+                        <a href="#" class="navigate-down">
+                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+                        </a>
+                    </section>
+                    <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+                        <h2>Image Backgrounds</h2>
+                        <pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+                    </section>
+                    <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+                        <h2>Tiled Backgrounds</h2>
+                        <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+                    </section>
+                    <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+                        <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+                            <h2>Video Backgrounds</h2>
+                            <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+                        </div>
+                    </section>
+                    <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+                        <h2>... and GIFs!</h2>
+                    </section>
+                </section>
+
+                <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+                    <h2>Background Transitions</h2>
+                    <p>
+                        Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+                    </p>
+                    <pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+                </section>
+
+                <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+                    <h2>Background Transitions</h2>
+                    <p>
+                        You can override background transitions per-slide.
+                    </p>
+                    <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+                </section>
+
+                <section>
+                    <h2>Pretty Code</h2>
+                    <pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
     }
+  }
 }
-</style>
-<body>
+                    </code></pre>
+                    <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+                </section>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#" class="w3-padding-large">HOME</a></li>
-    <li class="w3-hide-small w3-right">
-      <a href="#" class="w3-padding-large w3-hover-red"><i class="fa fa-search"></i></a>
-    </li>
-  </ul>
-</div>
+                <section>
+                    <h2>Marvelous List</h2>
+                    <ul>
+                        <li>No order here</li>
+                        <li>Or here</li>
+                        <li>Or here</li>
+                        <li>Or here</li>
+                    </ul>
+                </section>
 
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-opacity w3-display-container">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
-  </div>
-</div>
+                <section>
+                    <h2>Fantastic Ordered List</h2>
+                    <ol>
+                        <li>One is smaller than...</li>
+                        <li>Two is smaller than...</li>
+                        <li>Three!</li>
+                    </ol>
+                </section>
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em>I love photography</em></p>
-  <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-section">
-      <p><b>My Name</b></p><br>
-      <img src="https://unsplash.it/235/235?image=91" class="w3-circle" alt="Photo of Me">
-    </div>
+                <section>
+                    <h2>Tabular Tables</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Value</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Apples</td>
+                                <td>$1</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Lemonade</td>
+                                <td>$2</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td>Bread</td>
+                                <td>$3</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
 
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-section">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-</div>
+                <section>
+                    <h2>Clever Quotes</h2>
+                    <p>
+                        These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                        &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+                    </p>
+                    <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                        &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+                        reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+                    </blockquote>
+                </section>
 
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-light-grey w3-wide">PORTFOLIO</span>
-  </div>
-</div>
+                <section>
+                    <h2>Intergalactic Interconnections</h2>
+                    <p>
+                        You can link between slides internally,
+                        <a href="#/2/3">like this</a>.
+                    </p>
+                </section>
 
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">MY WORK</h3>
-  <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+                <section>
+                    <h2>Speaker View</h2>
+                    <p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+                    <p>Press the <em>S</em> key to try it out.</p>
 
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                    <aside class="notes">
+                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                    </aside>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                <section>
+                    <h2>Export to PDF</h2>
+                    <p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+                    <iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                <section>
+                    <h2>Global State</h2>
+                    <p>
+                        Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+                        will be added as a class to the document element when the slide is open. This lets you
+                        apply broader style changes, like switching the page background.
+                    </p>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-  </div>
+                <section data-state="customevent">
+                    <h2>State Events</h2>
+                    <p>
+                        Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+                    </p>
+                    <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+    console.log( '"customevent" has fired' );
+} );
+                    </code></pre>
+                </section>
 
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                <section>
+                    <h2>Take a Moment</h2>
+                    <p>
+                        Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+                    </p>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                <section>
+                    <h2>Much more</h2>
+                    <ul>
+                        <li>Right-to-left support</li>
+                        <li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
+                        <li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
+                        <li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
+                        <li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+                    </ul>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
+                <section style="text-align: left;">
+                    <h1>THE END</h1>
+                    <p>
+                        - <a href="http://slides.com">Try the online editor</a> <br>
+                        - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+                    </p>
+                </section>
 
-    <div class="w3-col m3">
-      <img src="http://www.w3schools.com/w3css/img_p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-  </div>
-</div>
+            </div>
 
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxxlarge w3-container w3-display-topright">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" style="max-width:100%">
-  </div>
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</span>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">WHERE I WORK</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-round-large"></div>
-    </div>
-    <div class="w3-col m8 w3-container w3-section">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Chicago, US<br>
-        <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: mail@mail.com<br>
-      </div>
-      <p>Swing by for a cup of coffee, or leave me a note:</p>
-      <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
         </div>
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Email">
-        </div>
-      </div>
-      <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment">
-      <button class="w3-btn w3-section w3-right">SEND</button>
-    </div>
-  </div>
-</div>
 
-<!-- Footer -->
-<footer class="w3-center w3-dark-grey w3-padding-48 w3-hover-black">
-  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-</footer>
- 
-<!-- Add Google Maps -->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script>
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-function initialize() {
-var mapProp = {
-  center: myCenter,
-  zoom: 12,
-  scrollwheel: false,
-  draggable: false,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+        <script>
 
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-var marker = new google.maps.Marker({
-  position: myCenter,
-});
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-marker.setMap(map);
-}
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
 
-google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-navbar" + " w3-card-2" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
-    }
-}
-</script>
-
-</body>
+    </body>
 </html>
-
