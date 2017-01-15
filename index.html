@@ -8,9 +8,11 @@
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/theme/league.css">
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
+
 
         <!-- Printing and PDF exports -->
         <script>
@@ -32,121 +34,275 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section>
-                    <h2>The Progressive JavaScript Framework</h2>
-                    <h3>Getting Started with Vue js 2.0</h3>
-                    <p>
-                        <small>Presentation By: Madhu Sudhan Subedi</small>
-                    </p>
+                <section data-markdown>
+                    ### The Progressive JavaScript Framework
+                    ---
+                    Getting Started with Vue js 2.0
+
+                </section>
+
+                <section data-markdown>
+                    ### Who am I ?
+                    ---
+                    
+                    [Madhu Sudhan Subedi](https://www.facebook.com/sudhan.subedi.31) / [@SudhanSubedi](https://twitter.com/SudhanSubedi)
+
+                    Associate Software Engineer
+
+                    [Introcept Nepal Pvt. Ltd.](http://younginnovations.com.np/) , Dhobighat, Lalitpur
+                </section>
+
+
+                <section data-markdown>
+                    ### Acknowledgement
+                    ---
+
+                    * Mr. Bijay Prasad Kuikel (Software Engineer at EB Pearls)
+
+                    * Mr. Sumit Chhetri (Sr. Software Engineer , YIPL)
+
+                </section>
+
+
+                <section data-markdown>
+                    ### Table of Contents
+                    ---
+                    * Introduction to Javascript
+
+                    * Introduction about Vue js Framework
+
+                    * Reasons To Use Javascript and Vue Js 2.0
+
+                    * Some Demo
+                </section>
+
+
+
+                <section data-markdown>
+                    ### Introduction to javascript
+                    ---
+                    * JavaScript, not to be confused with Java.
+
+                    * JavaScript is an interpreted programming or script language from Netscape.
+
+                    * JavaScript code can be imbedded in HTML pages and interpreted by the Web browser (or client). 
+
+                    * javascript is client side scripting language
+                </section>
+
+                <section data-markdown>
+                    ### Short History of Javascript
+                    ---
+                    * JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997.
+
+                    * ECMA-262 is the official name of the standard. 
+
+                    * ECMAScript is the official name of the language.
+
                 </section>
 
                 <section>
-                    <h2>Who am I ?</h2>
-                    <p>
-                        Hello I am Madhu Sudhan Subedi
-                    </p>
-                    <p>
-                        
-                    </p>
+                    <section>
+                        <h3>ECMAScript Verison Histroy</h3>
+                        <hr>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Version Name</th>
+                                    <th>Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1997</td>
+                                    <td>ECMAScript 1</td>
+                                    <td>First Edition.</td>
+                                </tr>
+                                <tr>
+                                    <td>1998</td>
+                                    <td>ECMAScript 2 </td>
+                                    <td>Editorial changes only.</td>
+                                </tr>
+                                <tr>
+                                    <td>1999 </td>
+                                    <td>ECMAScript 3</td>
+                                    <td>Added Regular Expressions.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    
+                    <section>
+                        <h3>ECMAScript Verison Histroy..</h3>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Version Name</th>
+                                <th>Features</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2009</td>
+                                    <td>ECMAScript 5</td>
+                                    <td>    Added "strict mode". <br> Added JSON support. </td>
+                                </tr>
+                                <tr>
+                                    <td>2010</td>
+                                    <td>ECMAScript 5.1</td>
+                                    <td>Editorial changes.</td>
+                                </tr>
+                                <tr>
+                                    <td>2015</td>
+                                    <td>ECMAScript 6</td>
+                                    <td> Added classes and modules.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <h3>ECMAScript Verison Histroy..</h3>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Version Name</th>
+                                <th>Features</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2016</td>
+                                    <td>ECMAScript 7</td>
+                                    <td>Added exponential operator (**). <br>
+                                        Added Array.prototype.includes.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+
+                <section data-markdown>
+                    ### What does Javascript Framework do for you?
+                    ---
+                    * Speeds up development.
+
+                    * Provides well organized, reusable and maintainable components.
+
+                    * Provides high level security.
+
+                </section>
+                
+
+                <section data-markdown>
+                    ### Ok, Let's talk about Vue js
+                    ---
+                </section>
+
+                
+                <section>
+                    <section data-markdown>
+                        ### What is Vue Js ?
+                        ---
+                        * Javascript framework for building user interfaces.
+                        * Follows MVVM Pattern       
+                        * The core library is focused on the view layer only.
+                        * Perfect for Sophisticated Single-Page Applications. 
+                    </section>
+                    <section data-markdown>
+                        ### MVVM Pattern Diagram
+                        ---
+                        ![mvvm](images/mvvm.png "MVVM")
+                    </section>
+                    <section data-markdown>
+                        ### Creator Of Vue Js => Evan You
+                        ---
+                        ![evan](images/evan.jpeg "Evan")
+                    </section>
+                    <section data-markdown>
+                        ### Why use Vue js 2.0
+                        ---
+                        * Reactive Data binding
+                        * Composable Vue Component
+                        * Mix and Match Small Library
+                        * Simple API
+                        * Light Weight
+                        * Progressive Framework (router, resource, Vuex many more)
+                    </section>
                 </section>
 
                 <!-- Example of nested vertical slides -->
                 <section>
-                    <section>
-                        <h2>Installation</h2>
-                        <p><h3>#CDN -</h3>  
-                                https://unpkg.com/vue@2.1.8/dist/vue.js
-                                https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js
-                        </p>
-                        <p><h3>#NPM - </h3>
-                                # latest stable <br>
-                                $ npm install vue
+                    <section data-markdown>
+                        ### Installation
+                        ---
+                        #CDN  
+                            * https://unpkg.com/vue@2.1.8/dist/vue.js
+                            * https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js
+                        #NPM
+                            * //latest stable
+                            * npm install vue
                         </p>
                     </section>
 
-                    <section>
-                        <p><h3>#CLI -</h3>  
-                            <ul>
-                                <li>
-                                    # install vue-cli
-                                </li>
-                                <li>
-                                    $ npm install --global vue-cli 
-                                </li>
-                                <li>
-                                    # create a new project using the "webpack" template
-                                </li>
-                                <li>
-                                    $ vue init webpack my-project
-                                </li>
-                                <li>
-                                    # install dependencies and go!
-                                </li>
-                                <li>
-                                    $ cd my-project
-                                </li>
-                                <li>
-                                    $ npm install
-                                </li>
-                                <li>
-                                    $ npm run dev
-                                </li>
-                            </ul>
-                        </p>
+                    <section data-markdown>
+                        ### Installation ..
+                        ---
+                        ###CLI  
+                            * // install vue-cli
+                            * $ npm install --global vue-cli 
+                            * // create a new project using the "webpack" template
+                            * $ vue init webpack my-project
+                            * // install dependencies and go!
+                            * $ cd my-project
+                            * $ npm install
+                            * $ npm run dev
                     </section>
-                    <section>
-                        <p><h3>#Bower - </h3>
-                            <ul>
-                                <li>
-                                    - # latest stable 
-                                </li>
-                                <li>
-                                    - $ bower install vue   
-                                </li>
-                            </ul>
-                        </p>
+                    <section data-markdown>
+                        ### Installation ..
+                        ---
+                        ### Bower 
+                            * latest stable 
+                            * $ bower install vue   
                     </section>
                 </section>
 
-                <section>
-                    <h2>What is Vue.js?</h2>
-                    <ul>
-                        <li>
-                             Javascript framework for building user interfaces.       
-                        </li>
-                        <li>
-                            The core library is focused on the view layer only.
-                        </li>
-                        <li>
-                             Perfect for Sophisticated Single-Page Applications. 
-                        </li>
-                    </ul>
+                <section data-markdown>
+                    ### Get Started
+                    ---
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                            &lt;script src="https://unpkg.com/vue/dist/vue.js"&gt; &lt;/script&gt; 
+                        </code>
+                    </pre>
                 </section>
 
                 <section>
-                    <h2>Get Started</h2>
-                    <p>
-                        &lt;script src="https://unpkg.com/vue/dist/vue.js"&gt; &lt;/script&gt; 
-                    </p>
-                </section>
-
-                <section>
-                    <section id="transitions">
-                        <h2>Declarative Rendering</h2>
+                    <section id="transitions" data-markdown>
+                        ### Declarative Rendering
+                        ---
+                        * declaratively render data to the DOM using straightforward template syntax:
                         <p>
                             <pre>
                                 <code class="hljs" data-trim contenteditable>
-                                    &lt;div id="app"&gt;
-                                      {{ message }}
-                                    &lt;/div&gt;
+                                &lt;div id="app"&gt;
+                                  {{ message }}
+                                &lt;/div&gt;
 
-                                    //Javascript Part
-                                    var app = new Vue({
-                                      el: '#app',
-                                      data: {
-                                        message: 'Hello Vue!'
-                                      }
-                                    })
+                                //Javascript Part
+                                var app = new Vue({
+                                  el: '#app',
+                                  data: {
+                                    message: 'Hello Vue!'
+                                  }
+                                })
                                 </code>
                             </pre>
                         </p>
@@ -157,50 +313,89 @@
                     </section>
                 </section>
             
+                <section>
+                    <section data-markdown data-transition="slide" data-background-transition="zoom">
+                        ### Conditionals
+                        ---
+                        <pre>
+                            <code class="hljs">
+                                &lt;div id="app-3"&gt;
+                                    &lt;p v-if="seen"&gt;Now you see me&lt;/p&gt;
+                                &lt;/div&gt;
+
+                                // Javascript Part
+                                var app3 = new Vue({
+                                  el: '#app-3',
+                                  data: {
+                                    seen: true
+                                  }
+                                })
+                            </code>
+                        </pre>
+                    </section>
+                    <section data-markdown data-transition="slide" data-background-transition="zoom">
+                        ### Result will be 
+                        ---
+                        Now you see me
+                    </section>
+
+                    <section data-markdown data-transition="slide" data-background-transition="zoom">
+                        ### Loops
+                        ---
+                        <pre>
+                            <code class="hljs">
+                                &lt;div id="app-4"&gt;
+                                  &lt;ol&gt;
+                                    &lt;li v-for="todo in todos"&gt;
+                                      {{ todo.text }}
+                                    &lt;/li&gt;
+                                  &lt;/ol&gt;
+                                &lt;/div&gt;
+
+                                var app4 = new Vue({
+                                  el: '#app-4',
+                                  data: {
+                                    todos: [
+                                      { text: 'Learn JavaScript' },
+                                      { text: 'Learn Vue' },
+                                      { text: 'Build something awesome' }
+                                    ]
+                                  }
+                                })
+                            </code>
+                        </pre>
+                    </section>
+                    <section data-markdown data-transition="slide" data-background-transition="zoom">
+                        ### Result will be 
+                        ---
+                        1. Learn Javascript
+                        2. Learn Vue
+                        3. Build something awesome
+                    </section>
+                </section>
 
                 <section>
-                    <section data-background="#dddddd">
-                        <h2>Declarative Rendering</h2>
-                        <p>
-                            Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-                        </p>
-                        <a href="#" class="navigate-down">
-                            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
+                    <section data-markdown data-transition="slide" data-background-transition="zoom">
+                    ### Handling User Input
+                    ---
+                    <pre>
+                        <code class="hljs">
+                              &lt;div id="app-6"&gt;
+                                &lt;p&gt;{{ message }}&lt;/p&gt;
+                                &lt;input v-model="message"&gt;
+                                &lt;/div&gt;
+                               &lt;div id="app-4"&gt;
+                            
+                                // Javascript Section
+                                var app6 = new Vue({
+                                  el: '#app-6',
+                                  data: {
+                                    message: 'Hello Vue!'
+                                  }
+                                })
+                        </code>
+                    </pre>
                     </section>
-                    <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-                        <h2>Image Backgrounds</h2>
-                        <pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-                    </section>
-                    <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-                        <h2>Tiled Backgrounds</h2>
-                        <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-                    </section>
-                    <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-                        <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-                            <h2>Video Backgrounds</h2>
-                            <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-                        </div>
-                    </section>
-                    <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-                        <h2>... and GIFs!</h2>
-                    </section>
-                </section>
-
-                <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-                    <h2>Background Transitions</h2>
-                    <p>
-                        Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-                    </p>
-                    <pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-                </section>
-
-                <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-                    <h2>Background Transitions</h2>
-                    <p>
-                        You can override background transitions per-slide.
-                    </p>
-                    <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
                 </section>
 
                 <section>
