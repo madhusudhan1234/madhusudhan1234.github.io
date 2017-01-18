@@ -260,8 +260,7 @@
                 </section>
 
                 <section data-markdown data-transition="slide" data-background-transition="zoom">
-                    ### Properties and Methods
-                    ---
+                    ### Properties                     ---
                     * All the properties found in its data object:
                     <p>
                         <pre>
@@ -282,19 +281,21 @@
                 <section>
                     
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
-                        ### Options / Lifecycle Hooks
+                        ### Methods
                         ---
-                        * When Vue instance is called, created method is called automatically
+                        * Methods are all inside the methods section.
                         <p>
                             <pre>
                                 <code class="hljs" data-trim contenteditable>
-                                    var vm = new Vue({
+                                    var app = new Vue({
+                                      el: '#app',
                                       data: {
-                                        a: 1
+                                        message: 'Hello Vue.js!'
                                       },
-                                      created: function () {
-                                        // `this` points to the vm instance
-                                        console.log('a is: ' + this.a)
+                                      methods: {
+                                        reverseMessage: function () {
+                                          this.message = this.message.split('').reverse().join('')
+                                        }
                                       }
                                     })
                                 </code>
@@ -461,38 +462,6 @@
                 </section>
 
                 <section>
-                    <section data-markdown>
-                        ### Shorthands
-                        ---
-                        * Vue.js provides special shorthands for two of the most often used directives, v-bind and v-on:
-                    </section>
-                    <section data-markdown>
-                        ### v-bind Shorthand
-                        ---
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                &lt;!-- full syntax --&gt;
-                                &lt;a v-bind:href="url"&gt;&lt;/a&gt;
-                                &lt;!-- shorthand --&gt;
-                                &lt;a :href="url"&gt;&lt;/a&gt;
-                            </code>
-                        </pre>
-                    </section>
-                    <section data-markdown>
-                        ### v-on Shorthand
-                        ---
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                &lt;!-- full syntax --&gt;
-                                &lt;a v-on:click="doSomething"&gt;&lt;/a&gt;
-                                &lt;!-- shorthand --&gt;
-                                &lt;a @click="doSomething"&gt;&lt;/a&gt;
-                            </code>
-                        </pre>
-                    </section>
-                </section>
-            
-                <section>
                     <section data-markdown  data-transition="slide" data-background-transition="zoom">
                         ### Conditionals
                         ---
@@ -595,7 +564,7 @@
                 </section>
 
                 <section data-markdown data-transition="slide">
-                    ### Refrences
+                    ### References
                     ---
                     * https://vuejs.org/v2/guide/
                     * http://www.slideshare.net/takuyatejima1/vuex-router-vuex-at-vuejs-tokyo-vmeetup1?next_slideshow=1
