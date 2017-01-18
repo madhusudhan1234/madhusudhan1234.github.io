@@ -62,8 +62,6 @@
                     * 7 Reasons To use Vue js
 
                     * Some Syntax and Use Cases
-
-                    * Some Demo
                 </section>
 
                             
@@ -174,7 +172,7 @@
 
                     * Binding a JS variable to the DOM and data is also bound from the DOM back to JS.
 
-                    * Example [Data Binding](https://madhusudhan1234.github.io/example-1.html) [Two way data binding](https://madhusudhan1234.github.io/example-1.html)
+                    * Example [Data Binding](https://madhusudhan1234.github.io/example-1.html) [Two way data binding](https://madhusudhan1234.github.io/example-2.html)
                 </section>
 
                 <section data-markdown data-transition="slide" data-background-transition="zoom">
@@ -303,17 +301,6 @@
                             </pre>
                         </p>
                     </section>
-                </section>
-
-                <section>
-                    
-                    <section data-markdown data-transition="slide" data-background-transition="zoom">
-                        ### Template Syntax
-                        ---
-                        * HTML-based template syntax that allows you to declaratively bind the rendered DOM
-                        to the underlying Vue instance’s data.
-                    </section>
-
                 </section>
 
                 <section>
@@ -504,36 +491,6 @@
                         </pre>
                     </section>
                 </section>
-
-
-                <section>
-                    <section id="transitions" data-transition="slide" data-markdown data-background-transition="zoom">
-                        ### Declarative Rendering
-                        ---
-                        * declaratively render data to the DOM using straightforward template syntax:
-                        <p>
-                            <pre>
-                                <code class="hljs" data-trim contenteditable>
-                                &lt;div id="app"&gt;
-                                  {{ message }}
-                                &lt;/div&gt;
-
-                                //Javascript Part
-                                var app = new Vue({
-                                  el: '#app',
-                                  data: {
-                                    message: 'Hello Vue!'
-                                  }
-                                })
-                                </code>
-                            </pre>
-                        </p>
-                    </section>
-                    <section>
-                        <h2>This will Print</h2>
-                        <p>Hello Vue!</p>
-                    </section>
-                </section>
             
                 <section>
                     <section data-markdown  data-transition="slide" data-background-transition="zoom">
@@ -595,31 +552,6 @@
                         3. Build something awesome
                     </section>
                 </section>
-
-                <section>
-                    <section data-markdown data-transition="slide" data-background-transition="zoom">
-                    ### Handling User Input
-                    ---
-                    <pre>
-                        <code class="hljs">
-                              &lt;div id="app-6"&gt;
-                                &lt;p&gt;{{ message }}&lt;/p&gt;
-                                &lt;input v-model="message"&gt;
-                                &lt;/div&gt;
-                               &lt;div id="app-4"&gt;
-                            
-                                // Javascript Section
-                                var app6 = new Vue({
-                                  el: '#app-6',
-                                  data: {
-                                    message: 'Hello Vue!'
-                                  }
-                                })
-                        </code>
-                    </pre>
-                    </section>
-                </section>
-
 
                 <section data-markdown>
                     ### Vue Components
