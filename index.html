@@ -35,9 +35,9 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-markdown data-transition="slide" data-background-transition="zoom">
-                    ### The Progressive JavaScript Framework
+                    ### Getting Started with Vue js 2.0
                     ---
-                    Getting Started with Vue js 2.0
+                    The Progressive JavaScript Framework
 
                 </section>
 
@@ -124,6 +124,14 @@
                     </p>
                 </section>
 
+                <section data-markdown >
+                    ### Simple Example
+                    ---
+                    * [ Using Jquery ](https://madhusudhan1234.github.io/jquery-counter.html)
+
+                    * [Using Vue js](https://madhusudhan1234.github.io/vuejs-counter.html)
+                </section>
+
                 <section>
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
                         ### 7 Reasons To Use Vue js 2.0
@@ -187,6 +195,35 @@
                     ### Reason 4: Composable Vue Component
                     ---
                     ![Vue Components](images/components.png "Components")
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        ### Reason 4: Composable Vue Component
+                        ---
+                        * A component is essentially a Vue instance with pre-defined options.
+                        * Registering a component in Vue is straightforward:
+                        <pre>
+                            <code class="hljs">
+                                // Define a new component called todo-item
+                                Vue.component('todo-item', {
+                                  template: '<li>This is a todo</li>'
+                                })
+                            </code>
+                        </pre>
+                    </section>  
+                    <section data-markdown>
+                        ### Can be used in Html like this
+                        ---
+                        <pre>
+                            <code class="hljs">
+                                &lt;ol&gt;
+                                  &lt;!-- Create an instance of the todo-item component --&gt;
+                                  &lt;todo-item&gt;&lt;/todo-item&gt;
+                                &lt;/ol&gt;
+                            </code>
+                        </pre>
+                    </section> 
                 </section>
 
                 <section data-markdown data-transition="slide" data-background-transition="zoom">
@@ -324,20 +361,6 @@
                         </p>
                     </section>
 
-
-                    <section data-markdown data-transition="slide" data-background-transition="zoom">
-                        ### Attributes
-                        ---
-                        * Mustaches cannot be used inside HTML attributes, instead use a v-bind directive:
-                        <p>
-                            <pre>
-                                <code class="hljs" data-trim contenteditable>
-                                     &lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;
-                                </code>
-                            </pre>
-                        </p>
-                    </section>
-
                 </section>
 
                 <section data-markdown data-transition="slide" data-background-transition="zoom">
@@ -357,28 +380,6 @@
                     </p>
                 </section>
 
-
-                <section data-markdown data-transition="slide" data-background-transition="zoom">
-                    ### Filters
-                    ---
-                    * Vue.js allows you to define filters that can be used to apply common text formatting.
-                    <p>
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                {{ message | capitalize }}
-                            </code>
-                        </pre>
-                    </p>
-                    * Filters can be chained
-                    <p>
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                {{ message | filterA | filterB }}
-                            </code>
-                        </pre>
-                    </p>
-                </section>
-
                 <section>
 
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
@@ -389,19 +390,7 @@
 
                         <pre> 
                             <code class="hljs"  data-transition="slide" data-trim contenteditable>
-                                &lt;div id="example"&gt;
-                                  {{ message.split('').reverse().join('') }}
-                                &lt;/div&gt;
-                            </code>
-                        </pre>
-                    </section>
-
-                    <section data-markdown data-transition="slide" data-background-transition="zoom">
-                        ### Computed Properties Basic Example
-                        ---
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                &lt;div id="example"&gt;
+                                &lt;div id="example-3"&gt;
                                   &lt;p>Original message: "{{ message }}"&lt;/p&gt;
                                   &lt;p>Computed reversed message: "{{ reversedMessage }}"&lt;/p&gt;
                                 &lt;/div&gt;
@@ -413,7 +402,7 @@
                         <pre>
                             <code class="hljs" data-trim contenteditable>
         var vm = new Vue({
-          el: '#example',
+          el: '#example-3',
           data: {
             message: 'Hello'
           },
@@ -427,6 +416,9 @@
         })
                             </code>
                         </pre>
+                        <p>
+                        [Result](https://madhusudhan1234.github.io/example-3.html)    
+                        </p>
                     </section>
 
                 </section>
@@ -447,33 +439,22 @@
                             </code>
                         </pre>
                     </section>
-                    <section data-markdown>
-                        ### Data for bind classes 
-                        ---
-                        <pre>
-                            <code class="hljs" data-trim contenteditable>
-                                data: {
-                                  isActive: true,
-                                  hasError: false
-                                }
-                            </code>
-                        </pre>
-                    </section>
                 </section>
 
+            
                 <section>
                     <section data-markdown  data-transition="slide" data-background-transition="zoom">
                         ### Conditionals
                         ---
                         <pre>
                             <code class="hljs">
-                                &lt;div id="app-3"&gt;
+                                &lt;div id="example-4"&gt;
                                     &lt;p v-if="seen"&gt;Now you see me&lt;/p&gt;
                                 &lt;/div&gt;
 
                                 // Javascript Part
-                                var app3 = new Vue({
-                                  el: '#app-3',
+                                var example4 = new Vue({
+                                  el: '#example-4',
                                   data: {
                                     seen: true
                                   }
@@ -484,7 +465,7 @@
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
                         ### Result will be 
                         ---
-                        Now you see me
+                        * [Result](https://madhusudhan1234.github.io/example-4.html)
                     </section>
 
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
@@ -492,7 +473,7 @@
                         ---
                         <pre>
                             <code class="hljs">
-                                &lt;div id="app-4"&gt;
+                                &lt;div id="example-5"&gt;
                                   &lt;ol&gt;
                                     &lt;li v-for="todo in todos"&gt;
                                       {{ todo.text }}
@@ -500,8 +481,8 @@
                                   &lt;/ol&gt;
                                 &lt;/div&gt;
 
-                                var app4 = new Vue({
-                                  el: '#app-4',
+                                var example5 = new Vue({
+                                  el: '#example-5',
                                   data: {
                                     todos: [
                                       { text: 'Learn JavaScript' },
@@ -516,45 +497,8 @@
                     <section data-markdown data-transition="slide" data-background-transition="zoom">
                         ### Result will be 
                         ---
-                        1. Learn Javascript
-                        2. Learn Vue
-                        3. Build something awesome
+                        * [Result](https://madhusudhan1234.github.io/example-5.html)
                     </section>
-                </section>
-
-                <section data-markdown>
-                    ### Vue Components
-                    ---
-                    ![components](images/components.png "Components") 
-                </section>
-
-                <section>
-                    <section data-markdown>
-                        ### Composing with Components
-                        ---
-                        * A component is essentially a Vue instance with pre-defined options.
-                        * Registering a component in Vue is straightforward:
-                        <pre>
-                            <code class="hljs">
-                                // Define a new component called todo-item
-                                Vue.component('todo-item', {
-                                  template: '<li>This is a todo</li>'
-                                })
-                            </code>
-                        </pre>
-                    </section>  
-                    <section data-markdown>
-                        ### Can be used in Html like this
-                        ---
-                        <pre>
-                            <code class="hljs">
-                                &lt;ol&gt;
-                                  &lt;!-- Create an instance of the todo-item component --&gt;
-                                  &lt;todo-item&gt;&lt;/todo-item&gt;
-                                &lt;/ol&gt;
-                            </code>
-                        </pre>
-                    </section> 
                 </section>
 
                 <section data-markdown data-transition="slide">
@@ -585,6 +529,7 @@
                 progress: true,
                 history: true,
                 center: true,
+                slideNumber: true,
 
                 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
