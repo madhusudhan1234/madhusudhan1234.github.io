@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jquery Counter</title>
+	</head>
+	<body>
+		<div id="output"></div>
+		<button id="increment">Increment</button>
+
+
+
+		<script
+		  src="jquery-cdn.js"></script>
+		<script>
+		  var counter = 0;
+		  $(document).ready(function() {
+		    var $output = $('#output');  
+		    $('#increment').click(function() {
+		      counter++;
+		      $output.html(counter);
+		    });
+		    $output.html(counter);
+		  });
+		</script>
+	</body>
+</html>

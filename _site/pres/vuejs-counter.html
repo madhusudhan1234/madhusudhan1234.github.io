@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vue Js Counter</title>
+	</head>
+	<body>
+	
+	<div id="app">
+	  <div>{{ counter }}</div>
+	  <button v-on:click="increment">Increment</button>
+	</div>
+
+
+	<script type="text/javascript" src="vue-2-cdn.js"></script>
+	<script>
+	  new Vue({
+	    el: '#app',
+	    data: {
+	      counter: 0
+	    },
+	    methods: {
+	      increment() { 
+	        this.counter++;
+	      }
+	    }
+	  });
+	</script>
+	</body>
+</html>

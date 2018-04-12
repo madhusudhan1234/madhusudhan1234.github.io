@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example 4</title>
+	</head>
+	<body>
+		<div id="example-4">
+	      <p v-if="seen">Now you see me</p>
+	    </div>
+
+		<script type="text/javascript" src="vue-2-cdn.js"></script>
+		<script type="text/javascript">
+			var example4 = new Vue({
+              el: '#example-4',
+              data: {
+                seen: true
+              }
+            })
+		</script>
+	</body>
+</html>

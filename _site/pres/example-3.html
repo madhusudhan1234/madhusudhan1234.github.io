@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example 3</title>
+	</head>
+	<body>
+		<div id="example-3">
+          <p>Original message: "{{ message }}"</p>
+          <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        </div>
+		<script type="text/javascript" src="vue-2-cdn.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+	          el: '#example-3',
+	          data: {
+	            message: 'Hello'
+	          },
+	          computed: {
+	            reversedMessage: function () {
+	              // `this` points to the vm instance
+	              return this.message.split('').reverse().join('')
+	            }
+	          }
+	        })
+		</script>
+	</body>
+</html>

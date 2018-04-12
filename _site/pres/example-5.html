@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example 4</title>
+	</head>
+	<body>
+		<div id="example-5">
+	      <ol>
+            <li v-for="todo in todos">
+              {{ todo.text }}
+            </li>
+          </ol>
+	    </div>
+
+		<script type="text/javascript" src="vue-2-cdn.js"></script>
+		<script type="text/javascript">
+			var example5 = new Vue({
+              el: '#example-5',
+              data: {
+                todos: [
+                  { text: 'Learn JavaScript' },
+                  { text: 'Learn Vue' },
+                  { text: 'Build something awesome' }
+                ]
+              }
+            })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example 1</title>
+	</head>
+	<body>
+		<div id="example-1">
+			{{ msg }}
+		</div>
+		<script type="text/javascript" src="vue-2-cdn.js"></script>
+		<script type="text/javascript">
+			const example1 = new Vue({
+				el: '#example-1',
+				data: {
+					msg: 'Hello Vue World'
+				}
+			});
+		</script>
+	</body>
+</html>
