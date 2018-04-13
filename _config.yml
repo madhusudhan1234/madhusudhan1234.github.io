@@ -25,9 +25,6 @@ twitter_username: sudhansubedi
 github_username:  madhusudhan1234
 
 # Build settings
-markdown: rdiscount
-rdiscount:
-  extensions: [smart]
 theme: minima
 permalink: /articles/:title
 
