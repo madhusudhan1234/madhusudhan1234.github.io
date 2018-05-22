@@ -1,24 +1,30 @@
 ---
 layout: default
+robots: noindex
 ---
 
-<div class="columns">
-    <div class="column is-two-thirds">
-        <h2>Sample Posts</h2>
-        <hr>
-        {% for post in site.posts limit: 2 %}
-            <h2><a href="{{post.url}}">{{ post.title }}</a></h2>
-            <p>{{ post.content }}</p>
-            <p>{{ post.date }}</p>
-            <hr>
-        {% endfor %}
-    </div>
-    <div class="column">
-        <h2>Popular Posts</h2>
-        <ul>
-            {% for post in site.posts offset: 2 limit: 10 %}
-            <li><a href="{{post.url}}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
+<div class="main-post-list">
+
+  <ol class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <p class="excerpt">{{ post.excerpt | strip_html }}&hellip;</p>
+        <div class="post-list__meta">
+            <time datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}" class="post-list__meta--date date">{{ post.date | date: "%-d %b %Y" }}</time>
+            {% if post.tags.size > 0 %}
+            &#8226; <span class="post-meta__tags">on {% for tag in post.tags %}<a href="{{ site.baseurl }}/tags/#{{ tag }}">{{ tag }}</a> {% endfor %}</span>
+            {% endif %}
+        </div>
+        <hr class="post-list__divider">
+      </li>
+    {% endfor %}
+  </ol>
+
+  <hr class="post-list__divider ">
+
+  {% if paginator.previous_page or paginator.next_page %}
+      {% include pagination.html %}
+  {% endif %}
+
 </div>

@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2018-04-14T00:05:24+05:45</updated><id>http://localhost:3000/</id><title type="html">La la la Ruby</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">My name is Shila</title><link href="http://localhost:3000/articles/my-name-is-shila" rel="alternate" type="text/html" title="My name is Shila" /><published>2018-04-12T20:55:50+05:45</published><updated>2018-04-12T20:55:50+05:45</updated><id>http://localhost:3000/articles/my-name-is-shila</id><content type="html" xml:base="http://localhost:3000/articles/my-name-is-shila">&lt;p&gt;Quisque ac erat viverra, malesuada lacus at, gravida elit. Quisque ultrices eros non purus faucibus varius. Morbi ac tellus nisl. Mauris accumsan dolor non cursus rutrum. Ut a dui et nibh accumsan facilisis. Donec leo nulla, porttitor et nulla ac, semper vehicula risus. Donec ultricies nibh non massa porttitor, sed lacinia risus gravida. Mauris auctor elementum dictum. Phasellus efficitur malesuada diam. Aenean lacinia mattis dolor, eget commodo orci ornare quis. Nam volutpat sapien eu nibh ultricies, ut aliquet massa interdum. Nunc condimentum molestie nulla, in dapibus dolor convallis ac. Aliquam ultricies metus dui, blandit dignissim turpis porta at.&lt;/p&gt;
-
-&lt;p&gt;Praesent eget nibh diam. Cras tortor diam, sodales vel nulla eu, molestie commodo nisi. Proin id congue odio. Curabitur volutpat semper dolor, in laoreet nibh ullamcorper eget. Nullam rutrum dapibus metus sed accumsan. Nam nec laoreet erat, id tempus turpis. Aliquam consectetur nunc at ipsum mattis, nec tincidunt neque sagittis.&lt;/p&gt;</content><author><name></name></author><summary type="html">Quisque ac erat viverra, malesuada lacus at, gravida elit. Quisque ultrices eros non purus faucibus varius. Morbi ac tellus nisl. Mauris accumsan dolor non cursus rutrum. Ut a dui et nibh accumsan facilisis. Donec leo nulla, porttitor et nulla ac, semper vehicula risus. Donec ultricies nibh non massa porttitor, sed lacinia risus gravida. Mauris auctor elementum dictum. Phasellus efficitur malesuada diam. Aenean lacinia mattis dolor, eget commodo orci ornare quis. Nam volutpat sapien eu nibh ultricies, ut aliquet massa interdum. Nunc condimentum molestie nulla, in dapibus dolor convallis ac. Aliquam ultricies metus dui, blandit dignissim turpis porta at.</summary></entry><entry><title type="html">Hello this is super cool haha</title><link href="http://localhost:3000/articles/hello-this-is-super-cool-haha" rel="alternate" type="text/html" title="Hello this is super cool haha" /><published>2018-04-12T20:55:46+05:45</published><updated>2018-04-12T20:55:46+05:45</updated><id>http://localhost:3000/articles/hello-this-is-super-cool-haha</id><content type="html" xml:base="http://localhost:3000/articles/hello-this-is-super-cool-haha">&lt;p&gt;Lorem ipsum dolor sit amet,
- consectetur adipiscing elit. Curabitur ultricies odio qu
- is velit tempus, id scelerisque eros ultrices. Vestibulum volutpat 
- suscipit nibh, quis congue arcu malesuada a. Donec id gravida ante, 
- vitae mattis ipsum. Cras tristique est dui, eget volutpat nisi 
- sollicitudin eu. Etiam sodales scelerisque dui, sed iaculis mi 
- vestibulum at. Pellentesque sagittis est ut massa posuere pharetra. 
- Mauris eleifend massa eu lorem malesuada, sed vestibulum odio pharetra. 
- Aliquam sit amet molestie quam. Nam non ipsum laoreet, convallis ligula
-  vel, aliquet urna. Donec finibus tempus libero. Cras vulputate ligula 
-  ut placerat imperdiet. Integer nec orci venenatis, ornare leo sed, 
-  rutrum neque. In bibendum, eros vitae euismod semper, tortor ante 
-  sagittis justo, commodo commodo massa enim non eros. Etiam nec luctus 
-  nunc, vel consectetur turpis. In maximus, nisi vitae congue interdum, 
-libero tortor rhoncus nisl, nec euismod augue est accumsan tortor&lt;/p&gt;</content><author><name></name></author><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies odio qu is velit tempus, id scelerisque eros ultrices. Vestibulum volutpat suscipit nibh, quis congue arcu malesuada a. Donec id gravida ante, vitae mattis ipsum. Cras tristique est dui, eget volutpat nisi sollicitudin eu. Etiam sodales scelerisque dui, sed iaculis mi vestibulum at. Pellentesque sagittis est ut massa posuere pharetra. Mauris eleifend massa eu lorem malesuada, sed vestibulum odio pharetra. Aliquam sit amet molestie quam. Nam non ipsum laoreet, convallis ligula vel, aliquet urna. Donec finibus tempus libero. Cras vulputate ligula ut placerat imperdiet. Integer nec orci venenatis, ornare leo sed, rutrum neque. In bibendum, eros vitae euismod semper, tortor ante sagittis justo, commodo commodo massa enim non eros. Etiam nec luctus nunc, vel consectetur turpis. In maximus, nisi vitae congue interdum, libero tortor rhoncus nisl, nec euismod augue est accumsan tortor</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:3000/articles/welcome-to-jekyll" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-04-11T20:55:46+05:45</published><updated>2018-04-11T20:55:46+05:45</updated><id>http://localhost:3000/articles/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:3000/articles/welcome-to-jekyll">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Madhu Sudhan Subedi</title>
+    <description>A simple guy who loves technology.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 22 May 2018 13:27:16 +0545</pubDate>
+    <lastBuildDate>Tue, 22 May 2018 13:27:16 +0545</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Hello from new site</title>
+        <description>&lt;p&gt;Will add some blog posts later :).&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 May 2018 01:42:00 +0545</pubDate>
+        <link>http://localhost:4000/2018/hello-from-new-site/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/hello-from-new-site/</guid>
+        
+        <category>blog</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+  </channel>
+</rss>

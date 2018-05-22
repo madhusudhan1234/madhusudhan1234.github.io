@@ -1,49 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-  <style>
-    body {
-      font-family: 'Gaegu', cursive;
-    }
-  </style>
-  <title>{{site.title}}</title>
-</head>
-<body>
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        {{site.title}}
-      </h1>
-      <h2 class="subtitle">
-        {{site.description}} This is the Something need to be change
-      </h2>
-    </div>
-  </div>
-</section>
-<nav class="navbar is-primary">
-  <div class="container">
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/">
-          Home
-        </a>
-        <a class="navbar-item" href="/about">
-          About
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-<div class="container">
-  {{content}}
-</div>
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
 
-</body>
+  <body>
+    {% include header.html %}
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        {{ content }}
+      </div>
+
+      {% include footer.html %}
+    </div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53b8453850223d10"></script>
+  </body>
 </html>
