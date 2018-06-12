@@ -1,5 +1,5 @@
 /* SITE */
-Last update: 2018/06/11
+Last update: 2018/07/13
 Standards: HTML5, CSS3
 Components: Jekyll
 Software: Sublime Text, Photoshop
