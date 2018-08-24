@@ -40,5 +40,7 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-plugins: ['jekyll-paginate']
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
