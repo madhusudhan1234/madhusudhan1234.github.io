@@ -29,6 +29,13 @@
     display: flex;
   }
 
+  .introduction {
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .panel {
     background: #6B0F9C;
     box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
@@ -91,8 +98,10 @@
 
 </style>
 
-<div>
-  Hey This is my Reading List.
+<div class="panels introduction">
+  <p>These are my Reading List.</p>
+
+  <p><a href="/">Go Back!</a></p>
 </div>
 
 <div class="panels">
