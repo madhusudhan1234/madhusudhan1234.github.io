@@ -1,6 +1,6 @@
 ---
 title: "Dynamic Datatable component using Laravel and React Js"
-date: 2018-08-24 19:57:00
+date: 2019-01-11 19:57:00
 categories: [React Laravel]
 tags: [React Laravel]
 ---
