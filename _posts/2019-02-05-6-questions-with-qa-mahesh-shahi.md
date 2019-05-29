@@ -8,7 +8,7 @@ tags: [Software Development, interviews, quality]
 This article is based on some questions I had asked to my QA friend Mahesh Shahi hoping to learn from his career journey.
 
 ![Image of Mahesh Shahi]({{ "https://cdn-images-1.medium.com/max/1600/1*Rftq9yVWJJmTPRfB5FkSiw.jpeg" }})
-<span class="caption text-center">Photo of Mahesh Shahi Bro</span>
+<span class="caption text-center">Photo of Mahesh Shahi</span>
 
 [Mahesh Shahi](https://maheshshahi.com.np/#/) is currently working as a QA Engineer at UBA Solutions Pvt. Ltd. He has been involved in the industry for more than 4+ years. He loves Photography, Art and Music. He is an active communicator and the person who takes start to finish ownership of the work.
 
