@@ -1,7 +1,7 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+title: 'Race condition in Javascript and Resolve'
+description: 'This post describes the different cases of race conditions in Javascipt and resolving such conditions approaches.'
+pubDate: 'Jan 08 2025'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
