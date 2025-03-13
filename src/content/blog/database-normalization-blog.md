@@ -2,7 +2,6 @@
 title: 'An Introduction to Database Normalization'
 description: 'This post describes the basics of database normalization, normal forms of 1NF, 2NF, 3NF, BCNF, 4NF and 5NF'
 pubDate: 'Jan 25 2025'
-heroImage: '/database-normalization.jpg'
 ---
 
 ### What is Database normalization?
