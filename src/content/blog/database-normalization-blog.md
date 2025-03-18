@@ -1,19 +1,19 @@
 ---
 title: 'An Introduction to Database Normalization'
-description: 'This post describes the basics of database normalization, normal forms of 1NF, 2NF, 3NF, BCNF, 4NF and 5NF'
+description: 'This post describes the basics of database normalization, including normal forms 1NF, 2NF, 3NF, BCNF, 4NF, and 5NF'
 pubDate: 'Jan 25 2025'
 ---
 
-### What is Database normalization?
+### What is Database Normalization?
 
 Database normalization is the process of structuring and organizing relational databases in relational database theory.
-It involves breaking down large tables into smaller and simpler tables while maintaining relationships among the smaller tables.
+It involves breaking down large tables into smaller and simpler ones while maintaining relationships among them.
 
-### Why this is useful?
+### Why is this useful?
 
-Database normalization is useful for reducing anomalies in database tables. It removes data redundancy, which in turn reduces storage costs. By doing so, the database becomes more manageable, and helps to obtain results through simple and efficient queries.
+Database normalization is useful for reducing anomalies in database tables. It removes data redundancy, which in turn reduces storage costs. By doing so, the database becomes more manageable and helps obtain results through simple and efficient queries.
 
-If the same data is stored in multiple columns, updating the record requires changes in multiple places. Breaking down such cases by creating a single column and linking it through relationships reduces redundancy and removes anomalies during updates.
+If the same data is stored in multiple columns, updating a record requires changes in multiple places. Breaking down such cases by creating a single column and linking it through relationships reduces redundancy and removes anomalies during updates.
 
 For example, if we store the same customer details, such as name and address, in every invoice record, it results in duplication. By using normalization, we can eliminate redundancy by separating the customer details into a dedicated table and linking it to the invoices table.
 
@@ -21,9 +21,9 @@ Database normalization enhances data integrity, making it more consistent and ac
 
 Let's examine the different normal forms in database normalization with examples:
 
-### First Normal Form (1 NF)
+### First Normal Form (1NF)
 
-This normalization ensures that each column contains only atomic values, meaning each column holds indivisible values. Each column must have a unique name, and each row in the column should contain a single value. Additionally, all attributes must depend on the primary key.  
+This normalization level ensures that each column contains only atomic values, meaning each column holds indivisible values. Each column must have a unique name, and each row in the column should contain a single value. Additionally, all attributes must depend on the primary key.  
 
 Let's look at an example books table.
 
@@ -58,9 +58,9 @@ This table violates the 1NF as the genres column contains multiple values. To no
 
 <br>
 
-### Second Normal Form (2 NF)
+### Second Normal Form (2NF)
 
-For a database to be in the second normal form (2NF), it must first be in the first normal form (1NF). Additionally, each non-primary key must depend on the primary key itself. If changing the value of a non-primary key also changes the value of another non-primary key, then it violates the second normal form.
+For a database to be in the second normal form (2NF), it must first be in the first normal form (1NF). Additionally, each non-primary key attribute must depend on the primary key itself. If changing the value of a non-primary key also changes the value of another non-primary key, then it violates the second normal form.
 
 So far, in the **Books** table, the `author_country` column depends on the `author` column. If the author value changes and the author is from a different country as defined in the row, that also needs to be changed.
 
@@ -90,9 +90,9 @@ To achieve 2NF, let's break the books table into two tables: `books` and `author
 
 <br>
 
-### Third Normal Form (3 NF)
+### Third Normal Form (3NF)
 
-To be in the third normal form (3NF), a database must first be in the second normal form (2NF). Additionally, it removes transitive dependencies by ensuring that each non-key attribute depends only on the primary key.
+To be in the third normal form (3NF), a database must first be in the second normal form (2NF). Additionally, it must remove transitive dependencies by ensuring that each non-key attribute depends only on the primary key.
 
 So far, we have the following tables that are in 2NF:
 
@@ -159,7 +159,7 @@ Solution:  We should remove `author_dob` from the books table and store it in th
 ### Boyce-Codd Normal Form (BCNF)
 
 This is a stricter version of 3NF that addresses additional anomalies.
-At this normalization level, every determinant is a candidate key.
+At this normalization level, every determinant must be a candidate key.
 
 Let's look at the following tables:
 
@@ -249,7 +249,7 @@ In the **Genre_Book** table:
 
 ### Fourth Normal Form (4NF)
 
-This normal form removes multivalued dependencies and should be in BCNF.  For example, let's construct the following table.
+This normal form addresses multivalued dependencies and requires the database to be in BCNF. For example, let's examine the following table.
 
 **Books_Genres_Authors**
 
@@ -267,7 +267,7 @@ This table stores
 - `genre_id` (FK genres)
 - `author_id` (FK authors)
 
-Why This Violates 4NF?
+Why Does This Violate 4NF?
 
 - `Genres` and `Authors` have independent relationships with the book.
 - For a single `book_id`, the `genre_id` and `author_id` are not dependent on each other, resulting in multivalued dependencies.
@@ -299,7 +299,7 @@ Now, there are no multivalued dependencies, and the tables are in 4NF.
 
 ### Fifth Normal Form (5NF)
 
-This is the highest normalization level, and it reduces the join dependencies of queries.
+This is the highest normalization level, and it addresses join dependencies in queries.
 
 Suppose we extend the **Genre_Book** table to include publishers for each `book-genre` combination. This could lead to a table like this:
 
@@ -316,9 +316,9 @@ Suppose we extend the **Genre_Book** table to include publishers for each `book-
 | 7             | 1       | 1        | 2            |
 | 8             | 1       | 2        | 2            |
 
-Why This Violates 5NF?  
+Why Does This Violate 5NF?
 
-The relationships between book_id, genre_id, and publisher_id are independent:  
+The relationships between book_id, genre_id, and publisher_id are independent:
 
 - A book can belong to multiple genres.
 - A book can have multiple publishers.
@@ -376,7 +376,7 @@ By joining these tables, you can still reconstruct the original data without red
 
 ### Conclusion
 
-The concept of database normalization is useful for eliminating redundancy, maintaining data integrity, scalability, and enabling flexible queries. The degree of normalization in a database depends on how you design your schema and relationships.
+Database normalization is essential for eliminating redundancy, maintaining data integrity, ensuring scalability, and enabling flexible queries. The degree of normalization in a database depends on how you design your schema and relationships.
 
 ### References
 
