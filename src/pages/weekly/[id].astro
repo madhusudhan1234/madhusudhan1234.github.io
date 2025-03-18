@@ -47,6 +47,11 @@ const { episode } = Astro.props;
 			.back-link:hover {
 				color: #333;
 			}
+			.episode-meta {
+				color: #666;
+				margin-bottom: 1rem;
+				font-size: 0.9rem;
+			}
 			audio {
 				width: 100%;
 				margin-top: 1.5rem;
@@ -57,9 +62,13 @@ const { episode } = Astro.props;
 		<Header />
 		<main>
 			<div class="episode-container">
-				<a href="/weekly" class="back-link">← Back to Episodes</a>
+				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
 				<div class="episode-detail">
 					<h1 class="episode-title">Episode #{episode.id}: {episode.title}</h1>
+					<div class="episode-meta">
+						Published on: {new Date(episode.publishDate).toLocaleDateString()}
+						{episode.duration && ` • Duration: ${episode.duration}`}
+					</div>
 					<p class="episode-description">{episode.description}</p>
 					<audio controls>
 						<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
