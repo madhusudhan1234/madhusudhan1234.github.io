@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# This is project tech stack
+
+- Astro for the static site generator
+- HTML/CSS and Javascript
