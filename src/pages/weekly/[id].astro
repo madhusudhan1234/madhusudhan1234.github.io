@@ -69,11 +69,16 @@ const { episode } = Astro.props;
 						Published on: {new Date(episode.publishDate).toLocaleDateString()}
 						{episode.duration && ` • Duration: ${episode.duration}`}
 					</div>
-					<p class="episode-description">{episode.description}</p>
 					<audio controls>
 						<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
 						Your browser does not support the audio element.
 					</audio>
+				<div class="episode-description">
+					<div set:html={episode.description.replace(
+						/\[([^\]]+)\]\(([^)]+)\)/g,
+						'<a href="$2">$1</a>'
+					)} />
+				</div>
 				</div>
 			</div>
 		</main>

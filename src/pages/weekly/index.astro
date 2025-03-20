@@ -6,7 +6,7 @@ import { SITE_TITLE } from '../../consts';
 import { episodes } from '../../data/episodes';
 
 const WEEKLY_TITLE = "Madhu Sudhan Subedi Tech Weekly";
-const WEEKLY_DESCRIPTION = "Worldwide tech trends, insights, and latest updates.";
+const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, DevOps, and Software Architecture topics.";
 ---
 
 <!doctype html>
@@ -53,9 +53,6 @@ const WEEKLY_DESCRIPTION = "Worldwide tech trends, insights, and latest updates.
 								Episode #{episode.id}: {episode.title}
 							</a>
                         </h2>
-						<p class="episode-description">
-							{episode.description}
-						</p>
 						<audio controls>
 							<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
 							Your browser does not support the audio element.
