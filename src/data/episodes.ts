@@ -50,9 +50,19 @@ WebStorm 2025.1 Beta Is Here With AI Enhancements, Framework Improvements, and a
 
 The court rejects Elon’s latest attempt to slow OpenAI down. Last week, the court rejected Elon’s request for a preliminary injunction, finding that he hadn’t “demonstrated likelihood of success on the merits” of his claims. In fact, the court went further, dismissing several of his claims from the case entirely.
 
-[Link](https://openai.com/index/court-rejects-elon/?utm_source=tldrai)`,
+[Link](https://openai.com/index/court-rejects-elon/?utm_source=tldrai) 
+
+
+Chrome replaced FreeType with Skrifa, a Rust-based font processing library, to improve memory safety and reduce security vulnerabilities related to web fonts. FreeType is written in unsafe code and has a history of security issues that cost Google significant resources to address. Skrifa uses Rust's memory safety features and has rigorous testing to provide a more secure and reliable solution.
+
+[Link](https://developer.chrome.com/blog/memory-safety-fonts?utm_source=tldrwebdev)
+
+
+Docs is a new open-source collaborative text editor, intended as an alternative to Notion, Google Docs, Outline, and other similar web-based services. Interestingly, the project is being led by the governments of France and Germany.
+
+[Link](https://www.howtogeek.com/docs-alternative-google-docs-notion-france-germany/?ref=dailydev)`,
         audioFile: "first-episode.m4a",
-        publishDate: "2025-03-13",
-        duration: "25:30"
+        publishDate: "2025-03-21",
+        duration: "03:21"
     }
 ];
