@@ -1,0 +1,87 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+import { episodes } from '../../data/episodes';
+
+export function getStaticPaths() {
+    return episodes.map(episode => ({
+        params: { id: episode.id.toString() },
+        props: { episode },
+    }));
+}
+
+const { episode } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${episode.title} | ${SITE_TITLE}`} description={episode.description} />
+		<style>
+			.episode-container {
+				max-width: 800px;
+				margin: 2rem auto;
+				padding: 1rem;
+			}
+			.episode-detail {
+				background: #f5f5f5;
+				border-radius: 8px;
+				padding: 2rem;
+			}
+			.episode-title {
+				font-size: 2rem;
+				margin-bottom: 1.5rem;
+			}
+			.episode-description {
+				margin-bottom: 2rem;
+				line-height: 1.8;
+			}
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #666;
+				text-decoration: none;
+			}
+			.back-link:hover {
+				color: #333;
+			}
+			.episode-meta {
+				color: #666;
+				margin-bottom: 1rem;
+				font-size: 0.9rem;
+			}
+			audio {
+				width: 100%;
+				margin-top: 1.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="episode-container">
+				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
+				<div class="episode-detail">
+					<h1 class="episode-title">Episode #{episode.id}: {episode.title}</h1>
+					<div class="episode-meta">
+						Published on: {new Date(episode.publishDate).toLocaleDateString()}
+						{episode.duration && ` • Duration: ${episode.duration}`}
+					</div>
+					<audio controls>
+						<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
+						Your browser does not support the audio element.
+					</audio>
+				<div class="episode-description">
+					<div set:html={episode.description.replace(
+						/\[([^\]]+)\]\(([^)]+)\)/g,
+						'<a href="$2">$1</a>'
+					)} />
+				</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
