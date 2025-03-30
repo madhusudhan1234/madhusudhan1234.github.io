@@ -47,12 +47,12 @@ const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, De
 				<p class="description">{WEEKLY_DESCRIPTION}</p>
 				
 				{episodes.map((episode) => (
-					<div class="episode" key={episode.id}>
+					<div class="episode">
 						<h2 class="episode-title">
-                            <a href={`/weekly/${episode.id}`} style="text-decoration: none; color: inherit;">
+							<a href={`/weekly/${episode.id}`} style="text-decoration: none; color: inherit;">
 								Episode #{episode.id}: {episode.title}
 							</a>
-                        </h2>
+						</h2>
 						<audio controls>
 							<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
 							Your browser does not support the audio element.
