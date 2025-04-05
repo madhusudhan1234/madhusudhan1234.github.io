@@ -10,6 +10,25 @@ export interface Episode {
 
 export const episodes: Episode[] = [
     {
+        id: 3,
+        title: "Next.js Middleware Bypass, TikTok's Final Proposal, OpenAI, Software Engineers & More",
+        description: `Vercel has published a postmortem on CVE-2025-29927, a critical vulnerability in Next.js related to Middleware bypass. The timeline outlines the vulnerability's disclosure, investigation, patching, and public announcement.
+            [Link](https://vercel.com/blog/postmortem-on-next-js-middleware-bypass?utm_source=tldrwebdev)
+            The state of the front-end and full-stack job market shows React and Next.js are highly sought after, along with Javascript and Typescript. AWS is the dominant cloud provider and PostgreSQL remains a popular database.
+            [Link](https://tsev.dev/posts/2025-03-26-the-state-of-the-frontend-and-fullstack-job-market/?utm_source=tldrwebdev)
+            A manager whose harsh feedback initially frustrated this dev, Stephane, ultimately transformed his approach to software engineering. This manager prioritized clean, maintainable, and efficient code.
+            [Link](https://www.blog4ems.com/p/the-manager-i-hated?utm_source=tldrwebdev)
+            A final proposal for TikTok will be issued wednesday. Trump's administration is finalizing plans for potential investors. ByteDance has until Saturday to sell its stake in TikTok or potentially face a ban in the US market.
+            [Link](https://www.cbsnews.com/news/trump-consider-final-tiktok-proposal/?utm_source=tldrnewsletter)
+            OpenAI Academy offers free AI education globally, including workshops, courses, and interactive learning with AI models like GPT-5 to personalize feedback and learning experiences.
+            [Link](https://techstartups.com/2025/04/01/openai-launches-openai-academy-a-free-ai-learning-platform-for-everyone/?utm_source=tldrai)
+            Software engineers are not in immediate danger of being replaced by AI despite the hype. The real issue lies in the lack of understanding between engineers and their non-technical colleagues.
+            [Link](https://toddle.dev/blog/why-is-everyone-trying-to-replace-software-engineers?ref=dailydev)`,
+        audioFile: "third-episode.m4a",
+        publishDate: "2025-04-06",
+        duration: "03:55"
+    },
+    {
         id: 2,
         title: "AI, React, PHPxTKY meetup and More",
         description: `"Tokenize Image as a Set" is a new framework for image generation that uses set-based tokenization and a novel discrete diffusion method. The approach represents images as unordered token sets, enabling a unique and invertible generative modeling process.
