@@ -10,6 +10,24 @@ export interface Episode {
 
 export const episodes: Episode[] = [
     {
+        id: 4,
+        title: "An early look at PHP 9.0's, Javascript debug ids, A2A and more",
+        description: `PHP 9.0 is bringing major changes focused on making the language more predictable and developer-friendly. Key updates include stricter increment/decrement behavior, improved error handling with UnserializationFailedException, clearer function signatures, and simplified string interpolation.
+            [Link](https://benjamincrozat.com/php-90?ref=dailydev)
+
+            Debug IDs, introduced by Sentry, are revolutionizing JavaScript debugging by connecting transformed code back to original source maps. They're pushing to make this a standard feature in JavaScript, with tools and plugins already available.
+            [Link](https://blog.sentry.io/javascript-needs-debug-ids/)
+
+            AI agents are emerging as sophisticated cyber attackers, capable of executing complex operations at unprecedented scales. Projects like LLM Agent Honeypot are studying these threats, highlighting the need for enhanced cybersecurity measures.
+            [Link](https://www.technologyreview.com/2025/04/04/1114228/cyberattacks-by-ai-agents-are-coming?utm_source=tldrai)
+
+            Laravel 12.8 introduces Automatic Eager Loading (beta), eliminating the need for manual relationship loading. The automaticallyEagerLoadRelationships() method automatically handles eager loading "just in time." Additional updates include fromJson() for Collections and improved soft delete functionality.
+            [Link](https://x.com/taylorotwell/sta)`,
+        audioFile: "fourth-episode.m4a",
+        publishDate: "2025-04-14",
+        duration: "09:06"
+    },
+    {
         id: 3,
         title: "Next.js Middleware Bypass, TikTok's Final Proposal, OpenAI, Software Engineers & More",
         description: `Vercel has published a postmortem on CVE-2025-29927, a critical vulnerability in Next.js related to Middleware bypass. The timeline outlines the vulnerability's disclosure, investigation, patching, and public announcement.
