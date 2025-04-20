@@ -10,6 +10,14 @@ export interface Episode {
 
 export const episodes: Episode[] = [
     {
+        id: 5,
+        title: "Firebase Studio's AI Power, NativePHP's Desktop Dream & Deployment Tactics",
+        description: 'TODO: add description later',
+        audioFile: "fifth-episode.MP3",
+        publishDate: "2025-04-17",
+        duration: "05:43"
+    },
+    {
         id: 4,
         title: "An early look at PHP 9.0's, Javascript debug ids, A2A and more",
         description: `PHP 9.0 is bringing major changes focused on making the language more predictable and developer-friendly. Key updates include stricter increment/decrement behavior, improved error handling with UnserializationFailedException, clearer function signatures, and simplified string interpolation.
