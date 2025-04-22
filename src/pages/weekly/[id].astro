@@ -3,22 +3,27 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE } from '../../consts';
-import { episodes } from '../../data/episodes';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import { render } from 'astro:content';
 
-export function getStaticPaths() {
-    return episodes.map(episode => ({
-        params: { id: episode.id.toString() },
-        props: { episode },
+export async function getStaticPaths() {
+    const episodes = await getCollection('episodes');
+    return episodes.map(entry => ({
+        params: { id: entry.data.id.toString() },
+        props: entry,
     }));
 }
 
-const { episode } = Astro.props;
+type Props = CollectionEntry<'episodes'>;
+
+const episode = Astro.props;
+const { Content } = await render(episode);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${episode.title} | ${SITE_TITLE}`} description={episode.description} />
+		<BaseHead title={`${episode.data.title} | ${SITE_TITLE}`} description={episode.data.description} />
 		<style>
 			.episode-container {
 				max-width: 800px;
@@ -64,20 +69,19 @@ const { episode } = Astro.props;
 			<div class="episode-container">
 				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
 				<div class="episode-detail">
-					<h1 class="episode-title">Episode #{episode.id}: {episode.title}</h1>
+					<h1 class="episode-title">Episode #{episode.data.id}: {episode.data.title}</h1>
 					<div class="episode-meta">
-						Published on: {new Date(episode.publishDate).toLocaleDateString()}
-						{episode.duration && ` • Duration: ${episode.duration}`}
+						Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+						{episode.data.duration && ` • Duration: ${episode.data.duration}`}
 					</div>
-					<audio controls>
-						<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
-						Your browser does not support the audio element.
-					</audio>
+					<iframe
+						width="100%"
+						height="166"
+						allow="autoplay"
+						src={`https://w.soundcloud.com/player/?url=${episode.data.audioLink}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`}
+					></iframe>
 				<div class="episode-description">
-					<div set:html={episode.description.replace(
-						/\[([^\]]+)\]\(([^)]+)\)/g,
-						'<a href="$2">$1</a>'
-					)} />
+					<Content />
 				</div>
 				</div>
 			</div>
