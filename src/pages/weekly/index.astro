@@ -3,10 +3,13 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE } from '../../consts';
-import { episodes } from '../../data/episodes';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const WEEKLY_TITLE = "Madhu Sudhan Subedi Tech Weekly";
 const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, DevOps, and Software Architecture topics.";
+const episodes:CollectionEntry<'episodes'>[] = await getCollection('episodes');
+const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 ---
 
 <!doctype html>
@@ -46,17 +49,19 @@ const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, De
 				<h1>{WEEKLY_TITLE}</h1>
 				<p class="description">{WEEKLY_DESCRIPTION}</p>
 				
-				{episodes.map((episode) => (
+				{sortedEpisodes.map((episode) => (
 					<div class="episode">
 						<h2 class="episode-title">
-							<a href={`/weekly/${episode.id}`} style="text-decoration: none; color: inherit;">
-								Episode #{episode.id}: {episode.title}
+							<a href={`/weekly/${episode.data.id}`} style="text-decoration: none; color: inherit;">
+								Episode #{episode.data.id}: {episode.data.title}
 							</a>
 						</h2>
-						<audio controls>
-							<source src={`/podcasts/${episode.audioFile}`} type="audio/mp4">
-							Your browser does not support the audio element.
-						</audio>
+						<iframe
+							width="100%"
+							height="166"
+							allow="autoplay"
+							src={`https://w.soundcloud.com/player/?url=${episode.data.audioLink}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`}
+						></iframe>
 					</div>
 				))}
 			</div>
