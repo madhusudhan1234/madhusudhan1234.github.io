@@ -2,6 +2,7 @@
 title: 'Getting Started with Ansible'
 description: 'Learn how to get started with Ansible automation through a practical example of PHP installation using Ansible playbooks.'
 pubDate: 'March 13 2025'
+heroImage: 'images/blogs/ansible.png'
 ---
 
 Ansible is a powerful automation tool that simplifies task automation on remote servers. Being agentless, it doesn't require any agent installation on the server - a simple SSH connection from the host to the servers suffices.
