@@ -1,6 +1,6 @@
 ---
 id: 10
-title: "AI Everywhere: Google, Apple, Cursor, GitHub & the Future of Development,  The Seven-Year Reinvention Rule, AWS Security Flaw"
+title: "AI Everywhere: Google, Apple, Cursor, GitHub & the Future of Development, The Seven-Year Reinvention Rule, AWS Security Flaw"
 description: "In this episode we will talk about like these topics, from Google and Apple’s latest AI breakthroughs to GitHub Copilot’s impact on dev teams, this episode covers the future of tech. Plus: AI coding battles, AWS's security slip-up, and why you might be a new person every 7 years."
 published: false
 tags: googleio2025, sevenyearreinvention, awssecurityflaw, githubsignature
