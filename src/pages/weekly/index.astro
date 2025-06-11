@@ -32,6 +32,11 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 				font-size: 1.5rem;
 				margin-bottom: 0.5rem;
 			}
+			.episode-duration {
+				font-size: 0.9rem;
+				color: #555;
+				margin-bottom: 0.5rem;
+			}
 			.episode-description {
 				margin-bottom: 0.5rem;
 				line-height: 1.6;
@@ -59,6 +64,7 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 								Episode #{episode.data.id}: {episode.data.title}
 							</a>
 						</h2>
+						{episode.data.duration && <p class="episode-duration">Duration: {episode.data.duration}</p>}
 					<div class="episode-tags">
 						{episode.data.tags.split(',').map((tag) => (
 							<span class="tag">#{tag}</span>
