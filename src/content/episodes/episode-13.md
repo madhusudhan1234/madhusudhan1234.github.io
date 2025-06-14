@@ -3,7 +3,7 @@ id: 13
 title: "Tech Earthquake 2025: Apple’s Redesigns, Meta’s AI Billions, Japan’s Plastic Breakthrough, and the Cloud Meltdown"
 description: "In this week of Tech Weekly, we cover Japan’s breakthrough seawater-dissolving plastic, Meta’s billion-dollar AI ambitions, Apple’s WWDC 2025 redesigns, mass tech layoffs, the AI takeover of college campuses, Google Cloud outages, and more. Get the essential updates on the trends and shakeups shaping the future of technology—all in one fast-paced episode."
 published: false
-tags: #technews, #appinnovation, #applewwdc2025, #futureoftech
+tags: technews, appinnovation, applewwdc2025, futureoftech
 publishDate: "2025-06-15"
 duration: 10:52
 audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-thirteen-episode
