@@ -1,6 +1,6 @@
 ---
 id: 16
-title: "Weekly #27-2025: Behind the Code – From Databases to Developer Superpowers"
+title: "Behind the Code – From Databases to Developer Superpowers"
 description: "This week’s tech roundup uncovers the hidden engines of software development—from the deep internals of PostgreSQL to the real meaning of platform engineering. We explore why U.S. tax policy may be the real reason behind tech layoffs, how AI tools like ChatGPT and Cursor are giving engineers superpowers, and why treating your internal platform like a product is the key to scaling. Whether you're a backend nerd or just curious about why your infra team is rebranding again, there’s something here for every tech mind."
 published: false
 tags: SoftwareEngineering, PlatformEngineering, AIinDev, TechIndustryTrends
