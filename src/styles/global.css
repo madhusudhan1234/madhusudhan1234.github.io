@@ -29,22 +29,23 @@
   font-display: swap;
 }
 body {
-  font-family: var(--font-sans);
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  background: var(--gray-light);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: var(--black);
-  font-size: 18px;
-  line-height: 1.7;
-  min-height: 100vh;
+	font-family: var(--font-sans);
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--gray-light);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--black);
+	font-size: 18px;
+	line-height: 1.7;
+	min-height: 100vh;
+	overflow-x: hidden;
 }
 main {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   position: relative;
   background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.1) 0%, transparent 60%);
 }
@@ -140,6 +141,20 @@ img:hover {
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem;
+  border-radius: 40px;
+  background: white;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .profile-container:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
@@ -150,6 +165,8 @@ img:hover {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .content-side h1 {
