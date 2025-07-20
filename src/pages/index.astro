@@ -9,19 +9,59 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="software engineer, Japan, Nepal, programming, developer, senior developer, experienced engineer">
+		<link rel="canonical" href="https://madhusudhansubedi.com.np" />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h4>
-				Hello World!
-			</h4>
-			<p>
-				Hello! I'm a software engineer currently working in Japan.
-
-                I don't love coding, but I do it, and it becomes kind of fun after a while.
-			</p>
+			<article class="profile-container">
+				<div class="profile-grid">
+					<div class="content-side">
+						<h1>Software Engineer  in Japan</h1>
+						<section class="about-section">
+							<h2 class="text-accent">About Me</h2>
+							<p>
+								Greetings! I'm a seasoned software engineer from Nepal 🇳🇵 with over 9 years of experience in crafting elegant solutions.
+							</p>
+							<p>
+								Currently based in Japan 🇯🇵, I blend my passion for problem-solving with technical expertise to create impactful software.
+							</p>
+							<p>
+								My journey in technology has evolved from writing code out of necessity to embracing it as a creative medium for innovation.
+							</p>
+						</section>
+					</div>
+					<div class="image-side">
+						<img src="/images/madhusudhansubedi.JPG" alt="Madhu Sudhan Subedi" class="profile-image" />
+					</div>
+				</div>
+			</article>
 		</main>
 		<Footer />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Madhu Sudhan Subedi",
+				"jobTitle": "Backend Software Engineer",
+				"experienceYears": "9+",
+				"birthPlace": {
+					"@type": "Place",
+					"address": {
+						"@type": "PostalAddress",
+						"addressCountry": "Nepal"
+					}
+				},
+				"workLocation": {
+					"@type": "Place",
+					"address": {
+						"@type": "PostalAddress",
+						"addressCountry": "Japan"
+					}
+				}
+			}
+		</script>
 	</body>
 </html>
