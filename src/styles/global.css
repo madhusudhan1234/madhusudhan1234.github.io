@@ -170,10 +170,9 @@ img:hover {
 }
 
 .content-side h1 {
-	font-size: 3rem;
+	font-size: 1.5rem;
 	font-weight: 800;
 	line-height: 1.1;
-	margin-bottom: 3rem;
 	color: var(--black);
 	transition: color 0.3s ease;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -214,7 +213,7 @@ img:hover {
   }
 
   .content-side h1 {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -245,7 +244,7 @@ img:hover {
   }
 
   .content-side h1 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 }
