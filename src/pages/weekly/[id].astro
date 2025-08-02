@@ -24,6 +24,7 @@ const { Content } = await render(episode);
 <html lang="en">
 	<head>
 		<BaseHead title={`${episode.data.title} | ${SITE_TITLE}`} description={episode.data.description} />
+
 		<style>
 			.episode-container {
 				max-width: 800px;
@@ -54,8 +55,11 @@ const { Content } = await render(episode);
 			}
 			.episode-meta {
 				color: #666;
-				margin-bottom: 1rem;
+				margin-bottom: 0.5rem;
 				font-size: 0.9rem;
+			}
+			.episode-tags {
+				margin-bottom: 1rem;
 			}
 			audio {
 				width: 100%;
@@ -74,6 +78,11 @@ const { Content } = await render(episode);
 						Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
 						{episode.data.duration && ` • Duration: ${episode.data.duration}`}
 					</div>
+					<div class="episode-tags">
+					{episode.data.tags.split(',').map((tag) => (
+						<span class="tag">#{tag}</span>
+					))}
+				</div>
 					<iframe
 						width="100%"
 						height="166"
@@ -82,11 +91,6 @@ const { Content } = await render(episode);
 					></iframe>
 				<div class="episode-description">
 					<Content />
-				</div>
-				<div class="episode-tags">
-					{episode.data.tags.split(',').map((tag) => (
-						<span class="tag">#{tag}</span>
-					))}
 				</div>
 				</div>
 			</div>
