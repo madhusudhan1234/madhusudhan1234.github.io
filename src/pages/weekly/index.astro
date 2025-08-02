@@ -16,6 +16,7 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 <html lang="en">
 	<head>
 		<BaseHead title={`${WEEKLY_TITLE} | ${SITE_TITLE}`} description={WEEKLY_DESCRIPTION} />
+
 		<style>
 			.podcast-container {
 				max-width: 800px;
@@ -32,9 +33,9 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 				font-size: 1.5rem;
 				margin-bottom: 0.5rem;
 			}
-			.episode-duration {
+			.episode-meta {
 				font-size: 0.9rem;
-				color: #555;
+				color: #666;
 				margin-bottom: 0.5rem;
 			}
 			.episode-description {
@@ -64,7 +65,10 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 								Episode #{episode.data.id}: {episode.data.title}
 							</a>
 						</h2>
-						{episode.data.duration && <p class="episode-duration">Duration: {episode.data.duration}</p>}
+						<p class="episode-meta">
+							Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
+						</p>
 					<div class="episode-tags">
 						{episode.data.tags.split(',').map((tag) => (
 							<span class="tag">#{tag}</span>
