@@ -12,6 +12,14 @@ audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-w
 
 ---
 
+### **Meta again trying to make a Smartwatch Revival with Cameras**
+
+Meta is bringing back its smartwatch project after stopping it in 2022. This time, the focus is on cameras and AI, not health tracking. The new watch is designed to work with Meta’s VR headsets and smart glasses, so you can take photos, make video calls, and use smart features from your wrist. We might see an official reveal at the Meta Connect conference in September. The big question: Will people actually want a camera on their watch?
+
+[Link](https://9to5google.com/2025/07/28/meta-smartwatch-plans-revived)
+
+---
+
 ### **Why “Designer” May Soon Be an Outdated Role in Tech**
 
 Design isn’t just about looks anymore—it’s about understanding how AI really works. As AI tools get smarter and can do more on their own, design has shifted to more of a supporting role, while the real innovation happens in engineering and product teams. With easy-to-use tools and polished templates, good design has become the starting point, not something special.
