@@ -5,10 +5,10 @@
  */
 
 :root {
-  --accent: #0066FF;
-  --black: #000000;
-  --gray: #4B5563;
-  --gray-light: #F9FAFB;
+  --accent: #29ABE2;
+  --black: #333333;
+  --gray: #666666;
+  --gray-light: #F2F2F2;
   --gray-gradient: linear-gradient(180deg, var(--gray-light) 0%, rgba(249, 250, 251, 0.7) 100%);
   --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -29,22 +29,23 @@
   font-display: swap;
 }
 body {
-  font-family: var(--font-sans);
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  background: var(--gray-light);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: var(--black);
-  font-size: 18px;
-  line-height: 1.7;
-  min-height: 100vh;
+	font-family: var(--font-sans);
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--gray-light);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--black);
+	font-size: 18px;
+	line-height: 1.7;
+	min-height: 100vh;
+	overflow-x: hidden;
 }
 main {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   position: relative;
   background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.1) 0%, transparent 60%);
 }
@@ -133,11 +134,26 @@ img:hover {
 	padding: 4rem;
 	background: rgba(255, 255, 255, 0.95);
 	border-radius: 40px;
+	-webkit-backdrop-filter: blur(20px);
 	backdrop-filter: blur(20px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	margin: 2rem auto;
 	max-width: 1400px;
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem;
+  border-radius: 40px;
+  background: white;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .profile-container:hover {
@@ -150,13 +166,14 @@ img:hover {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .content-side h1 {
-	font-size: 3rem;
+	font-size: 1.5rem;
 	font-weight: 800;
 	line-height: 1.1;
-	margin-bottom: 3rem;
 	color: var(--black);
 	transition: color 0.3s ease;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -197,7 +214,7 @@ img:hover {
   }
 
   .content-side h1 {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -228,7 +245,7 @@ img:hover {
   }
 
   .content-side h1 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 }
