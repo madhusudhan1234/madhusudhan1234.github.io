@@ -1,6 +1,6 @@
 ---
 id: 22
-title: "Weekly #33-2025:Patch Tuesday, AI & Careers, Core Fundamentals, Cloud Era"
+title: "Patch Tuesday, AI & Careers, Core Fundamentals, Cloud Era"
 description: "This week we dive into August’s Patch Tuesday, where Microsoft rolled out 107 fixes—including critical zero-days that could hand attackers full control with no clicks required. We’ll also look at how AI is reshaping the developer job market, why coding bootcamps are struggling, and why mastering fundamentals still matters more than chasing frameworks. Plus: how to stand out as an AI-era engineer, and real-world tips from passing the AWS Solutions Architect Professional exam."
 published: false
 tags: CyberSecurity, ArtificialIntelligence, SoftwareEngineering, CloudComputing
