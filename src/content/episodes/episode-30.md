@@ -11,6 +11,17 @@ audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-wee
 
 ---
 
+### **Dotter: A Smarter Way to Manage Your Dotfiles**
+
+Tired of juggling dotfiles across multiple machines?
+Dotter, a Rust-based dotfile manager and templater, brings order to the chaos. Instead of manually symlinking configs, it lets you template, configure, and deploy dotfiles—handling machine-specific differences with a single command.
+Cross-platform and easy to use, Dotter supports Mac (Homebrew), Arch Linux (AUR), Windows (Scoop), and more. Features like automatic deployment, environment-specific templating, and a real-time “watch” mode make it ideal for keeping setups consistent and portable.
+For developers, Dotter is a practical upgrade over manual management, cutting setup time and reducing errors when moving between systems.
+
+[Link](https://github.com/SuperCuber/dotter)
+
+---
+
 ### **Just Enough Automation!**
 
 When Is Automation Really Worth It?
