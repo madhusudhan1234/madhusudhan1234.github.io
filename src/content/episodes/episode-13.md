@@ -6,7 +6,7 @@ published: false
 tags: technews, appinnovation, applewwdc2025, futureoftech
 publishDate: "2025-06-15"
 duration: 10:52
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-thirteen-episode
+audioLink: https://audio.lifeandmessage.com/embed/13
 ---
 
 ---

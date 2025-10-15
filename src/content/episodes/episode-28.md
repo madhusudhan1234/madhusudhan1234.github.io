@@ -6,7 +6,7 @@ published: false
 tags: developerproductivity, aiandtrust, systemperformance, futureofwork
 publishDate: "2025-09-28"
 duration: 7:30
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentyeight-episode
+audioLink: https://audio.lifeandmessage.com/embed/28
 ---
 
 ---

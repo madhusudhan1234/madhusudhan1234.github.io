@@ -6,7 +6,7 @@ published: false
 tags: Tech, NewsAIEdge, ComputingSoftware, Development
 publishDate: "2025-07-27"
 duration: 6:59
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-nineteen-episode
+audioLink: https://audio.lifeandmessage.com/embed/19
 ---
 
 

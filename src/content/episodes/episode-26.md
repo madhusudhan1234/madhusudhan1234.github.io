@@ -6,7 +6,7 @@ published: false
 tags: chrome, web, AI, compensation, palantir, amazon, smartglasses, oracle, openai, cloud, surveillance, techweekly
 publishDate: "2025-09-13"
 duration: 11:21
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentysix-episode
+audioLink: https://audio.lifeandmessage.com/embed/26
 ---
 
 ---

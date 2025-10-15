@@ -6,7 +6,7 @@ published: false
 tags: 7yearrule, tmuxai, cursorbestpractices, cloudnativeai
 publishDate: "2025-06-01"
 duration: 7:27
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-eleventh-episode
+audioLink: https://audio.lifeandmessage.com/embed/11
 ---
 
 

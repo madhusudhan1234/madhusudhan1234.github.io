@@ -6,7 +6,7 @@ published: false
 tags: googleio2025, sevenyearreinvention, awssecurityflaw, githubsignature
 publishDate: "2025-05-25"
 duration: 8:56
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-tenth-episode
+audioLink: https://audio.lifeandmessage.com/embed/10
 ---
 
 ---

@@ -6,7 +6,7 @@ published: true
 tags: redis, googleaisearch, chatgpt, ai
 publishDate: "2025-05-11"
 duration: 09:11
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-eighth-episode
+audioLink: https://audio.lifeandmessage.com/embed/8
 ---
 
 ---

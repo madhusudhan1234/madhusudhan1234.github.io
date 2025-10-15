@@ -6,7 +6,7 @@ published: false
 tags: techtrends, cybersecurity, airevolution, devopssimplified
 publishDate: "2025-10-06"
 duration: 7:11
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentynine-episode
+audioLink: https://audio.lifeandmessage.com/embed/29
 ---
 
 ---

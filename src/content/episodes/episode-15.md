@@ -6,7 +6,7 @@ published: false
 tags: cloudflare, aiindev, kubernetes, devtips
 publishDate: "2025-06-29"
 duration: 06:30
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-fifteen-episode
+audioLink: https://audio.lifeandmessage.com/embed/15
 ---
 
 ---

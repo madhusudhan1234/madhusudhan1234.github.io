@@ -6,7 +6,7 @@ published: false
 tags: gpt-5, anthropic, cloudcostoptimization, kubernetes
 publishDate: "2025-08-10"
 duration: 7:01
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-twentyone-episode
+audioLink: https://audio.lifeandmessage.com/embed/21
 ---
 
 ---

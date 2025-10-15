@@ -3,7 +3,7 @@ id: 3
 title: "Next.js Middleware Bypass, TikTok's Final Proposal, OpenAI, Software Engineers & More"
 description: "Get up to speed on the latest in tech: a critical Next.js vulnerability, TikTok's fate in the U.S., OpenAI’s new free learning platform, and insights on the software job market and AI's impact on engineers."
 published: true
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-third-episode
+audioLink: https://audio.lifeandmessage.com/embed/3
 publishDate: "2025-04-06"
 duration: "03:55"
 tags: softwaredevelopment, nextjs, openai, softwareengineers

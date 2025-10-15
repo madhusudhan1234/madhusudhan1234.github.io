@@ -6,7 +6,7 @@ published: true
 tags: CloudComputing, AIandAutomation, DevOps, SoftwareEngineering
 publishDate: "2025-06-22"
 duration: 08:09
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-fourteen-episode
+audioLink: https://audio.lifeandmessage.com/embed/14
 ---
 
 ---

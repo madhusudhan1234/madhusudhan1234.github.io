@@ -6,7 +6,7 @@ published: false
 tags: CyberSecurity, ArtificialIntelligence, SoftwareEngineering, CloudComputing
 publishDate: "2025-08-17"
 duration: 09:15
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-twentytwo-episode
+audioLink: https://audio.lifeandmessage.com/embed/22
 ---
 
 ---

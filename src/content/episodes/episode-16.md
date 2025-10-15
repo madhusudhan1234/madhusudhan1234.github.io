@@ -6,7 +6,7 @@ published: false
 tags: SoftwareEngineering, PlatformEngineering, AIinDev, TechIndustryTrends
 publishDate: "2025-07-06"
 duration: 07:43
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-sixteen-episode
+audioLink: https://audio.lifeandmessage.com/embed/16
 ---
 
 ---

@@ -6,7 +6,7 @@ published: false
 tags: discord, appleos26, cloudflareoutage, tiktokaquisition
 publishDate: "2025-09-21"
 duration: 7:13
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentyseven-episode
+audioLink: https://audio.lifeandmessage.com/embed/27
 ---
 
 ---
