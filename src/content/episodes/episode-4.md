@@ -3,7 +3,7 @@ id: 4
 title: "An early look at PHP 9.0's, Javascript debug ids, A2A & more"
 description: "From PHP 9.0's cleanup to Laravel's automatic relationship loading, major dev tools are evolving fast and A2A."
 published: true
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-fourth-episode
+audioLink: https://audio.lifeandmessage.com/embed/4
 publishDate: "2025-04-14"
 duration: "09:06"
 tags: php, laravel, a2a, javascript

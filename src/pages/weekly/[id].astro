@@ -89,26 +89,22 @@ const { Content } = await render(episode);
 		<main>
 			<div class="episode-container">
 				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
-				<div class="episode-detail">
-					<h1 class="episode-title">Episode #{episode.data.id}: {episode.data.title}</h1>
-					<div class="episode-meta">
-						Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
-						{episode.data.duration && ` • Duration: ${episode.data.duration}`}
+					<div class="episode-detail">
+						<h1 class="episode-title">Episode #{episode.data.id}: {episode.data.title}</h1>
+						<div class="episode-meta">
+							Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
+						</div>
+						<div class="episode-tags">
+						{episode.data.tags.split(',').map((tag) => (
+							<span class="tag">#{tag}</span>
+						))}
 					</div>
-					<div class="episode-tags">
-					{episode.data.tags.split(',').map((tag) => (
-						<span class="tag">#{tag}</span>
-					))}
-				</div>
-					<iframe
-						width="100%"
-						height="166"
-						allow="autoplay"
-						src={`https://w.soundcloud.com/player/?url=${episode.data.audioLink}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`}
-					></iframe>
-				<div class="episode-description">
-					<Content />
-				</div>
+						<iframe src={episode.data.audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
+						</iframe>
+					<div class="episode-description">
+						<Content />
+					</div>
 				</div>
 			</div>
 		</main>

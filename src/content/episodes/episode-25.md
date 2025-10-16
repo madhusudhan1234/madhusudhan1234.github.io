@@ -6,7 +6,7 @@ published: false
 tags: aihiring, searchandretrieval, developerproductivity, engineeringculture
 publishDate: "2025-09-07"
 duration: 7:38
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentyfive-episode
+audioLink: https://audio.lifeandmessage.com/embed/25
 ---
 
 ---

@@ -6,7 +6,7 @@ published: false
 tags: aicoding, sentrymcp, claudecode, rakutenai
 publishDate: "2025-08-24"
 duration: 7:09
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-twentythree-episode
+audioLink: https://audio.lifeandmessage.com/embed/23
 ---
 
 ---

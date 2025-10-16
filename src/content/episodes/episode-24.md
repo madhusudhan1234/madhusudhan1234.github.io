@@ -6,7 +6,7 @@ published: false
 tags: softwareengineering, devops, aiagents, security
 publishDate: "2025-08-31"
 duration: 7:51
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-twentyfour-episode
+audioLink: https://audio.lifeandmessage.com/embed/24
 ---
 
 

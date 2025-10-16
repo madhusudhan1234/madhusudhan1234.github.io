@@ -6,7 +6,7 @@ published: false
 tags: developertools, aifordevelopers, cybersecurity, startupmindset
 publishDate: "2025-10-12"
 duration: 5:25
-audioLink: https://soundcloud.com/madhusudhansubedi/madhu-sudhan-subedi-tech-weekly-thirty-episode
+audioLink: https://audio.lifeandmessage.com/embed/30
 ---
 
 ---

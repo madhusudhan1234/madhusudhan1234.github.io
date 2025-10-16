@@ -6,7 +6,7 @@ published: true
 tags: teamwork, four-day-work-week, productivity, humanvsai
 publishDate: "2025-06-08"
 duration: 11:59
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-twelfth-episode
+audioLink: https://audio.lifeandmessage.com/embed/12
 ---
 
 

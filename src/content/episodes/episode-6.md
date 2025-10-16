@@ -3,7 +3,7 @@ id: 6
 title: "PhpStorm Upgrades, AI Job Fakes, Ansible’s Reality, Brain Drain, and Zuckerberg’s Social Shift"
 description: "This week in tech: PhpStorm 2025.1 drops with smarter AI features, better debugging, and WordPress magic for PHP devs. Meanwhile, remote hiring just got scarier as fake job seekers powered by AI and deepfakes are flooding interviews-by 2028, one in four candidates could be a fraud. Ansible is still the pragmatic go-to for simple automation, but don’t expect it to run your whole cloud-use it for what it does best, not for managing everything. Are we getting mentally lazy? Experts warn that relying on AI for every answer is making us outsource critical thinking and memory, so maybe give your brain a workout before you ask the bot. And finally, Mark Zuckerberg says the “social” era of social media is over-your feeds are less about friends, more about viral videos and AI content, and the old Facebook days aren’t coming back"
 published: true
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-sixth-episode
+audioLink: https://audio.lifeandmessage.com/embed/6
 publishDate: "2025-04-27"
 duration: "09:29"
 tags: phpstorm, techjobs, ansible, MarkZuckerberg

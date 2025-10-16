@@ -6,7 +6,7 @@ published: false
 tags: SoftwareDevelopment, AIandMachineLearning, Databases, TechTrends
 publishDate: "2025-07-12"
 duration: 07:34
-audioLink: https://soundcloud.com/madhu-sudhan-subedi/madhu-sudhan-subedi-tech-weekly-seventeen-episode
+audioLink: https://audio.lifeandmessage.com/embed/17
 ---
 
 ---
