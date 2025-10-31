@@ -23,48 +23,80 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 				margin: 0 auto;
 				padding: 0 1rem;
 			}
+			.episodes-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+			
+			@media (max-width: 768px) {
+				.episodes-grid {
+					gap: 1.5rem;
+				}
+				.podcast-container {
+					padding: 0 0.5rem;
+				}
+				.episode {
+					padding: 1rem;
+				}
+				.episode-title {
+					font-size: 1rem;
+				}
+			}
 			.episode {
 				background: var(--light-navy);
 				border-radius: var(--border-radius);
-				padding: 1.5rem;
-				margin-bottom: 1.5rem;
+				padding: 1.2rem;
 				transition: var(--transition);
 				border: 1px solid var(--lightest-navy);
+				height: fit-content;
 			}
 			.episode:hover {
 				transform: translateY(-5px);
 				box-shadow: var(--box-shadow);
 			}
 			.episode-title {
-				font-size: 1.5rem;
-				margin-bottom: 0.5rem;
+				font-size: 1.1rem;
+				margin-bottom: 0.4rem;
 				color: var(--lightest-slate);
+				line-height: 1.3;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.episode-title a:hover {
 				color: var(--green);
 			}
 			.episode-meta {
-				font-size: 0.9rem;
+				font-size: 0.8rem;
 				color: var(--light-slate);
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.4rem;
 				font-family: var(--font-mono);
 			}
 			.episode-description {
-				margin-bottom: 0.5rem;
-				line-height: 1.6;
+				margin-bottom: 0.4rem;
+				line-height: 1.5;
+				font-size: 0.9rem;
 			}
 			.episode-tags {
-				margin-bottom: 1rem;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
+				margin-bottom: 0.8rem;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.episode-tags .tag {
+				display: inline-block;
+				margin-right: 0.3rem;
 			}
 			.tag {
 				background: var(--navy);
 				color: var(--green);
-				padding: 0.25rem 0.5rem;
+				padding: 0.2rem 0.4rem;
 				border-radius: var(--border-radius);
-				font-size: var(--fz-xs);
+				font-size: 0.7rem;
 				font-family: var(--font-mono);
 			}
 			audio {
@@ -88,26 +120,28 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 				<h1>{WEEKLY_TITLE}</h1>
 				<p class="description">{WEEKLY_DESCRIPTION}</p>
 				
-				{sortedEpisodes.map((episode) => (
-					<div class="episode">
-						<h2 class="episode-title">
-							<a href={`/weekly/${episode.data.id}`} style="text-decoration: none; color: inherit;">
-								Episode #{episode.data.id}: {episode.data.title}
-							</a>
-						</h2>
-						<p class="episode-meta">
-							Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
-							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
-						</p>
-					<div class="episode-tags">
-						{episode.data.tags.split(',').map((tag) => (
-							<span class="tag">#{tag}</span>
-						))}
-					</div>
-					<iframe src={episode.data.audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
-					</iframe>
-					</div>
-				))}
+				<div class="episodes-grid">
+					{sortedEpisodes.map((episode) => (
+						<div class="episode">
+							<h2 class="episode-title" title={`Episode #${episode.data.id}: ${episode.data.title}`}>
+								<a href={`/weekly/${episode.data.id}`} style="text-decoration: none; color: inherit;">
+									Episode #{episode.data.id}: {episode.data.title}
+								</a>
+							</h2>
+							<p class="episode-meta">
+								Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+								{episode.data.duration && ` • Duration: ${episode.data.duration}`}
+							</p>
+						<div class="episode-tags" title={episode.data.tags.split(',').map(tag => `#${tag}`).join(' ')}>
+							{episode.data.tags.split(',').map((tag) => (
+								<span class="tag">#{tag}</span>
+							))}
+						</div>
+						<iframe src={episode.data.audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
+						</iframe>
+						</div>
+					))}
+				</div>
 			</div>
 		</main>
 		<Footer />
