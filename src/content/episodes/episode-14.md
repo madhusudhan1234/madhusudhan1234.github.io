@@ -1,6 +1,6 @@
 ---
 id: 14
-title: "Weekly #25-2025: From Docker Foundations to AI-Driven Futures—The Latest in Cloud, Coding, and Beyond"
+title: "From Docker Foundations to AI-Driven Futures—The Latest in Cloud, Coding, and Beyond"
 description: "This week’s roundup dives into the building blocks of modern tech: we demystify Docker base images and spotlight a newly discovered privilege escalation technique in Google Cloud Platform that’s changing how we think about security. We explore Go’s surging popularity in the developer world, DeepSeek’s game-changing distributed file system, and the ongoing debate about when—if ever—AI will replace human managers. Finally, we look at OpenAI’s Codex, the coding assistant that’s redefining what’s possible in software engineering. Stay tuned for insights at the intersection of containers, cloud, AI, and the future of work!"
 published: true
 tags: CloudComputing, AIandAutomation, DevOps, SoftwareEngineering
