@@ -10,6 +10,15 @@ audioLink: https://audio.lifeandmessage.com/embed/33
 ---
 
 ---
+### **Amazon’s Layoffs: A Push for Agility, Not AI Automation. It’s culture**
+
+Why would a tech giant slash thousands of jobs in the midst of strong earnings and rapid AI adoption? According to Amazon CEO Andy Jassy, the recent layoffs—about 14,000 corporate roles—aren’t about cost-cutting or AI taking over. Instead, Jassy says it’s a deliberate move to keep Amazon nimble, trimming layers of management that have made the company less agile and slowed down decision-making.
+What does this mean for the tech industry? The focus is shifting from sheer size to speed and flexibility. Jassy wants Amazon to operate “like the world’s largest startup,” prioritizing quick decisions and frontline ownership. Even as Amazon’s corporate headcount tripled over five years, Jassy argues that too much bureaucracy has crept in, weakening the sense of responsibility among employees.
+For developers and tech leaders, the message is clear: agility beats scale. As technology transforms how companies work, staying lean and empowering teams to act quickly may matter more than ever. Amazon’s cultural reset could set a precedent for other tech giants facing similar growing pains.
+
+[Link](https://www.geekwire.com/2025/its-culture-amazon-ceo-says-massive-corporate-layoffs-were-about-agility-not-ai-or-cost-cutting/)
+
+---
 
 ### **Writer API on Chrome: AI-Powered Content Creation, Built Right In**
 
