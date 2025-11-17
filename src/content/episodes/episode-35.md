@@ -5,7 +5,7 @@ description: "In this week’s edition of Madhu Sudhan Subedi Tech Weekly, we co
 published: false
 tags: laravellivejapan, databasescaling, aipowereddevelopment, softwaredevelopment
 publishDate: "2025-11-17"
-duration: 7:00
+duration: 6:13
 audioLink: https://audio.lifeandmessage.com/embed/35
 ---
 
