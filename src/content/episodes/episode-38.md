@@ -11,6 +11,16 @@ audioLink: https://audio.lifeandmessage.com/embed/38
 
 ---
 
+### **React Server Components Hit with Critical RCE Vulnerability**
+
+A serious security vulnerability has been disclosed in React Server Components, enabling unauthenticated remote code execution via malformed requests to React Server Function endpoints. The issue, tracked as CVE-2025-55182 with a maximum CVSS score of 10.0, affects React versions 19.0, 19.1.0, 19.1.1, and 19.2.0. Notably, apps may be vulnerable even if they don’t explicitly use Server Function endpoints, as long as they support React Server Components.
+What should teams do now? Upgrade immediately to patched React releases—19.0.1, 19.1.2, or 19.2.1—and apply framework-specific updates. Next.js users should move to the latest patches in their line (or downgrade from recent canaries to stable 14.x), while projects using React Router’s unstable RSC APIs, Expo, Waku, Parcel/Vite RSC plugins, Redwood SDK, Turbopack, or Webpack-based RSC modules should bump to the latest versions listed. Hosting mitigations exist but aren’t a substitute for updating.
+Why this matters: RCE in a widely used server rendering pipeline is rare and high-impact. Any team experimenting with or deploying RSC features should treat this as a priority, review their server exposure, and ensure dependencies align with patched React drops. Expect more detail on the root cause after the fix rollout completes.
+
+[Link](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+
+---
+
 ### **AWS re:Invent 2025: Frontier Agents, Nova 2, and Trainium3 Raise the Bar**
 
 How far can autonomous agents go? AWS unveiled “frontier agents” that run for hours or days without human input, including Kiro as a virtual developer, a Security Agent, and a DevOps Agent—paired with new Bedrock AgentCore capabilities for policy, evaluations, and episodic memory to make production deployments safer and measurable. Amazon Connect added agentic voice and assistance features with observability, hinting at agents becoming first‑class citizens in customer operations. For builders, Strands Agents arrived in TypeScript (preview) with edge support, and Bedrock added 18 open‑weight models alongside the Nova 2 family and Nova Forge “open training,” pushing model choice and customization forward.
