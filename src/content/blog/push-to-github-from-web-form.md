@@ -5,6 +5,8 @@ pubDate: 'Dec 12 2025'
 heroImage: 'images/blogs/form-to-push-github.png'
 ---
 
+> Note: This article includes AI‑generated content and may contain minor inaccuracies. Please validate steps before use.
+
 Ever wanted to save form submissions directly to GitHub? This guide shows you how to build a simple Node.js app that turns web form data into JSON files stored in your GitHub repository—no complicated git commands required.
 
 ## 🎯 What You're Building
