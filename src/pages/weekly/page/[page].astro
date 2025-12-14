@@ -1,0 +1,98 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE } from '../../../consts';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const episodes:CollectionEntry<'episodes'>[] = await getCollection('episodes');
+  const sorted = episodes.sort((a, b) => b.data.id - a.data.id);
+  const pageSize = 10;
+  const totalPages = Math.ceil(sorted.length / pageSize);
+  return Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
+}
+
+const WEEKLY_TITLE = "Madhu Sudhan Subedi Tech Weekly";
+const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, DevOps, and Software Architecture topics.";
+
+const episodes:CollectionEntry<'episodes'>[] = await getCollection('episodes');
+const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
+const pageSize = 10;
+const currentPage = Number(Astro.params.page ?? '1');
+const totalPages = Math.ceil(sortedEpisodes.length / pageSize);
+const start = (currentPage - 1) * pageSize;
+const end = start + pageSize;
+const pageEpisodes = sortedEpisodes.slice(start, end);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${WEEKLY_TITLE} | ${SITE_TITLE}`} description={WEEKLY_DESCRIPTION} />
+
+    <style>
+      .podcast-container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+      .episodes-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+      @media (max-width: 768px) {
+        .episodes-grid { gap: 1.5rem; }
+        .podcast-container { padding: 0 0.5rem; }
+        .episode { padding: 1rem; }
+        .episode-title { font-size: 1rem; }
+      }
+      .episode { background: var(--light-navy); border-radius: var(--border-radius); padding: 1.2rem; transition: var(--transition); border: 1px solid var(--lightest-navy); height: fit-content; }
+      .episode:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); }
+      .episode-title { font-size: 1.1rem; margin-bottom: 0.4rem; color: var(--lightest-slate); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
+      .episode-title a:hover { color: var(--green); }
+      .episode-meta { font-size: 0.8rem; color: var(--light-slate); margin-bottom: 0.4rem; font-family: var(--font-mono); }
+      .episode-tags { margin-bottom: 0.8rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+      .episode-tags .tag { display: inline-block; margin-right: 0.3rem; }
+      .tag { background: var(--navy); color: var(--green); padding: 0.2rem 0.4rem; border-radius: var(--border-radius); font-size: 0.7rem; font-family: var(--font-mono); }
+      h1 { color: var(--lightest-slate); margin-bottom: 1rem; }
+      .description { color: var(--slate); margin-bottom: 2rem; }
+      .pagination { margin-top: 1.5rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+      .pagination a { text-decoration: none; color: var(--green); padding: 0.2rem 0.4rem; }
+      .pagination .current { color: var(--lightest-slate); font-family: var(--font-mono); }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="podcast-container">
+        <h1>{WEEKLY_TITLE}</h1>
+        <p class="description">{WEEKLY_DESCRIPTION}</p>
+
+        <div class="episodes-grid">
+          {pageEpisodes.map((episode) => (
+            <div class="episode">
+              <h2 class="episode-title" title={`Episode #${episode.data.id}: ${episode.data.title}`}>
+                <a href={`/weekly/${episode.data.id}`} style="text-decoration: none; color: inherit;">
+                  Episode #{episode.data.id}: {episode.data.title}
+                </a>
+              </h2>
+              <p class="episode-meta">
+                Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+                {episode.data.duration && ` • Duration: ${episode.data.duration}`}
+              </p>
+              <div class="episode-tags" title={episode.data.tags.split(',').map(tag => `#${tag}`).join(' ')}>
+                {episode.data.tags.split(',').map((tag) => (
+                  <span class="tag">#{tag}</span>
+                ))}
+              </div>
+              <iframe src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay"></iframe>
+            </div>
+          ))}
+        </div>
+
+        <nav class="pagination" aria-label="Pagination">
+          {currentPage > 1 && <a href={`/weekly/page/${currentPage - 1}`}>« Prev</a>}
+          <span class="current">Page {currentPage} of {totalPages}</span>
+          {currentPage < totalPages && <a href={`/weekly/page/${currentPage + 1}`}>Next »</a>}
+        </nav>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+

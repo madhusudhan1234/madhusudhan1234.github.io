@@ -10,6 +10,9 @@ const WEEKLY_TITLE = "Madhu Sudhan Subedi Tech Weekly";
 const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, DevOps, and Software Architecture topics.";
 const episodes:CollectionEntry<'episodes'>[] = await getCollection('episodes');
 const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
+const pageSize = 10;
+const totalPages = Math.ceil(sortedEpisodes.length / pageSize);
+const pageEpisodes = sortedEpisodes.slice(0, pageSize);
 ---
 
 <!doctype html>
@@ -121,8 +124,8 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 				<p class="description">{WEEKLY_DESCRIPTION}</p>
 				
 				<div class="episodes-grid">
-					{sortedEpisodes.map((episode) => (
-						<div class="episode">
+                    {pageEpisodes.map((episode) => (
+                        <div class="episode">
 							<h2 class="episode-title" title={`Episode #${episode.data.id}: ${episode.data.title}`}>
 								<a href={`/weekly/${episode.data.id}`} style="text-decoration: none; color: inherit;">
 									Episode #{episode.data.id}: {episode.data.title}
@@ -139,11 +142,15 @@ const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
 						</div>
                         <iframe src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
                         </iframe>
-						</div>
-					))}
-				</div>
-			</div>
-		</main>
-		<Footer />
-	</body>
+                        </div>
+                    ))}
+                </div>
+                <nav aria-label="Pagination" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; align-items: center;">
+                    <a href={totalPages > 1 ? `/weekly/page/2` : '#'} style="text-decoration: none; color: var(--green);">Next »</a>
+                    <span style="color: var(--slate); font-family: var(--font-mono);">Page 1 of {totalPages}</span>
+                </nav>
+            </div>
+        </main>
+        <Footer />
+    </body>
 </html>
