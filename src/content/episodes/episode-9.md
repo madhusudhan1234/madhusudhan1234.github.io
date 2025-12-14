@@ -6,7 +6,7 @@ published: false
 tags: whatsapp, kubernates, ai, discordmessages
 publishDate: "2025-05-18"
 duration: 06:26
-audioLink: https://audio.lifeandmessage.com/embed/9
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/9
 ---
 
 ---

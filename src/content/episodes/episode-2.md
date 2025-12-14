@@ -3,7 +3,7 @@ id: 2
 title: 'AI, React, PHPxTKY meetup and More'
 description: "This week's highlights include AI advancements, React trends, PHP/Laravel community events, and discussions on the evolving role of software engineers."
 published: true
-audioLink: https://audio.lifeandmessage.com/embed/2
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/2
 publishDate: "2025-03-30"
 duration: "03:15"
 tags: softwaredevelopment, phpxtky, ai, cloud

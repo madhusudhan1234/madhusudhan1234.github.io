@@ -6,7 +6,7 @@ published: false
 tags: SoftwareDevelopment, AIandMachineLearning, Databases, TechTrends
 publishDate: "2025-07-12"
 duration: 07:34
-audioLink: https://audio.lifeandmessage.com/embed/17
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/17
 ---
 
 ---

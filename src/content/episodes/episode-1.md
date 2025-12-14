@@ -3,7 +3,7 @@ id: 1
 title: 'Astro 5.5, Tailwind Plus, TypeScript 7, and More'
 description: 'A roundup of the latest tech updates, including Astro 5.5, Tailwind Plus, TypeScript 7, and major acquisitions in AI and cloud security.'
 published: true
-audioLink: https://audio.lifeandmessage.com/embed/1
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/1
 publishDate: "2025-03-21"
 duration: "03:21"
 tags: softwaredevelopment, tailwindcss, ai, cloud

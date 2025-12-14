@@ -6,7 +6,7 @@ published: false
 tags: softwareengineering, devops, aiagents, security
 publishDate: "2025-08-31"
 duration: 7:51
-audioLink: https://audio.lifeandmessage.com/embed/24
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/24
 ---
 
 

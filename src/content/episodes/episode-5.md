@@ -3,7 +3,7 @@ id: 5
 title: "Firebase Studio's AI Power, NativePHP's Desktop Dream & Deployment Tactics"
 description: "This week's essential developer news covers Google's AI-powered Firebase Studio launch, NativePHP's v1 release for desktop apps, and key deployment strategies."
 published: true
-audioLink: https://audio.lifeandmessage.com/embed/5
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/5
 publishDate: "2025-04-17"
 duration: "05:43"
 tags: php, nativephp, firebasestudio, zoom
@@ -95,4 +95,3 @@ Stay informed. Stay flexible. Keep things moving.
 [Link](https://status.zoom.us/incidents/pw9r9vnq5rvk)
 
 ---
-

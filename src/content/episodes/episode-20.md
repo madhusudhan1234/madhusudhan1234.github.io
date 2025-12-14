@@ -6,7 +6,7 @@ published: false
 tags: MetaSmartwatch, AITrends, TechCareers, SoftwareDevelopment
 publishDate: "2025-08-03"
 duration: 06:09
-audioLink: https://audio.lifeandmessage.com/embed/20
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/20
 ---
 
 

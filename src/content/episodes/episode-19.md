@@ -6,7 +6,7 @@ published: false
 tags: Tech, NewsAIEdge, ComputingSoftware, Development
 publishDate: "2025-07-27"
 duration: 6:59
-audioLink: https://audio.lifeandmessage.com/embed/19
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/19
 ---
 
 

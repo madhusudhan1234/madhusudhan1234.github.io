@@ -6,7 +6,7 @@ published: false
 tags: techtrends, cybersecurity, airevolution, devopssimplified
 publishDate: "2025-10-06"
 duration: 7:11
-audioLink: https://audio.lifeandmessage.com/embed/29
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/29
 ---
 
 ---

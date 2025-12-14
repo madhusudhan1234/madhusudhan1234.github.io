@@ -6,7 +6,7 @@ published: false
 tags: technews, aianddevelopertools, phpupdates, amazonlayoffs
 publishDate: "2025-11-02"
 duration: 7:59
-audioLink: https://audio.lifeandmessage.com/embed/33
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/33
 ---
 
 ---

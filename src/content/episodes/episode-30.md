@@ -6,7 +6,7 @@ published: false
 tags: developertools, aifordevelopers, cybersecurity, startupmindset
 publishDate: "2025-10-12"
 duration: 5:25
-audioLink: https://audio.lifeandmessage.com/embed/30
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/30
 ---
 
 ---

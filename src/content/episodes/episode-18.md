@@ -6,7 +6,7 @@ published: false
 tags: testing, smalbusinesstech, developermindset, saas
 publishDate: "2025-07-20"
 duration: 7:44
-audioLink: https://audio.lifeandmessage.com/embed/18
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/18
 ---
 
 ---

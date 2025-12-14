@@ -6,7 +6,7 @@ published: true
 tags: CloudComputing, AIandAutomation, DevOps, SoftwareEngineering
 publishDate: "2025-06-22"
 duration: 08:09
-audioLink: https://audio.lifeandmessage.com/embed/14
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/14
 ---
 
 ---

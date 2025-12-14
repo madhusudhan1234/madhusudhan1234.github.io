@@ -6,7 +6,7 @@ published: false
 tags: CyberSecurity, ArtificialIntelligence, SoftwareEngineering, CloudComputing
 publishDate: "2025-08-17"
 duration: 09:15
-audioLink: https://audio.lifeandmessage.com/embed/22
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/22
 ---
 
 ---
