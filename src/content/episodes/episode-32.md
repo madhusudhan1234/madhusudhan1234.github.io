@@ -6,7 +6,7 @@ published: false
 tags: awsoutage, digitalimmortality, juniordevelopers, systemdesign
 publishDate: "2025-10-26"
 duration: 6:22
-audioLink: https://audio.lifeandmessage.com/embed/32
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/32
 ---
 
 ---

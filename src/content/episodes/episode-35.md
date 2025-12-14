@@ -6,7 +6,7 @@ published: false
 tags: laravellivejapan, databasescaling, aipowereddevelopment, softwaredevelopment
 publishDate: "2025-11-17"
 duration: 6:13
-audioLink: https://audio.lifeandmessage.com/embed/35
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/35
 ---
 
 ---

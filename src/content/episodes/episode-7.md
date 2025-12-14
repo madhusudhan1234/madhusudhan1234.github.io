@@ -3,7 +3,7 @@ id: 7
 title: "Big Tech Is Slow, BYD Is Fast, xAI Joins Azure and Trucks Drive Themselves Now?!"
 description: "In this episode, we dive into why big tech companies move at a snail's pace (spoiler: it’s not laziness), how BYD is leaving Tesla in the EV dust, and why you might see a driverless truck cruising down a Texas highway. Plus, we explore Elon Musk’s Grok AI joining Microsoft’s Azure and ChatGPT’s slick new shopping upgrade. It's a whirlwind tour of the future—from code to cars to cloud!"
 published: true
-audioLink: https://audio.lifeandmessage.com/embed/7
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/7
 publishDate: "2025-05-06"
 duration: "09:29"
 tags: bigtech, byd, xAI, azure

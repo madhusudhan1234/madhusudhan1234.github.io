@@ -6,7 +6,7 @@ published: false
 tags: aiagents, softwarereliability, techlearning, codingbestpractices
 publishDate: "2025-10-18"
 duration: 6:22
-audioLink: https://audio.lifeandmessage.com/embed/31
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/31
 ---
 
 ---

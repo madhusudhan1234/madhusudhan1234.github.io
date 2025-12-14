@@ -6,7 +6,7 @@ published: false
 tags: phpdevelopment, aiandllms, sqlperformance, webpayments
 publishDate: "2025-11-09"
 duration: 8:05
-audioLink: https://audio.lifeandmessage.com/embed/34
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/34
 ---
 
 ---

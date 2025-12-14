@@ -6,7 +6,7 @@ published: false
 tags: cloudflare, outage, aicoding, vibecoding
 publishDate: "2025-11-24"
 duration: 6:58
-audioLink: https://audio.lifeandmessage.com/embed/36
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/36
 ---
 
 ---

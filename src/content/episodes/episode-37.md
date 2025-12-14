@@ -6,7 +6,7 @@ published: false
 tags: promptinjection, enterpriseknowledge, stackoverflow, xalgorithm
 publishDate: "2025-11-30"
 duration: 6:46
-audioLink: https://audio.lifeandmessage.com/embed/37
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/37
 ---
 
 ---

@@ -6,7 +6,7 @@ published: false
 tags: developerproductivity, aiandtrust, systemperformance, futureofwork
 publishDate: "2025-09-28"
 duration: 7:30
-audioLink: https://audio.lifeandmessage.com/embed/28
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/28
 ---
 
 ---

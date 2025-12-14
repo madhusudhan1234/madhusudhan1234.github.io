@@ -6,7 +6,7 @@ published: false
 tags: cloudflare, aiindev, kubernetes, devtips
 publishDate: "2025-06-29"
 duration: 06:30
-audioLink: https://audio.lifeandmessage.com/embed/15
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/15
 ---
 
 ---

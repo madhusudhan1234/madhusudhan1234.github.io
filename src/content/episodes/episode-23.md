@@ -6,7 +6,7 @@ published: false
 tags: aicoding, sentrymcp, claudecode, rakutenai
 publishDate: "2025-08-24"
 duration: 7:09
-audioLink: https://audio.lifeandmessage.com/embed/23
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/23
 ---
 
 ---

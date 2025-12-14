@@ -6,7 +6,7 @@ published: false
 tags: technews, appinnovation, applewwdc2025, futureoftech
 publishDate: "2025-06-15"
 duration: 10:52
-audioLink: https://audio.lifeandmessage.com/embed/13
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/13
 ---
 
 ---

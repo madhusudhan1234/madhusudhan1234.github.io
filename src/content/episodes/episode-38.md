@@ -6,7 +6,7 @@ published: false
 tags: aitrends, securityalert, cloudcomputing, techculture
 publishDate: "2025-12-06"
 duration: 09:55
-audioLink: https://audio.lifeandmessage.com/embed/38
+audioLink: https://weekly.madhusudhansubedi.com.np/embed/38
 ---
 
 ---
