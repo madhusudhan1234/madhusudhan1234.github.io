@@ -2,7 +2,7 @@
 title: 'Why Redis Beats Databases for Job Queues in Multi‑Server Apps'
 description: 'Redis provides atomic operations, speed, and safe coordination across workers—making it ideal for job queues compared to relational databases.'
 pubDate: 'Dec 17 2025'
-heroImage: 'blog-placeholder-2.jpg'
+heroImage: 'images/blogs/redis-vs-database.png'
 ---
 
 Background jobs are essential in modern backends (Laravel, Node.js, Spring). Email sending, file processing, data syncs, reports, and API calls are best handled asynchronously. The core question:
