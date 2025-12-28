@@ -1,4 +1,5 @@
 ---
+id: 41
 title: "AI, Open Source, Pay Gaps, and the Future of Software Power"
 description: "This week in tech, we explore how power is shifting in software. AI is enabling companies to do knowledge work themselves, accelerating long-standing pressures on labor. Software engineers still hold massive leverage through code, but real influence now comes from business, leadership, and ownership skills. We also unpack why pay gaps in tech are driven by timing and scale—not just merit—and why clear boundaries around open source matter for sustainability. The future of software belongs to those who understand where leverage truly compounds."
 published: false
