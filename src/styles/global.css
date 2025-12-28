@@ -5,23 +5,26 @@
  */
 
 :root {
-  --navy: #ffffff;
-  --light-navy: #f3f2ef;
-  --lightest-navy: #e9ecef;
-  --navy-shadow: rgba(0, 0, 0, 0.1);
-  --dark-slate: #3d3d3d;
-  --slate: #666666;
-  --light-slate: #8b8b8b;
-  --lightest-slate: #1f1f1f;
-  --white: #ffffff;
-  --green: #0A66C2;
-  --green-tint: rgba(10, 102, 194, 0.12);
+  /* Brittany Chiang style color scheme */
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+  
+  /* Original colors kept for reference */
   --accent: var(--green);
   --black: var(--navy);
   --gray: var(--slate);
   --gray-light: var(--light-slate);
-  --gray-gradient: linear-gradient(180deg, #ffffff 0%, var(--light-navy) 100%);
-  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --gray-gradient: linear-gradient(180deg, var(--navy) 0%, var(--light-navy) 100%);
+  --box-shadow: 0 10px 30px -15px var(--navy-shadow);
   
   /* Typography */
   --font-sans: __inter_20b187, __inter_Fallback_20b187, ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -256,8 +259,8 @@ a.inline-link:after {
   width: 100%;
   height: 70px;
   padding: 0px 50px;
-  background-color: #ffffff;
-  border-bottom: 1px solid var(--lightest-navy);
+  background-color: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
   transition: var(--transition);
   display: flex;
   justify-content: flex-end;
