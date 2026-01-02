@@ -5,11 +5,11 @@ pubDate: 'Jan 2 2026'
 tags: 'js-data-structure'
 ---
 
-An object is an unordered collection of key-value pairs. The key either be a string or a symbol. The value can be any data type, including other objects. 
+## Overview
 
-To retrieve a value, you can use the crossponding key. This can be achieved using the dot notiation or bracket notation.
+Objects are unordered key‑value stores. Keys are strings or symbols; values can be any type.
 
-An object is not a iterable. You cannot use a for loop to iterate over its properties.
+Objects are not iterable by default; use helpers to enumerate properties.
 
 ```
 const obj = {
@@ -20,46 +20,46 @@ const obj = {
 console.log(obj);
 ```
 
-Which Results the following:
+Result:
 ```
 { name: 'Biswas', age: 30 }
 ```
 
-To access the element we use dot notation or bracket notation.
+## Property Access
 
 ```
 console.log(obj.name);
 console.log(obj['age']);
 ```
 
-Which Results the following:
+Result:
 ```
 Biswas
 30
 ```
 
-We can add new key value pair to the object.
+Add or update properties:
 ```
-0bj.gender = 'Male';
+obj.gender = 'Male';
 ```
 
-Now it results the following:
+Result:
 ```
 { name: 'Biswas', age: 30, gender: 'Male' }
 ```
 
-Now let's talk about delete operator. We can delete key value pair with the help of the delete operator.
+Remove properties:
 
 ```
 delete obj.gender;
 ```
 
-Now it results the following:
+Result:
 ```
 { name: 'Biswas', age: 30 }
 ```
 
-Inside the object we can also make a function.
+## Methods and `this`
 
 ```
 const obj = {
@@ -71,30 +71,31 @@ const obj = {
 }
 ```
 
-Now we can call the function.
+Call the method:
 
 ```
 obj.sayName();
 ```
 
-Which Results the following:
+Result:
 ```
 Biswas
 ```
 
-Some of the methods that we can use with object are:
-- Object.keys()
-- Object.values()
-- Object.entries()
+## Enumerating Properties
+
+- `Object.keys(obj)` → own enumerable keys
+- `Object.values(obj)` → own enumerable values
+- `Object.entries(obj)` → pairs `[key, value]`
 
 
-Each of the examples are followings:
+Examples:
 
 ```
 console.log(Object.keys(obj));
 ```
 
-Which Results the following:
+Result:
 ```
 [ 'name', 'age' ]
 ```
@@ -103,7 +104,7 @@ Which Results the following:
 console.log(Object.values(obj));
 ```
 
-Which Results the following:
+Result:
 ```
 [ 'Biswas', 30 ]
 ```
@@ -112,20 +113,59 @@ Which Results the following:
 console.log(Object.entries(obj));
 ```
 
-Which Results the following:
+Result:
 ```
 [ [ 'name', 'Biswas' ], [ 'age', 30 ] ]
 ```
 
-Let's discuss worst case time complexities of the some of the operations.
+## Optional Chaining & Defaults
 
-Object - Big-O time complexity
+```js
+const city = obj?.address?.city ?? 'Unknown';
+```
 
-Insert - O(1)
-Remove - O(1)
-Access - O(1)
-Search - O(n)
-Object.keys() - O(n)
-Object.values() - O(n)
-Object.entries() - O(n)
+## Immutability Helpers
 
+```js
+const frozen = Object.freeze({ a: 1 });       // shallow freeze
+const sealed = Object.seal({ a: 1 });         // can modify, not add/remove
+```
+
+## Cloning & Merging
+
+Shallow clone:
+
+```js
+const original = { a: 1, nested: { b: 2 } };
+const clone1 = { ...original };
+const clone2 = Object.assign({}, original);
+```
+
+Deep clone:
+
+```js
+const deep = structuredClone(original);
+```
+
+Merge:
+
+```js
+const defaults = { retries: 3, verbose: false };
+const env = { verbose: true };
+const cfg = { ...defaults, ...env };
+```
+
+## Big‑O Reference (Typical)
+
+| Operation             | Complexity |
+| --------------------- | ---------- |
+| Insert/Remove key     | O(1)       |
+| Access by key         | O(1)       |
+| Search by value       | O(n)       |
+| keys/values/entries   | O(n)       |
+
+## Pitfalls
+
+- Shallow clones share nested references
+- `for...in` includes inherited keys; prefer `Object.keys` + `Object.hasOwn`
+- `Object.freeze` is shallow; deep freeze requires recursion
