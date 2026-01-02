@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Arrays in JavaScript'
+title: 'Data Structure: Arrays in JavaScript'
 description: 'Core concepts, common methods, patterns, performance, and pitfalls when working with arrays.'
 pubDate: 'Jan 2 2026'
 ---
