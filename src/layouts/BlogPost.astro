@@ -8,6 +8,10 @@ import FormattedDate from '../components/FormattedDate.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const rawTags = (Astro.props as any)?.tags ?? '';
+const tagList: string[] = typeof rawTags === 'string'
+	? rawTags.split(',').map((t) => t.trim()).filter(Boolean)
+	: Array.isArray(rawTags) ? rawTags : [];
 ---
 
 <html lang="en">
@@ -51,6 +55,30 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.tags {
+				margin-top: 2em;
+				padding-top: 1em;
+				border-top: 1px solid var(--lightest-navy);
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+				align-items: center;
+			}
+			.tag {
+				background: var(--light-navy);
+				color: var(--green);
+				padding: 0.25rem 0.5rem;
+				border-radius: var(--border-radius);
+				font-size: var(--fz-xs);
+				font-family: var(--font-mono);
+			}
+			.tags a {
+				color: var(--green);
+				text-decoration: none;
+			}
+			.tags a:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 
@@ -77,6 +105,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<hr />
 					</div>
 					<slot />
+					{tagList.length > 0 && (
+						<div class="tags" aria-label="Tags">
+							<span class="tag">Tags:</span>
+							{tagList.map((t) => (
+								<a href={`/notes/tag/${t}`} class="tag">#{t}</a>
+							))}
+						</div>
+					)}
 				</div>
 			</article>
 		</main>
