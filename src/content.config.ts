@@ -15,6 +15,17 @@ const blog = defineCollection({
 	}),
 });
 
+const notes = defineCollection({
+	loader: glob({ base: './src/content/notes', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+		heroImage: z.string().optional(),
+	}),
+});
+
 const episodes = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/episodes', pattern: '**/*.{md,mdx}' }),
@@ -31,4 +42,4 @@ const episodes = defineCollection({
 	}),
 });
 
-export const collections = { blog, episodes };
+export const collections = { blog, notes, episodes };
