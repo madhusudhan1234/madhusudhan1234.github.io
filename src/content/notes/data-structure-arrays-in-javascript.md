@@ -6,94 +6,119 @@ tags: 'js-data-structure'
 ---
 
 ## Overview
-- An array ia a data structure that can hold a collection of values. 
-- Arrays can contain a mix of different data types, such as numbers, strings, objects, and even other arrays.
-- Arrays are resizable You do not have to declare the size of an array before creating it.
-- Javascript arrays are zero-indexed meaning the first element is at index 0, the second element is at index 1, and so on. and the insertion order is maintained.
-- Arrays are iterables, They can be used in loops, such as `for` loops, `for...of` loops, and `forEach` method.
 
+Arrays are ordered, zero‑indexed lists that can hold values of any type. They are dynamic and preserve insertion order. Arrays are also iterable, making them easy to use with loops and iteration helpers.
 
-For e.g.:
-
-```
-const arr = [1,2,3,4,5,6,'Biswas'];
-arr.push(7);
-
-for (const item of arr) {
-  console.log(item);
-}
+```js
+const arr = [1, 2, 3, 'four', { five: 5 }];
 ```
 
-Which Results the following:
-```
-1
-2
-3
-4
-5
-6
-Biswas
-7
+## Creating Arrays
+
+```js
+const empty = [];
+const numbers = [1, 2, 3];
+const mixed = [1, 'two', { three: 3 }];
+const fromString = Array.from('abc');
+const filled = Array(4).fill(0);
 ```
 
-If you want to add an element at the beginning of the array, you can use the `unshift` method.
+## Reading & Iteration
+
+```js
+const arr = [1, 2, 3];
+for (const item of arr) console.log(item);
+arr.forEach((item, i) => console.log(i, item));
 ```
-const arr = [1,2,3,4,5,6,'Biswas'];
-arr.push(7);
+
+## Add & Remove at Ends
+
+```js
+const arr = [1, 2, 3];
+arr.push(4);
 arr.unshift(0);
-
-for (const item of arr) {
-  console.log(item);
-}
 ```
 
-Now you see 0 is the first element of the array.
+Result:
+
 ```
 0
 1
 2
 3
 4
-5
-6
-Biswas
-7
 ```
 
-You can remove an item from end of the array. using arr.pop() Likewsie you can remove an item from beginning of the array. using arr.shift()
+Remove from ends:
 
-For e.g.:
-```
-const arr = [1,2,3,4,5,6,'Biswas'];
-arr.push(7);
-arr.unshift(0);
-
+```js
 arr.pop();
 arr.shift();
-
-for (const item of arr) {
-  console.log(item);
-}
+for (const item of arr) console.log(item);
 ```
 
-Which Results the following:
+Result:
+
 ```
 1
 2
 3
-4
-5
-6
-Biswas
 ```
 
-Other methods like map, filter, reduce, concat, slice, spliceare also available.
+## Common Methods
 
-Array Big-0 Complexity:
-- Insert/Remove from the end - O(1)
-- Insert/Remove from the beginning - O(n)
-- Accessing an element - O(1)
-- Searching an element - O(n)
-- Push/ Pop - O(1)
-- Shift/ Unshift / concat / slice /splice - O(n)
-- Foreach / map / filter / reduce - O(n)
+- map: transform each item into a new array
+- filter: keep items that match a condition
+- reduce: accumulate values into a single result
+- concat: combine arrays
+- slice: copy a range (non‑mutating)
+- splice: insert/remove inside the array (mutating)
+
+Examples:
+
+```js
+const nums = [1, 2, 3, 4];
+const doubled = nums.map(n => n * 2);
+const evens = nums.filter(n => n % 2 === 0);
+const sum = nums.reduce((a, n) => a + n, 0);
+```
+
+## Copying Arrays
+
+```js
+const original = [1, 2, 3];
+const copy1 = original.slice();
+const copy2 = [...original];
+const copy3 = Array.from(original);
+```
+
+These are shallow copies. Nested objects remain shared.
+
+## Sorting
+
+```js
+const words = ['b', 'a', 'c'];
+words.sort();
+
+const nums = [10, 2, 5];
+nums.sort((a, b) => a - b);
+```
+
+`sort` mutates the array. Provide a comparator for numeric sorts.
+
+## Big‑O Complexity
+
+| Operation                            | Complexity |
+| ------------------------------------ | ---------- |
+| Insert/remove at end (push/pop)      | O(1)       |
+| Insert/remove at start (shift/unshift)| O(n)       |
+| Access by index                      | O(1)       |
+| Search (includes/indexOf/find)       | O(n)       |
+| concat / slice / splice              | O(n)       |
+| forEach / map / filter / reduce      | O(n)       |
+
+## Notes & Pitfalls
+
+- Arrays are zero‑indexed
+- `shift`/`unshift` reindex elements and are O(n)
+- Prefer non‑mutating methods when working with immutable patterns or UI state
