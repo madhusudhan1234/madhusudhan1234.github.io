@@ -225,7 +225,7 @@ app.post('/submit', (req, res) => {
       const items = await ghListDir('')
       const nums = items
         .map(x => x && x.name)
-        .filter(n => typeof n === 'string' && /^\d+\.json$/.test(n))
+        .filter(n => typeof n === 'string' && /^\\d+\\.json$/.test(n))
         .map(n => parseInt(n.split('.')[0], 10))
       const max = nums.length ? Math.max(...nums) : 0
       nextIndex = max + 1
@@ -260,7 +260,7 @@ app.get('/list', async (req, res) => {
   try {
     const items = await ghListDir('')
     const numbered = items.filter(it => 
-      it && typeof it.name === 'string' && /^\d+\.json$/.test(it.name)
+      it && typeof it.name === 'string' && /^\\d+\\.json$/.test(it.name)
     )
     numbered.sort((a, b) => parseInt(a.name, 10) - parseInt(b.name, 10))
     
@@ -549,3 +549,4 @@ Now that you have a working app, you could:
 - Expand it to handle different types of data
 
 Happy coding! 🚀
+
