@@ -7,48 +7,98 @@ tags: 'js-data-structure'
 
 ## Overview
 
-Set stores unique values of any type (primitives or object references) and preserves insertion order. It is ideal for deduplication and set operations like union, intersection, and difference.
+Sets store unique values of any type and are ideal for deduplication and membership checks.
 
-```js
-const s = new Set([1, 2, 2, 3]);
-console.log(s.size); // 3
-```
+Sets can contain mixed types (numbers, strings, objects).
+
+Sets are dynamic—no fixed size needed.
+
+Sets preserve insertion order when iterating.
+
+Sets are iterable and work with `for...of` and `forEach`.
+
+Set vs Array
+- Arrays allow duplicates; Sets do not.
+- Arrays use index access; Sets use membership checks and iteration.
+- Typical membership tests and deletes in Sets are O(1).
+
 
 ## Creating Sets
 
 ```js
-const empty = new Set();
-const fromArray = new Set([1, 2, 3]);
-const fromMixed = new Set([1, '1', { a: 1 }]); // all distinct
+const set = new Set([1, 2, 3]);
+const mixed = new Set([1, '1', { a: 1 }]);
+for (const item of set) console.log(item);
 ```
 
-## Core Operations
-
-```js
-const s = new Set();
-s.add(1);           // add value
-s.add(2);
-s.has(1);           // true
-s.delete(2);        // remove value
-// s.clear();       // remove all
+Result:
+```
+1
+2
+3
 ```
 
-Note: object equality is by reference; two identical objects are different entries.
+## Add & Remove
 
 ```js
-const a = { x: 1 }, b = { x: 1 };
-const s = new Set([a, b]);
-console.log(s.size); // 2
+set.add(4);
+set.add(4);
 ```
 
-## Iteration
+Result:
+```
+1
+2
+3
+4
+```
 
-```js
-const s = new Set(['a', 'b']);
-for (const v of s) console.log(v);
+Check membership:
 
-// or
-s.forEach((v) => console.log(v));
+```
+console.log(set.has(4));
+```
+
+Result:
+```
+true
+```
+
+Remove values:
+
+```
+set.delete(4);
+```
+
+Result:
+
+```
+1
+2
+3
+```
+
+Size:
+
+```
+console.log(set.size);
+```
+
+Result:
+```
+3
+```
+
+Clear:
+
+```
+set.clear();
+```
+
+Result:
+```
+console.log(set.size);
+0
 ```
 
 ## Conversions
@@ -58,33 +108,40 @@ Array ↔ Set:
 ```js
 const arr = [1, 2, 2, 3];
 const s = new Set(arr);
-const backToArray = [...s]; // [1, 2, 3]
+const back = [...s];
 ```
 
-Dedupe with Set:
+Result:
+```
+[1, 2, 3]
+```
+
+Deduplicate arrays:
 
 ```js
-const unique = (xs) => [...new Set(xs)];
-unique([1, 1, 2, 3, 2]); // [1,2,3]
+const unique = xs => [...new Set(xs)];
+unique([1, 1, 2, 3, 2]);
 ```
 
-## Set Algebra Helpers
+Result:
+```
+[1, 2, 3]
+```
+
+## Set Algebra
 
 ```js
 const union = (A, B) => new Set([...A, ...B]);
-
 const intersection = (A, B) => {
   const out = new Set();
   for (const v of A) if (B.has(v)) out.add(v);
   return out;
 };
-
 const difference = (A, B) => {
   const out = new Set();
   for (const v of A) if (!B.has(v)) out.add(v);
   return out;
 };
-
 const isSubset = (A, B) => {
   for (const v of A) if (!B.has(v)) return false;
   return true;
@@ -96,25 +153,30 @@ Examples:
 ```js
 const A = new Set([1, 2, 3]);
 const B = new Set([2, 3, 4]);
-
-[...union(A, B)];        // [1,2,3,4]
-[...intersection(A, B)]; // [2,3]
-[...difference(A, B)];   // [1]
-isSubset(new Set([2,3]), A); // true
+[...union(A, B)];
+[...intersection(A, B)];
+[...difference(A, B)];
+isSubset(new Set([2, 3]), A);
 ```
 
-## Performance (Typical)
+Result:
+```
+[1, 2, 3, 4]
+[2, 3]
+[1]
+true
+```
 
-| Operation   | Complexity |
-| ----------- | ---------- |
-| add/delete  | O(1)       |
-| has         | O(1)       |
-| size        | O(1)       |
-| iterate     | O(n)       |
+## Big‑O Complexity
 
-## Pitfalls
+| Operation           | Complexity |
+| ------------------- | ---------- |
+| has / add / delete  | O(1)       |
+| clear / size        | O(1)       |
+| iterate             | O(n)       |
 
-- Equality is by reference for objects; identical shape ≠ same entry
-- No index access like arrays; use iteration
-- Converting large sets repeatedly can be costly; cache results if needed
+## Notes & Pitfalls
 
+- Object equality is by reference
+- No index access—iterate or convert to array
+- Cache conversions for large sets to avoid repeated cost
