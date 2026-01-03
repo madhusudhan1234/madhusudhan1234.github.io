@@ -7,94 +7,87 @@ tags: 'js-data-structure'
 
 ## Overview
 
-Map is an ordered key‑value store where keys can be of any type (objects, functions, primitives). Unlike plain objects, Map preserves insertion order, has predictable iteration, and no prototype keys.
+A map is an un ordered collection of key value pairs. Both keys and values can of any data type.
 
-```js
-const m = new Map([['a', 1], ['b', 2]]);
-console.log(m.size);
+To retrieve a value, you can use the corssponding key.
+
+Maps are iterables, They can be use of for...of loop.
+
+Object Vs Map
+- Objects are unordered whereas maps are ordered.
+- Keys in object are strings or symbols, while keys in map can be of any data type.
+- An object has a prototype and may contain a few default keys which may collide with your keys if you're not careful. A map on the other hand does not contain any keys by default.
+- Objects are not iterables where map are iterables.
+- The number of items in an object must be determined manually where it is readily available whith the size property in map.
+- Apart from storing data, you can attach functionality to an object whereas maps are restricted to storing data.
+
+
+code example:
+
+```
+const map = new Map([
+  ['a', 1],
+  ['b', 2]
+])
 ```
 
-Result:
-```
-2
-```
+Here a and b are keys and 1 and 2 are values respectively. We can iterate using for of loop like this:
 
-## Creating Maps
-
-```js
-const empty = new Map();
-const fromEntries = new Map([['x', 10], ['y', 20]]);
-const objectKey = {};
-const m = new Map([[objectKey, 'value']]); // object as key
+```
+for (const [key, value] of map) {
+  console.log(`${key}: ${value}`)
+}
 ```
 
-## Reading & Iteration
+If we run the code we can see the values in console like this:
 
-```js
-const m = new Map([['a', 1], ['b', 2]]);
-console.log(m.get('a'));        // 1
-console.log(m.has('b'));        // true
-for (const [k, v] of m) console.log(k, v);  // entries
-for (const k of m.keys()) console.log(k);   // keys
-for (const v of m.values()) console.log(v); // values
+```
+a: 1
+b: 2
 ```
 
-## Add, Update & Remove
+To add a key value in a map we use set method.
 
-```js
-const m = new Map();
-m.set('a', 1);
-m.set('a', 2);      // update
-m.set('b', 3);
-m.delete('b');      // remove
-m.clear();          // remove all
+```
+map.set('c', 3)
 ```
 
-## Common Methods
+This is the method not a set datastructure. Please do not get confused.
 
-- `set(key, value)` add/update
-- `get(key)` read value
-- `has(key)` check presence
-- `delete(key)` remove
-- `clear()` remove all
-- `size` number of entries
-- `keys()` / `values()` / `entries()` iterators
+If we run the code we see the three value. 
 
-## Conversions
+To check if a key exists in a map we use has method.
 
-Array ↔ Map:
+```
+console.log(map.has('a')) // true
+```
+If you want to delete a key value pair from a map we use delete method.
 
-```js
-const entries = [['a', 1], ['b', 2]];
-const m = new Map(entries);
-const back = Array.from(m);             // [['a',1],['b',2]]
+```
+map.delete('a')
 ```
 
-Object ↔ Map:
+If we run the code we see the two value like this.
 
-```js
-const obj = { a: 1, b: 2 };
-const m = new Map(Object.entries(obj)); // to Map
-const backObj = Object.fromEntries(m);  // to Object
+```
+a: 1
+b: 2
 ```
 
-## Map vs Object
+If you want to get the size of the map just use the size property.
 
-- Keys: Map supports any type; Object keys are strings/symbols
-- Size: `map.size` is constant time; Object size requires `Object.keys(obj).length`
-- Iteration: Map is ordered and easily iterated; Object needs `Object.entries`
-- No prototype collisions: Map has no inherited keys
-
-## WeakMap (Overview)
-
-WeakMap holds object keys weakly—if the object is garbage collected, the entry disappears. It cannot be iterated and is useful for private metadata.
-
-```js
-const wm = new WeakMap();
-const obj = {};
-wm.set(obj, 'meta');
-wm.get(obj); // 'meta'
 ```
+console.log(map.size) // 2
+```
+
+To clear the map we use clear method.
+
+```
+console.log(map.clear())
+```
+
+And ther there is no any key value pair in the console.
+
 
 ## Big‑O Complexity
 
@@ -104,9 +97,4 @@ wm.get(obj); // 'meta'
 | delete / clear        | O(1)       |
 | iterate (entries)     | O(n)       |
 
-## Notes & Pitfalls
-
-- Using objects as keys binds identity by reference, not shape
-- Map retains insertion order; frequent re‑insertion may be needed to reprioritize
-- WeakMap keys must be objects; primitives are not allowed
 
