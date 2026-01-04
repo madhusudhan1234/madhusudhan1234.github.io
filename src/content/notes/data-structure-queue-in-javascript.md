@@ -7,140 +7,85 @@ tags: 'js-data-structure'
 
 ## Overview
 
-Queue is a First‑In‑First‑Out (FIFO) structure. The earliest item enqueued is the first to be dequeued.
+The Queue data structure is a sequential collection of elements that follows the principle of First In First Out (FIFO).
 
-Typical uses: job scheduling, breadth‑first search, message buffers.
+The first element inserted into the queue is the first element to be removed.
 
-## Minimal Queue with Arrays
+A queue of people. People enter the queue at one end (rear/tail) and leave the queue from the other end (front/head).
 
-```js
-const queue = [];
-queue.push('A');  // enqueue
-queue.push('B');
-console.log(queue[0]); // peek/front → 'A'
-console.log(queue.shift()); // dequeue → 'A'
-console.log(queue.shift()); // dequeue → 'B'
-console.log(queue.length === 0); // isEmpty → true
+Queue is an abstract data structure. It is defined by behavior rather than being a mathematical model.
+
+The queue data structure supports two main operations.
+
+- Enqueue: Add an element to the end of the queue.
+- Dequeue: Remove the element from the front of the queue.
+
+Queue is useful when we have to do some operations in a particular order.
+
+For e.g: 
+- Printer to print multiple document
+- CPU task scheduling
+- Callback Queue in JavaScript
+
+
+### Queue Implementation
+- enqueue(element): add an element to the queue
+- dequeue - remove the oldest element from queue
+- peek - get the value of the element at the front of the queue without removing it.
+- isEmpty - check is the queue is empty
+- size - get the number of the element in a queue
+- print - visualize the elements in the queue
+
 ```
-
-Result:
-```
-'A'
-'A'
-'B'
-true
-```
-
-Note: `shift()` is O(n) because it reindexes elements. For efficient queues, use index‑based storage.
-
-## Class Implementation (Index‑based)
-
-```js
 class Queue {
   constructor() {
-    this._items = [];
-    this._head = 0;
-    this._tail = 0;
+    this.items = []
   }
-  enqueue(v) {
-    this._items[this._tail++] = v;
+
+  enqueue(element) {
+    this.items.push(element)
   }
+
   dequeue() {
-    if (this.isEmpty()) return undefined;
-    const v = this._items[this._head];
-    this._items[this._head] = undefined;
-    this._head++;
-    // compact occasionally to prevent growth
-    if (this._head > 1000 && this._head * 2 > this._tail) {
-      this._items = this._items.slice(this._head, this._tail);
-      this._tail = this._tail - this._head;
-      this._head = 0;
+    return this.items.shift()
+  }
+
+  peek() {
+    if (this.isEmpty()) {
+      return null
     }
-    return v;
+
+    return this.items[0]
   }
-  front() {
-    return this.isEmpty() ? undefined : this._items[this._head];
-  }
-  size() {
-    return this._tail - this._head;
-  }
+
   isEmpty() {
-    return this.size() === 0;
+    return this.items.length === 0
   }
-  clear() {
-    this._items = [];
-    this._head = 0;
-    this._tail = 0;
-  }
-}
 
-const q = new Queue();
-q.enqueue(1);
-q.enqueue(2);
-console.log(q.front());
-console.log(q.dequeue());
-console.log(q.size());
-```
+  size() {
+    return this.items.length
+  }
 
-Result:
-```
-1
-1
-1
-```
-
-## Two‑Stack Queue (Alternative)
-
-```js
-class TwoStackQueue {
-  constructor() {
-    this._in = [];
-    this._out = [];
+  print() {
+    console.log(this.items.toString())
   }
-  enqueue(v) { this._in.push(v); }
-  _rebalance() {
-    if (this._out.length === 0) {
-      while (this._in.length) this._out.push(this._in.pop());
-    }
-  }
-  dequeue() {
-    this._rebalance();
-    return this._out.pop();
-  }
-  front() {
-    this._rebalance();
-    return this._out[this._out.length - 1];
-  }
-  size() { return this._in.length + this._out.length; }
-  isEmpty() { return this.size() === 0; }
-  clear() { this._in = []; this._out = []; }
 }
 ```
 
-Amortized O(1) enqueue/dequeue by rebalancing when needed.
+Let's instantiate the Queue class.
 
-## Common Operations
+```
+const queue = new Queue()
 
-- enqueue(value) → add to back
-- dequeue() → remove from front
-- front() → view front without removing
-- size() → number of items
-- isEmpty() → boolean
-- clear() → empty the queue
+console.log(queue.isEmpty()) // true
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+console.log(queue.size()) // 3
+queue.print() // 10,20,30
 
-## Big‑O Complexity
 
-| Implementation     | enqueue | dequeue | front | iterate |
-| ------------------ | ------- | ------- | ----- | ------- |
-| Array + shift      | O(1)    | O(n)    | O(1)  | O(n)    |
-| Index‑based array  | O(1)    | O(1)    | O(1)  | O(n)    |
-| Two‑stack queue    | O(1)*   | O(1)*   | O(1)* | O(n)    |
-
-*Amortized average.
-
-## Notes & Pitfalls
-
-- Avoid `shift()` in hot paths; prefer index‑based or two‑stack queue
-- Compact or rotate storage periodically to bound memory usage
-- For high‑throughput queues, consider typed arrays or linked lists depending on constraints
+console.log(queue.dequeue()) // 10
+console.log(queue.peek()) // 20
+```
 
