@@ -89,3 +89,59 @@ console.log(queue.dequeue()) // 10
 console.log(queue.peek()) // 20
 ```
 
+Here if you see the implmentation return this.items.shift() it remove the first element from the queue. This is going to be complexity of O(n) because it re-index the array after removing the first element.
+
+```
+class Queue {
+  constructor() {
+    this.items = {}
+    this.rear = 0
+    this.front = 0
+  }
+
+  enqueue(element) {
+    this.items[this.rear] = element
+    this.rear++
+  }
+
+  dequeue() {
+    const item = this.items[this.front]
+    delete this.items[this.front]
+    this.front++
+    return item
+  }
+
+  isEmpty() {
+    return this.rear - this.front === 0
+  }
+
+  peek() {
+    return this.items[this.front]
+  }
+
+  size() {
+    return this.rear - this.front
+  }
+
+  print() {
+    console.log(this.items.toString())
+  }
+}
+```
+
+That is the optimized version of the queue implementation. How to use this class is similar to the previous implementation.
+
+```
+const queue = new Queue()
+
+console.log(queue.isEmpty()) // true
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+console.log(queue.size()) // 3
+queue.print() // 10,20,30
+
+
+console.log(queue.dequeue()) // 10
+console.log(queue.peek()) // 20
+```
