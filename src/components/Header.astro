@@ -1,10 +1,20 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
 <header class="navbar">
 	<nav>
+		<div class="logo">
+			<a href="/">Madhu Sudhan Subedi</a>
+		</div>
+
+		<button class="mobile-menu-toggle" aria-label="Toggle menu">
+			<span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			</span>
+		</button>
+
 		<div class="nav-links">
 			<ol>
 				<li><a href="/"><span>01.</span> Home</a></li>
@@ -13,8 +23,19 @@ import { SITE_TITLE } from '../consts';
 				<li><a href="/notes"><span>04.</span> Notes</a></li>
 			</ol>
 		</div>
+
+		<div class="mobile-menu">
+			<nav class="mobile-nav">
+				<ol>
+					<li><a href="/"><span>01.</span> Home</a></li>
+					<li><a href="/blog"><span>02.</span> Blog</a></li>
+					<li><a href="/weekly"><span>03.</span> Weekly</a></li>
+					<li><a href="/notes"><span>04.</span> Notes</a></li>
+				</ol>
+			</nav>
+		</div>
 	</nav>
-	
+
 	<div class="home-subnav">
 		<a href="#about">About</a>
 		<a href="#experience">Experience</a>
@@ -22,6 +43,19 @@ import { SITE_TITLE } from '../consts';
 		<a href="#skills">Skills</a>
 	</div>
 </header>
+<script>
+	const menuToggle = document.querySelector(".mobile-menu-toggle");
+	const mobileMenu = document.querySelector(".mobile-menu");
+	const body = document.querySelector("body");
+
+	if (menuToggle && mobileMenu) {
+		menuToggle.addEventListener("click", () => {
+			menuToggle.classList.toggle("active");
+			mobileMenu.classList.toggle("active");
+			if (body) body.classList.toggle("blur");
+		});
+	}
+</script>
 
 <style>
 	.navbar {
@@ -31,11 +65,13 @@ import { SITE_TITLE } from '../consts';
 		width: 100%;
 		height: 70px;
 		padding: 0px 50px;
-		background-color: rgba(10, 25, 47, 0.85);
+		background-color: var(--navy);
 		backdrop-filter: blur(10px);
 		transition: var(--transition);
+		box-sizing: border-box;
+		border-bottom: 1px solid var(--lightest-navy);
 	}
-	
+
 	nav {
 		display: flex;
 		justify-content: space-between;
@@ -48,33 +84,20 @@ import { SITE_TITLE } from '../consts';
 		counter-reset: item 0;
 		z-index: 12;
 	}
-	
-	.logo-link {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+
+	.logo a {
 		color: var(--green);
-		width: 42px;
-		height: 42px;
-		font-size: 20px;
+		font-size: var(--fz-md);
 		font-weight: 700;
+		text-decoration: none;
+		font-family: var(--font-mono);
 	}
-	
-	.logo-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 42px;
-		height: 42px;
-		border: 2px solid var(--green);
-		border-radius: var(--border-radius);
-	}
-	
+
 	.nav-links {
 		display: flex;
 		align-items: center;
 	}
-	
+
 	.nav-links ol {
 		display: flex;
 		justify-content: space-between;
@@ -83,64 +106,207 @@ import { SITE_TITLE } from '../consts';
 		margin: 0;
 		list-style: none;
 	}
-	
+
 	.nav-links ol li {
-		margin: 0 5px;
+		margin: 0 15px;
 		position: relative;
 		counter-increment: item 1;
 		font-size: var(--fz-xs);
 	}
-	
+
 	.nav-links ol li a {
 		padding: 10px;
 		color: var(--lightest-slate);
 	}
-	
+
 	.nav-links ol li a:hover {
 		color: var(--green);
 	}
-	
+
 	.nav-links ol li a span {
 		color: var(--green);
 		font-size: var(--fz-xxs);
 		margin-right: 5px;
 	}
-	
-	.social-links {
+
+	/* Mobile Menu Styles */
+	.mobile-menu-toggle {
+		display: none;
+		position: relative;
+		z-index: 15;
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		padding: 15px;
+		margin-right: -15px;
+	}
+
+	.hamburger-box {
+		width: 30px;
+		height: 24px;
+		display: inline-block;
+		position: relative;
+	}
+
+	.hamburger-inner {
+		display: block;
+		top: 50%;
+		margin-top: -2px;
+	}
+
+	.hamburger-inner,
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+		width: 30px;
+		height: 2px;
+		background-color: var(--green);
+		border-radius: 4px;
+		position: absolute;
+		transition: transform 0.15s ease;
+	}
+
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+		content: "";
+		display: block;
+	}
+
+	.hamburger-inner::before {
+		top: -10px;
+	}
+
+	.hamburger-inner::after {
+		bottom: -10px;
+	}
+
+	.mobile-menu-toggle.active .hamburger-inner {
+		transform: rotate(225deg);
+		transition-delay: 0.12s;
+		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+
+	.mobile-menu-toggle.active .hamburger-inner::before {
+		top: 0;
+		opacity: 0;
+		transition:
+			top 0.12s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+			opacity 0.1s linear;
+	}
+
+	.mobile-menu-toggle.active .hamburger-inner::after {
+		top: 0;
+		transform: rotate(-90deg);
+		transition:
+			bottom 0.12s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+			transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+	}
+
+	.mobile-menu {
+		display: none;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: min(75vw, 400px);
+		height: 100vh;
+		background-color: var(--light-navy);
+		box-shadow: -10px 0px 30px -15px var(--navy-shadow);
+		z-index: 10;
+		transform: translateX(100%);
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		visibility: hidden;
+	}
+
+	.home-subnav {
 		display: flex;
 		align-items: center;
-		margin-left: 15px;
+		gap: 1rem;
+		padding: 10px 50px;
+		background-color: var(--navy);
+		border-top: 1px solid var(--lightest-navy);
 	}
-	
-	.social-links a {
-		padding: 10px;
+	.home-subnav a {
 		color: var(--lightest-slate);
+		text-decoration: none;
+		font-family: var(--font-mono);
+		font-size: var(--fz-xs);
 	}
-	
-	.social-links a:hover {
+	.home-subnav a:hover {
 		color: var(--green);
-		transform: translateY(-3px);
 	}
-	
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+	}
+
+	.mobile-nav ol {
+		list-style: none;
 		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border-width: 0;
+		margin: 0;
+		width: 100%;
 	}
-	
+
+	.mobile-nav li {
+		margin: 0 auto 20px;
+		counter-increment: item 1;
+		font-size: var(--fz-lg);
+	}
+
+	.mobile-nav a {
+		display: inline-block;
+		text-decoration: none;
+		color: var(--lightest-slate);
+		padding: 3px 20px 20px;
+		width: 100%;
+	}
+
+	.mobile-nav a span {
+		display: block;
+		margin-bottom: 5px;
+		color: var(--green);
+		font-size: var(--fz-sm);
+	}
+
+	@media (min-width: 769px) {
+		.mobile-menu {
+			display: none !important;
+			visibility: hidden !important;
+			transform: translateX(100%) !important;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.navbar {
 			padding: 0 25px;
 		}
-		
-		.nav-links ol {
+
+		.nav-links {
 			display: none;
+		}
+
+		.mobile-menu-toggle {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.mobile-menu {
+			display: block; /* But hidden by transform */
+		}
+
+		.mobile-menu.active {
+			transform: translateX(0);
+			visibility: visible;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.home-subnav {
+			padding: 10px 25px;
 		}
 	}
 </style>
