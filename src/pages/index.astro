@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-astro";
 ---
 
 <!doctype html>
@@ -424,7 +425,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					<div class="skills-content">
 						<div class="skills-grid">
 							<div class="skills-card">
-								<h3 class="skills-card-title">Languages</h3>
+								<h3 class="skills-card-title"><Code size={18} style="margin-right:8px; color: var(--green);" /> Languages</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">JavaScript (ES6+)</li>
 									<li class="pill">TypeScript</li>
@@ -435,7 +436,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								</ul>
 							</div>
 							<div class="skills-card">
-								<h3 class="skills-card-title">Frontend Development</h3>
+								<h3 class="skills-card-title"><LayoutGrid size={18} style="margin-right:8px; color: var(--green);" /> Frontend Development</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">React.js</li>
 									<li class="pill">Vue.js</li>
@@ -444,7 +445,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								</ul>
 							</div>
 							<div class="skills-card">
-								<h3 class="skills-card-title">Backend Development</h3>
+								<h3 class="skills-card-title"><Server size={18} style="margin-right:8px; color: var(--green);" /> Backend Development</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">Laravel</li>
 									<li class="pill">NestJS</li>
@@ -454,7 +455,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								</ul>
 							</div>
 							<div class="skills-card">
-								<h3 class="skills-card-title">Databases & Caching</h3>
+								<h3 class="skills-card-title"><Database size={18} style="margin-right:8px; color: var(--green);" /> Databases & Caching</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">MySQL</li>
 									<li class="pill">MongoDB</li>
@@ -462,7 +463,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								</ul>
 							</div>
 							<div class="skills-card">
-								<h3 class="skills-card-title">Cloud & DevOps</h3>
+								<h3 class="skills-card-title"><Cloud size={18} style="margin-right:8px; color: var(--green);" /> Cloud & DevOps</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">AWS (EC2, Lambda, S3)</li>
 									<li class="pill">Docker</li>
@@ -470,7 +471,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 								</ul>
 							</div>
 							<div class="skills-card">
-								<h3 class="skills-card-title">Version Control</h3>
+								<h3 class="skills-card-title"><GitBranch size={18} style="margin-right:8px; color: var(--green);" /> Version Control</h3>
 								<ul class="skills-pill-list">
 									<li class="pill">Git</li>
 									<li class="pill">GitHub</li>
