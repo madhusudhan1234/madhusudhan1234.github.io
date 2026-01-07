@@ -205,7 +205,6 @@ h3 {
   font-size: clamp(var(--fz-xl), 4vw, 32px);
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 1.5rem 0 0.75rem;
 }
 
 h4 {
