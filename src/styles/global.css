@@ -696,6 +696,15 @@ body:has(.hero-section) .home-subnav {
   font-family: var(--font-mono);
 }
 
+/* Skills section spacing adjustments */
+#skills {
+  padding-top: 24px;
+}
+
+#skills .section-heading {
+  margin-bottom: 36px;
+}
+
 /* Experience section styles */
 .experience-content {
   max-width: 700px;
