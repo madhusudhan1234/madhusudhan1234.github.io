@@ -102,7 +102,7 @@ section {
   display: flex;
   align-items: center;
   position: relative;
-  margin: 10px 0 40px;
+  margin: 10px 0 24px;
   width: 100%;
   font-size: clamp(20px, 3.5vw, 28px);
   white-space: nowrap;
@@ -205,7 +205,6 @@ h3 {
   font-size: clamp(var(--fz-xl), 4vw, 32px);
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 1.5rem 0 0.75rem;
 }
 
 h4 {
@@ -641,54 +640,68 @@ body:has(.hero-section) .home-subnav {
   max-width: 700px;
 }
 
-.skills-content>p {
-  margin-bottom: 30px;
-  font-size: var(--fz-xl);
-}
-
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
 }
 
-.skills-category-title {
+.skills-card {
+  background: var(--light-navy);
+  border: 1px solid var(--lightest-navy);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.skills-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow);
+}
+
+.skills-card-title {
   color: var(--lightest-slate);
   font-size: var(--fz-lg);
   font-weight: 600;
-  margin-bottom: 20px;
-  position: relative;
-  padding-left: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.skills-category-title::before {
-  content: '▹';
-  position: absolute;
-  left: 0;
+.skills-card-title .skills-icon,
+.skills-card-title svg {
   color: var(--green);
+  flex-shrink: 0;
 }
 
-.skills-list {
-  padding: 0;
-  margin: 0;
+.skills-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
 }
 
-.skills-list li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
+.skills-pill-list .pill {
+  background: var(--navy);
+  color: var(--lightest-slate);
+  border: 1px solid var(--lightest-navy);
+  border-radius: var(--border-radius);
+  padding: 6px 10px;
+  font-size: var(--fz-xs);
   font-family: var(--font-mono);
-  font-size: var(--fz-sm);
-  color: var(--slate);
 }
 
-.skills-list li::before {
-  content: '▹';
-  position: absolute;
-  left: 0;
-  color: var(--green);
+/* Skills section spacing adjustments */
+#skills {
+  padding-top: 24px;
+}
+
+#skills .section-heading {
+  margin-bottom: 36px;
 }
 
 /* Experience section styles */
