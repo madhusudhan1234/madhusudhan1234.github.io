@@ -88,6 +88,23 @@ const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.
 	<body>
 		<Header />
 		<main>
+			<script type="application/ld+json">
+				{JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'PodcastEpisode',
+					'name': `Episode #${episode.data.id}: ${episode.data.title}`,
+					'description': episode.data.description,
+					'datePublished': new Date(episode.data.publishDate).toISOString(),
+					'duration': episode.data.duration || undefined,
+					'url': `/weekly/${episode.data.id}`,
+					'embedUrl': audioLink,
+					'partOfSeries': {
+						'@type': 'PodcastSeries',
+						'name': 'Madhu Sudhan Subedi Tech Weekly',
+						'url': '/weekly'
+					}
+				})}
+			</script>
 			<div class="episode-container">
 				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
 					<div class="episode-detail">
@@ -101,7 +118,7 @@ const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.
 							<span class="tag">#{tag}</span>
 						))}
 					</div>
-						<iframe src={audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
+						<iframe src={audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay" loading="lazy">
 						</iframe>
 					<div class="episode-description">
 						<Content />

@@ -14,7 +14,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Blog | Software Engineering, Web Development, DevOps`} description={`Articles on software engineering, web development, DevOps, and architecture by Madhu Sudhan Subedi.`} />
 		<style>
 			main {
 				width: 960px;
@@ -88,13 +88,14 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
+			<h1 style="color: var(--lightest-slate); margin: 20px 0;">Blog: Software Engineering, Web Development & DevOps</h1>
 			<section>
 				<ul>
 					{
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={`/${post.data.heroImage}`} alt="" />
+									<img width={720} height={360} src={`/${post.data.heroImage}`} alt={post.data.title} loading="lazy" decoding="async" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />

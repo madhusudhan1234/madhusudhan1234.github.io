@@ -7,4 +7,10 @@ export default defineConfig({
   site: 'https://madhusudhansubedi.com.np',
   integrations: [mdx(), sitemap()],
   output: 'static',
+  vite: {
+    build: {
+      minify: 'esbuild',
+      cssMinify: true
+    }
+  }
 });

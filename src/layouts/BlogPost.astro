@@ -22,7 +22,7 @@ const tagList: string[] =
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage ? `/${heroImage}` : undefined} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -91,6 +91,33 @@ const tagList: string[] =
 	<body>
 		<Header />
 		<main>
+			<script type="application/ld+json">
+				{JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'Article',
+					'headline': title,
+					'description': description,
+					'image': heroImage ? `/${heroImage}` : undefined,
+					'datePublished': (Astro.props as any).pubDate?.toISOString?.() || undefined,
+					'dateModified': (Astro.props as any).updatedDate?.toISOString?.() || undefined,
+					'author': {
+						'@type': 'Person',
+						'name': 'Madhu Sudhan Subedi',
+					},
+					'publisher': {
+						'@type': 'Organization',
+						'name': 'Madhu Sudhan Subedi',
+						'logo': {
+							'@type': 'ImageObject',
+							'url': '/apple-touch-icon.png'
+						}
+					},
+					'mainEntityOfPage': {
+						'@type': 'WebPage',
+						'@id': Astro.url
+					}
+				})}
+			</script>
 			<article>
 				<div class="hero-image">
 					{
@@ -99,7 +126,9 @@ const tagList: string[] =
 								width={1020}
 								height={510}
 								src={`/${heroImage}`}
-								alt=""
+								alt={title}
+								loading="lazy"
+								decoding="async"
 							/>
 						)
 					}
