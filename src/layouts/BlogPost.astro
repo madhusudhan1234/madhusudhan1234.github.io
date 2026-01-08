@@ -22,7 +22,7 @@ const tagList: string[] =
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage ? `/${heroImage}` : undefined} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -99,7 +99,9 @@ const tagList: string[] =
 								width={1020}
 								height={510}
 								src={`/${heroImage}`}
-								alt=""
+								alt={title}
+								loading="lazy"
+								decoding="async"
 							/>
 						)
 					}

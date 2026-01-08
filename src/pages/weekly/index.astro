@@ -155,7 +155,7 @@ const pageEpisodes = sortedEpisodes.slice(0, pageSize);
 								<span class="tag">#{tag}</span>
 							))}
 						</div>
-                        <iframe src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay">
+                        <iframe src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay" loading="lazy">
                         </iframe>
                         </div>
                     ))}
