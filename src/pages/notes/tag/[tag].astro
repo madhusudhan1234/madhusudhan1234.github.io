@@ -26,7 +26,7 @@ const notes = allNotes.filter((n: any) => (n.data.tags ?? '').includes(tag));
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={`${SITE_TITLE} | Notes tagged "${tag}"`} description={SITE_DESCRIPTION} />
+    <BaseHead title={`Notes tagged "${tag}" | JavaScript & Data Structures`} description={`Notes tagged "${tag}" on JavaScript, data structures, backend engineering and practical tips.`} />
     <style>
       main { width: 960px; }
       .heading { color: var(--lightest-slate); margin: 20px 0; }
@@ -48,14 +48,14 @@ const notes = allNotes.filter((n: any) => (n.data.tags ?? '').includes(tag));
   <body>
     <Header />
     <main>
-      <h2 class="heading">Notes tagged: {tag}</h2>
+      <h1 class="heading">Notes tagged: {tag}</h1>
       <section>
         <ul>
           {
             notes.map((post) => (
               <li>
                 <a href={`/notes/${post.id}/`}>
-                  {post.data.heroImage && <img width={720} height={360} src={`/${post.data.heroImage}`} alt="" />}
+                  {post.data.heroImage && <img width={720} height={360} src={`/${post.data.heroImage}`} alt={post.data.title} loading="lazy" decoding="async" />}
                   <h4 class="title">{post.data.title}</h4>
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />

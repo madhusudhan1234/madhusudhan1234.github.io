@@ -14,7 +14,7 @@ const posts: any[] = (await getCollection('notes' as any)).sort(
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={`${SITE_TITLE} | Notes`} description={SITE_DESCRIPTION} />
+    <BaseHead title={`Notes | Data Structures, JavaScript & Backend`} description={`Developer notes on JavaScript data structures, backend engineering, DevOps and practical tips.`} />
     <style>
       main { width: 960px; }
       ul { display: flex; flex-wrap: wrap; gap: 2rem; list-style-type: none; margin: 0; padding: 0; }
@@ -40,6 +40,7 @@ const posts: any[] = (await getCollection('notes' as any)).sort(
   <body>
     <Header />
     <main>
+      <h1 style="color: var(--lightest-slate); margin: 20px 0;">Notes: Data Structures, JavaScript & Backend Engineering</h1>
       <section>
         <ul>
           {
