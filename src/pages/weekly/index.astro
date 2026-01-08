@@ -123,6 +123,20 @@ const pageEpisodes = sortedEpisodes.slice(0, pageSize);
 			<div class="podcast-container">
 				<h1>{WEEKLY_TITLE}</h1>
 				<p class="description">{WEEKLY_DESCRIPTION}</p>
+				<script type="application/ld+json">
+					{JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'ItemList',
+						'name': WEEKLY_TITLE,
+						'itemListElement': pageEpisodes.map((episode, index) => ({
+							'@type': 'ListItem',
+							'position': index + 1,
+							'url': `/weekly/${episode.data.id}`,
+							'name': `Episode #${episode.data.id}: ${episode.data.title}`,
+							'description': episode.data.description
+						}))
+					})}
+				</script>
 				
 				<div class="episodes-grid">
                     {pageEpisodes.map((episode) => (
