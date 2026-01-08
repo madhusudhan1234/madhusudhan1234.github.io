@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /documents/
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /private/
 
 Sitemap: https://madhusudhansubedi.com.np/sitemap-index.xml
-
+Sitemap: https://madhusudhansubedi.com.np/sitemap.xml
