@@ -3,7 +3,14 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-astro";
+import {
+	Code,
+	LayoutGrid,
+	Server,
+	Database,
+	Cloud,
+	GitBranch,
+} from "lucide-astro";
 ---
 
 <!doctype html>
@@ -17,7 +24,9 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 		/>
 		<link rel="canonical" href="https://madhusudhansubedi.com.np" />
 	</head>
-	<body>
+	<body
+		class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased selection:bg-[var(--green)] selection:text-[var(--navy)]"
+	>
 		<div id="root">
 			<Header />
 
@@ -30,26 +39,58 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 					// Set default active tab
 					if (tabButtons.length > 0 && tabPanels.length > 0) {
 						tabButtons[0].classList.add("active");
+						tabButtons[0].classList.add(
+							"text-[var(--green)]",
+							"bg-[var(--light-navy)]",
+							"md:border-l-2",
+							"border-[var(--green)]",
+						);
 						tabButtons[0].setAttribute("aria-selected", "true");
-						tabPanels[0].style.display = "block";
+						tabPanels[0].classList.remove("hidden");
+						tabPanels[0].classList.add("block");
 
 						// Add click event to tab buttons
 						tabButtons.forEach((button, index) => {
 							button.addEventListener("click", () => {
 								// Hide all panels
 								tabPanels.forEach((panel) => {
-									panel.style.display = "none";
+									panel.classList.add("hidden");
+									panel.classList.remove("block");
 								});
 
 								// Remove active class from all buttons
 								tabButtons.forEach((btn) => {
-									btn.classList.remove("active");
+									btn.classList.remove(
+										"active",
+										"text-[var(--green)]",
+										"bg-[var(--light-navy)]",
+										"md:border-l-2",
+										"border-[var(--green)]",
+									);
+									btn.classList.add(
+										"text-[var(--slate)]",
+										"border-transparent",
+									);
 									btn.setAttribute("aria-selected", "false");
 								});
 
 								// Show selected panel and activate button
-								tabPanels[index].style.display = "block";
-								button.classList.add("active");
+								tabPanels[index].classList.remove("hidden");
+								tabPanels[index].classList.add(
+									"block",
+									"animate-fadeIn",
+								);
+								button.classList.add(
+									"active",
+									"text-[var(--green)]",
+									"bg-[var(--light-navy)]",
+									"md:border-l-2",
+									"border-[var(--green)]",
+								);
+								button.classList.remove(
+									"text-[var(--slate)]",
+									"border-transparent",
+								);
 								button.setAttribute("aria-selected", "true");
 							});
 						});
@@ -57,42 +98,38 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 				});
 			</script>
 
-			<main class="container">
+			<main
+				class="w-full max-w-[1600px] mx-auto px-6 md:px-[100px] lg:px-[150px] pt-[110px] counter-reset-section"
+			>
 				<!-- Hero Section -->
 				<section
-					class="hero"
-					style="min-height: 100vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center;"
+					class="hero flex flex-col justify-center min-h-[calc(100vh-100px)] py-12 md:py-20 max-w-[1000px] mx-auto"
 				>
-					<div style="max-width: 1000px;">
+					<div class="max-w-[1000px]">
 						<p
-							class="hero-intro"
-							style="margin: 10px 0 0 4px; color: var(--green); font-family: var(--font-mono); font-size: var(--fz-md);"
+							class="text-[var(--green)] font-mono text-base md:text-lg mb-5 md:mb-8"
 						>
 							Hi, my name is
 						</p>
 						<h1
-							class="big-heading"
-							style="margin: 0; font-size: clamp(32px, 6vw, 56px);"
+							class="text-4xl md:text-6xl lg:text-[80px] font-bold text-[var(--lightest-slate)] leading-none mb-4 md:mb-6 tracking-tight"
 						>
 							Madhu Sudhan.
 						</h1>
 						<h2
-							class="big-heading"
-							style="color: var(--slate); margin: 0; font-size: clamp(28px, 5vw, 48px);"
+							class="text-3xl md:text-5xl lg:text-[60px] font-bold text-[var(--slate)] leading-none mb-8 md:mb-10"
 						>
 							I build things for the web.
 						</h2>
 						<p
-							class="hero-subtitle"
-							style="margin-top: 20px; max-width: 700px; color: var(--slate); font-size: var(--fz-lg);"
+							class="text-[var(--slate)] text-lg md:text-xl max-w-[600px] leading-relaxed mb-8 md:mb-12"
 						>
 							Greetings! I'm a seasoned software engineer from
 							Nepal 🇳🇵 with over nine years of experience crafting
 							elegant solutions in software development.
 						</p>
 						<p
-							class="hero-subtitle"
-							style="margin-top: 20px; max-width: 700px; color: var(--slate); font-size: var(--fz-lg);"
+							class="text-[var(--slate)] text-lg md:text-xl max-w-[600px] leading-relaxed mb-8 md:mb-12"
 						>
 							Currently based in Japan 🇯🇵, I combine my passion
 							for problem-solving with technical expertise to
@@ -101,16 +138,17 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 							APIs, and backend systems.
 						</p>
 						<p
-							class="hero-subtitle"
-							style="margin-top: 20px; max-width: 700px; color: var(--slate); font-size: var(--fz-lg);"
+							class="text-[var(--slate)] text-lg md:text-xl max-w-[600px] leading-relaxed mb-12 md:mb-14"
 						>
 							My journey in technology began from writing code out
 							of necessity and has grown into a creative pursuit
 							for innovation. I'm passionate about exploring new
 							technologies and sharing knowledge with others.
 						</p>
-						<div style="margin-top: 50px;">
-							<a href="/weekly" class="button"
+						<div class="mt-8 md:mt-12">
+							<a
+								href="/weekly"
+								class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-7 py-5 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out"
 								>Listen Madhu Sudhan subedi Tech Weekly</a
 							>
 						</div>
@@ -119,23 +157,22 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 
 				<!-- Social sidebar -->
 				<div
-					class="social-sidebar"
-					style="position: fixed; bottom: 0; right: 40px; width: 40px; z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 20px;"
+					class="hidden md:flex fixed bottom-0 right-[40px] z-10 flex-col items-center gap-5 w-10 text-[var(--light-slate)]"
 				>
 					<a
 						href="https://x.com/xmadhusudhan"
 						target="_blank"
 						rel="noopener noreferrer"
-						style="color: var(--light-slate); transition: var(--transition);"
+						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
 							viewBox="0 0 24 24"
 							aria-hidden="true"
 							width="20"
 							height="20"
+							class="w-5 h-5 fill-current"
 						>
 							<path
-								fill="currentColor"
 								d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
 							></path>
 						</svg>
@@ -144,16 +181,16 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 						href="https://github.com/madhusudhan1234"
 						target="_blank"
 						rel="noopener noreferrer"
-						style="color: var(--light-slate); transition: var(--transition);"
+						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
 							viewBox="0 0 24 24"
 							aria-hidden="true"
 							width="20"
 							height="20"
+							class="w-5 h-5 fill-current"
 						>
 							<path
-								fill="currentColor"
 								d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
 							></path>
 						</svg>
@@ -162,77 +199,100 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 						href="https://www.linkedin.com/in/madhusudhan1994"
 						target="_blank"
 						rel="noopener noreferrer"
-						style="color: var(--light-slate); transition: var(--transition);"
+						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
 							viewBox="0 0 24 24"
 							aria-hidden="true"
 							width="20"
 							height="20"
+							class="w-5 h-5 fill-current"
 						>
 							<path
-								fill="currentColor"
 								d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
 							></path>
 						</svg>
 					</a>
 					<div
-						style="height: 100px; width: 1px; margin: 0 auto; background-color: var(--light-slate);"
+						class="h-[100px] w-[1px] bg-[var(--light-slate)] mx-auto"
 					>
 					</div>
 				</div>
 
 				<!-- Experience Section -->
-				<section id="experience">
-					<h2 class="section-heading">Where I've Worked</h2>
-					<div class="experience-content">
-						<div class="tab-container">
-							<div class="tab-list" role="tablist">
+				<section
+					id="experience"
+					class="py-12 md:py-24 max-w-[1000px] mx-auto"
+				>
+					<h2
+						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['02.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+					>
+						Where I've Worked
+					</h2>
+					<div class="max-w-[700px] mx-auto lg:mx-0">
+						<div class="flex flex-col md:flex-row mt-5">
+							<div
+								class="tab-list flex flex-row md:flex-col overflow-x-auto md:overflow-visible w-full md:w-[120px] mb-8 md:mb-0 md:mr-6 border-b md:border-b-0 md:border-l md:border-[var(--lightest-navy)]"
+								role="tablist"
+							>
 								<button
-									class="tab-button active"
+									class="tab-button w-full md:w-full min-w-max px-5 py-3 md:pb-0 md:pl-5 md:pr-0 md:h-[42px] text-xs font-mono text-left bg-transparent text-[var(--slate)] border-b-2 md:border-b-0 md:border-l-2 border-transparent hover:bg-[var(--light-navy)] hover:text-[var(--green)] transition-all duration-250 ease-in-out whitespace-nowrap active"
 									role="tab"
 									aria-selected="true"
 									data-tab="job1">Hivelocity</button
 								>
 								<button
-									class="tab-button"
+									class="tab-button w-full md:w-full min-w-max px-5 py-3 md:pb-0 md:pl-5 md:pr-0 md:h-[42px] text-xs font-mono text-left bg-transparent text-[var(--slate)] border-b-2 md:border-b-0 md:border-l-2 border-transparent hover:bg-[var(--light-navy)] hover:text-[var(--green)] transition-all duration-250 ease-in-out whitespace-nowrap"
 									role="tab"
 									aria-selected="false"
 									data-tab="job2">UBA Solutions</button
 								>
 								<button
-									class="tab-button"
+									class="tab-button w-full md:w-full min-w-max px-5 py-3 md:pb-0 md:pl-5 md:pr-0 md:h-[42px] text-xs font-mono text-left bg-transparent text-[var(--slate)] border-b-2 md:border-b-0 md:border-l-2 border-transparent hover:bg-[var(--light-navy)] hover:text-[var(--green)] transition-all duration-250 ease-in-out whitespace-nowrap"
 									role="tab"
 									aria-selected="false"
 									data-tab="job3">Introcept</button
 								>
 							</div>
 
-							<div class="tab-panels">
-								<div class="tab-panel active" data-panel="job1">
-									<h3 class="job-title">
+							<div class="tab-panels w-full md:ml-5">
+								<div
+									class="tab-panel active animate-fadeIn"
+									data-panel="job1"
+								>
+									<h3
+										class="text-xl md:text-2xl font-medium mb-1 text-[var(--lightest-slate)]"
+									>
 										Backend Software Engineer <span
-											class="company"
+											class="text-[var(--green)]"
 											>@ Hivelocity Inc.</span
 										>
 									</h3>
-									<p class="job-duration">
+									<p
+										class="font-mono text-xs text-[var(--light-slate)] mb-6"
+									>
 										August 2024 - Present
 									</p>
-									<ul class="job-duties">
-										<li>
+									<ul class="p-0 m-0 list-none">
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Maintained and enhanced websites for
 											Japanese influencers, including
 											platforms like Fancommerce, Café,
 											Kuji, Reservation.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Reduced technical debt by upgrading
 											Laravel and PHP versions of
 											industrial company websites in
 											Japan.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Designed and maintained the backend
 											of a multi-tenant platform,
 											providing RESTful APIs for
@@ -243,19 +303,28 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 									</ul>
 								</div>
 
-								<div class="tab-panel" data-panel="job2">
-									<h3 class="job-title">
+								<div
+									class="tab-panel hidden animate-fadeIn"
+									data-panel="job2"
+								>
+									<h3
+										class="text-xl md:text-2xl font-medium mb-1 text-[var(--lightest-slate)]"
+									>
 										CSM & Sr. Software Engineer <span
-											class="company"
+											class="text-[var(--green)]"
 											>@ UBA Solutions</span
 										>
 									</h3>
-									<p class="job-duration">
+									<p
+										class="font-mono text-xs text-[var(--light-slate)] mb-6"
+									>
 										April 2018 - August 2024 (6 Years 5
 										Months)
 									</p>
-									<ul class="job-duties">
-										<li>
+									<ul class="p-0 m-0 list-none">
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Engineered and optimized ETL
 											processes to streamline foundry and
 											font data across enterprise and
@@ -263,32 +332,42 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 											multi-platform data synchronization
 											issues.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Engaged in the process of
 											transitioning millions of current
 											users and orders from a legacy
 											system to an enhanced system.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Worked on the AWS migration of
 											legacy e-commerce sites (Core PHP)
 											from existing servers to AWS to save
 											server costs around $5000 monthly.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Implemented correct security headers
 											values for the sites, PHP version
 											upgrade which made failed measures
 											to pass in bitsight.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Contributed to the Foundry
 											management system (Backend Lumen)
 											which manages top foundries of the
 											world, with more than 80% unit test
 											coverage.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Coached dev team and product owner
 											for efficient value delivery as a
 											Scrum Master.
@@ -296,33 +375,49 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 									</ul>
 								</div>
 
-								<div class="tab-panel" data-panel="job3">
-									<h3 class="job-title">
-										Software Engineer <span class="company"
+								<div
+									class="tab-panel hidden animate-fadeIn"
+									data-panel="job3"
+								>
+									<h3
+										class="text-xl md:text-2xl font-medium mb-1 text-[var(--lightest-slate)]"
+									>
+										Software Engineer <span
+											class="text-[var(--green)]"
 											>@ Introcept Nepal</span
 										>
 									</h3>
-									<p class="job-duration">
+									<p
+										class="font-mono text-xs text-[var(--light-slate)] mb-6"
+									>
 										October 2016 - March 2018 (1 Year and 6
 										Months)
 									</p>
-									<ul class="job-duties">
-										<li>
+									<ul class="p-0 m-0 list-none">
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Worked on building CRM (Laravel
 											backend) for agents used by 400
 											education consultancies worldwide.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Migrated frontend from jQuery to
 											Vue.js without breaking existing
 											working features.
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Initiated usage of module bundler
 											(webpack), single page application,
 											and state management (vuex).
 										</li>
-										<li>
+										<li
+											class="relative pl-8 mb-2.5 text-base md:text-lg text-[var(--slate)] before:content-['▹'] before:absolute before:left-0 before:text-[var(--green)]"
+										>
 											Employed prefabricated design
 											patterns to shorten development
 											times by applying existing
@@ -336,41 +431,61 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 				</section>
 
 				<!-- Projects Section -->
-				<section id="projects">
-					<h2 class="section-heading">Some Things I've Built</h2>
-					<div class="projects-grid">
-						<div class="project-card">
-							<div class="project-content">
-								<div class="project-overline">
+				<section
+					id="projects"
+					class="py-12 md:py-24 max-w-[1000px] mx-auto"
+				>
+					<h2
+						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['03.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+					>
+						Some Things I've Built
+					</h2>
+					<div class="flex flex-col gap-12 mt-12">
+						<div
+							class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+						>
+							<div class="text-left">
+								<div
+									class="text-[var(--green)] font-mono text-xs my-2.5"
+								>
 									Featured Project
 								</div>
-								<h3 class="project-title">
+								<h3
+									class="text-[var(--lightest-slate)] text-2xl font-semibold mb-5"
+								>
 									Tech Weekly Audio Streaming
 								</h3>
-								<div class="project-description">
+								<div
+									class="p-6 rounded bg-[var(--light-navy)] text-[var(--light-slate)] text-base shadow-xl mb-6"
+								>
 									<p>
 										An audio streaming platform for my Tech
 										Weekly podcast episodes, featuring a
 										custom player, episode management, and
 										content delivery. <span
-											class="wip-badge"
+											class="inline-block bg-[var(--green)] text-[var(--navy)] text-xs font-bold px-2 py-1 rounded ml-2 uppercase tracking-wide"
 											>Work in Progress</span
 										>
 									</p>
 								</div>
-								<ul class="project-tech-list">
+								<ul
+									class="flex flex-wrap gap-x-5 gap-y-1 mb-6 text-[var(--light-slate)] font-mono text-xs whitespace-nowrap"
+								>
 									<li>Astro</li>
 									<li>JavaScript</li>
 									<li>HTML5 Audio</li>
 									<li>CSS3</li>
 									<li>Responsive Design</li>
 								</ul>
-								<div class="project-links">
+								<div
+									class="flex items-center text-[var(--lightest-slate)]"
+								>
 									<a
 										href="/weekly"
 										aria-label="Weekly Link"
 										target="_blank"
 										rel="noopener noreferrer"
+										class="hover:text-[var(--green)] transition-all"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -381,7 +496,7 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 											stroke-width="2"
 											stroke-linecap="round"
 											stroke-linejoin="round"
-											class="feather feather-external-link"
+											class="w-6 h-6"
 											><path
 												d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
 											></path><polyline
@@ -395,88 +510,244 @@ import { Code, LayoutGrid, Server, Database, Cloud, GitBranch } from "lucide-ast
 									</a>
 								</div>
 							</div>
-							<div class="project-image">
-								<div class="project-image-placeholder">
-									Audio Streaming Platform
-								</div>
+							<div
+								class="h-[300px] w-full rounded border border-[var(--lightest-navy)] overflow-hidden"
+							>
+								<a
+									href="/weekly"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="block w-full h-full bg-[var(--green)]"
+								>
+									<div
+										class="w-full h-full flex items-center justify-center text-[var(--white)] font-bold text-xl bg-[var(--navy)]/90 hover:bg-[var(--navy)]/80 transition-all p-6 text-center"
+									>
+										Check new streaming
+									</div>
+								</a>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				<style>
-					.wip-badge {
-						display: inline-block;
-						background-color: var(--green);
-						color: var(--navy);
-						font-size: var(--fz-xs);
-						font-weight: 500;
-						padding: 0.25rem 0.5rem;
-						border-radius: 4px;
-						margin-left: 0.5rem;
-						text-transform: uppercase;
-						letter-spacing: 0.05em;
-					}
-				</style>
-
 				<!-- Skills Section -->
-				<section id="skills">
-					<h2 class="section-heading">Skills & Technologies</h2>
-					<div class="skills-content">
-						<div class="skills-grid">
-							<div class="skills-card">
-								<h3 class="skills-card-title"><Code size={18} class="skills-icon" /> Languages</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">JavaScript (ES6+)</li>
-									<li class="pill">TypeScript</li>
-									<li class="pill">PHP</li>
-									<li class="pill">Node.js</li>
-									<li class="pill">HTML5</li>
-									<li class="pill">CSS3</li>
+				<section
+					id="skills"
+					class="py-12 md:py-24 max-w-[1000px] mx-auto"
+				>
+					<h2
+						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['04.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+					>
+						Skills & Technologies
+					</h2>
+					<div class="max-w-[700px]">
+						<div
+							class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4"
+						>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<Code
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Languages
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										JavaScript (ES6+)
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										TypeScript
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										PHP
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Node.js
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										HTML5
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										CSS3
+									</li>
 								</ul>
 							</div>
-							<div class="skills-card">
-								<h3 class="skills-card-title"><LayoutGrid size={18} class="skills-icon" /> Frontend Development</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">React.js</li>
-									<li class="pill">Vue.js</li>
-									<li class="pill">Next.js</li>
-									<li class="pill">Modern CSS Architecture</li>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<LayoutGrid
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Frontend Dev
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										React.js
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Vue.js
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Next.js
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Tailwind CSS
+									</li>
 								</ul>
 							</div>
-							<div class="skills-card">
-								<h3 class="skills-card-title"><Server size={18} class="skills-icon" /> Backend Development</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">Laravel</li>
-									<li class="pill">NestJS</li>
-									<li class="pill">Express</li>
-									<li class="pill">RESTful APIs</li>
-									<li class="pill">Microservices</li>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<Server
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Backend Dev
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Laravel
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										NestJS
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Express
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										RESTful APIs
+									</li>
 								</ul>
 							</div>
-							<div class="skills-card">
-								<h3 class="skills-card-title"><Database size={18} class="skills-icon" /> Databases & Caching</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">MySQL</li>
-									<li class="pill">MongoDB</li>
-									<li class="pill">Redis</li>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<Database
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Database
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										MySQL
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										MongoDB
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Redis
+									</li>
 								</ul>
 							</div>
-							<div class="skills-card">
-								<h3 class="skills-card-title"><Cloud size={18} class="skills-icon" /> Cloud & DevOps</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">AWS (EC2, Lambda, S3)</li>
-									<li class="pill">Docker</li>
-									<li class="pill">Ansible</li>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<Cloud
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Cloud & DevOps
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										AWS
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Docker
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Ansible
+									</li>
 								</ul>
 							</div>
-							<div class="skills-card">
-								<h3 class="skills-card-title"><GitBranch size={18} class="skills-icon" /> Version Control</h3>
-								<ul class="skills-pill-list">
-									<li class="pill">Git</li>
-									<li class="pill">GitHub</li>
-									<li class="pill">GitLab</li>
-									<li class="pill">Bitbucket</li>
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<GitBranch
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> Tools
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Git
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										GitHub
+									</li>
 								</ul>
 							</div>
 						</div>

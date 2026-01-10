@@ -3,182 +3,252 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="navbar">
-	<nav>
+<header
+	class="fixed top-0 z-50 w-full h-[70px] px-6 md:px-[50px] bg-[var(--navy)]/90 backdrop-blur-md transition-all border-b border-[var(--lightest-navy)] box-border flex justify-end"
+>
+	<nav
+		class="flex justify-between items-center relative w-full h-full text-[var(--lightest-slate)] font-mono z-20"
+	>
 		<div class="logo">
-			<a href="/">Madhu Sudhan Subedi</a>
+			<a
+				href="/"
+				class="text-[var(--green)] text-base font-bold no-underline font-mono"
+				>Madhu Sudhan Subedi</a
+			>
 		</div>
 
-		<button class="mobile-menu-toggle" aria-label="Toggle menu">
-			<span class="hamburger-box">
-				<span class="hamburger-inner"></span>
+		<!-- Mobile Menu Toggle -->
+		<button
+			class="mobile-menu-toggle flex items-center justify-center md:hidden relative z-50 cursor-pointer bg-transparent border-none p-4 -mr-4"
+			aria-label="Toggle menu"
+		>
+			<span class="hamburger-box relative inline-block w-[30px] h-[24px]">
+				<span
+					class="hamburger-inner block absolute top-1/2 -mt-[2px] w-[30px] h-[2px] bg-[var(--green)] rounded transition-transform duration-150 ease-linear before:content-[''] before:block before:w-[30px] before:h-[2px] before:bg-[var(--green)] before:rounded before:absolute before:-top-[10px] before:transition-all before:duration-150 after:content-[''] after:block after:w-[30px] after:h-[2px] after:bg-[var(--green)] after:rounded after:absolute after:-bottom-[10px] after:transition-all after:duration-150"
+				></span>
 			</span>
 		</button>
 
-		<div class="nav-links">
-			<ol>
-				<li><a href="/"><span>01.</span> Home</a></li>
-				<li><a href="/blog"><span>02.</span> Blog</a></li>
-				<li><a href="/weekly"><span>03.</span> Weekly</a></li>
-				<li><a href="/notes"><span>04.</span> Notes</a></li>
+		<!-- Desktop Nav -->
+		<div class="hidden md:flex items-center">
+			<ol class="flex justify-between items-center p-0 m-0 list-none">
+				<li
+					class="mx-[15px] relative text-[13px] counter-increment-item"
+				>
+					<a
+						href="/"
+						class="p-[10px] text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors"
+						><span class="text-[var(--green)] text-xs mr-[5px]"
+							>01.</span
+						> Home</a
+					>
+				</li>
+				<li
+					class="mx-[15px] relative text-[13px] counter-increment-item"
+				>
+					<a
+						href="/blog"
+						class="p-[10px] text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors"
+						><span class="text-[var(--green)] text-xs mr-[5px]"
+							>02.</span
+						> Blog</a
+					>
+				</li>
+				<li
+					class="mx-[15px] relative text-[13px] counter-increment-item"
+				>
+					<a
+						href="/weekly"
+						class="p-[10px] text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors"
+						><span class="text-[var(--green)] text-xs mr-[5px]"
+							>03.</span
+						> Weekly</a
+					>
+				</li>
+				<li
+					class="mx-[15px] relative text-[13px] counter-increment-item"
+				>
+					<a
+						href="/notes"
+						class="p-[10px] text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors"
+						><span class="text-[var(--green)] text-xs mr-[5px]"
+							>04.</span
+						> Notes</a
+					>
+				</li>
 			</ol>
+			<button
+				id="theme-toggle"
+				class="ml-6 p-2 text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors cursor-pointer"
+				aria-label="Toggle theme"
+			>
+				<svg
+					class="sun-icon hidden w-5 h-5"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+					></path></svg
+				>
+				<svg
+					class="moon-icon hidden w-5 h-5"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+					></path></svg
+				>
+			</button>
 		</div>
 
-		<div class="mobile-menu">
-			<nav class="mobile-nav">
-				<ol>
-					<li><a href="/"><span>01.</span> Home</a></li>
-					<li><a href="/blog"><span>02.</span> Blog</a></li>
-					<li><a href="/weekly"><span>03.</span> Weekly</a></li>
-					<li><a href="/notes"><span>04.</span> Notes</a></li>
+		<!-- Mobile Menu Overlay -->
+		<div
+			class="mobile-menu fixed top-0 bottom-0 right-0 w-[min(75vw,400px)] h-screen bg-[var(--light-navy)] shadow-[-10px_0px_30px_-15px_var(--navy-shadow)] z-40 translate-x-full transition-transform duration-250 ease-[cubic-bezier(0.645,0.045,0.355,1)] hidden md:hidden"
+		>
+			<nav class="flex flex-col text-center w-full justify-center h-full">
+				<ol
+					class="list-none p-0 m-0 w-full flex flex-col justify-center gap-5"
+				>
+					<li class="mx-auto mb-5 text-lg">
+						<a
+							href="/"
+							class="inline-block no-underline text-[var(--lightest-slate)] p-[3px_20px_20px] w-full"
+							><span
+								class="block mb-[5px] text-[var(--green)] text-sm"
+								>01.</span
+							> Home</a
+						>
+					</li>
+					<li class="mx-auto mb-5 text-lg">
+						<a
+							href="/blog"
+							class="inline-block no-underline text-[var(--lightest-slate)] p-[3px_20px_20px] w-full"
+							><span
+								class="block mb-[5px] text-[var(--green)] text-sm"
+								>02.</span
+							> Blog</a
+						>
+					</li>
+					<li class="mx-auto mb-5 text-lg">
+						<a
+							href="/weekly"
+							class="inline-block no-underline text-[var(--lightest-slate)] p-[3px_20px_20px] w-full"
+							><span
+								class="block mb-[5px] text-[var(--green)] text-sm"
+								>03.</span
+							> Weekly</a
+						>
+					</li>
+					<li class="mx-auto mb-5 text-lg">
+						<a
+							href="/notes"
+							class="inline-block no-underline text-[var(--lightest-slate)] p-[3px_20px_20px] w-full"
+							><span
+								class="block mb-[5px] text-[var(--green)] text-sm"
+								>04.</span
+							> Notes</a
+						>
+					</li>
 				</ol>
 			</nav>
 		</div>
 	</nav>
 
-	<div class="home-subnav">
-		<a href="#about">About</a>
-		<a href="#experience">Experience</a>
-		<a href="#projects">Projects</a>
-		<a href="#skills">Skills</a>
+	<!-- Side Navigation (Left) - Desktop Only -->
+	<div
+		class="home-subnav fixed left-10 bottom-0 z-10 w-10 md:flex flex-col items-center justify-center gap-8 h-screen bg-transparent hidden"
+	>
+		<div
+			class="flex gap-8 items-center justify-center [writing-mode:vertical-rl]"
+		>
+			<a
+				href="#about"
+				class="rotate-180 p-2 text-[var(--light-slate)] font-mono text-sm tracking-widest hover:text-[var(--green)] transition-all no-underline"
+				>About</a
+			>
+			<a
+				href="#experience"
+				class="rotate-180 p-2 text-[var(--light-slate)] font-mono text-sm tracking-widest hover:text-[var(--green)] transition-all no-underline"
+				>Experience</a
+			>
+			<a
+				href="#projects"
+				class="rotate-180 p-2 text-[var(--light-slate)] font-mono text-sm tracking-widest hover:text-[var(--green)] transition-all no-underline"
+				>Projects</a
+			>
+			<a
+				href="#skills"
+				class="rotate-180 p-2 text-[var(--light-slate)] font-mono text-sm tracking-widest hover:text-[var(--green)] transition-all no-underline"
+				>Skills</a
+			>
+		</div>
 	</div>
 </header>
+
 <script>
 	const menuToggle = document.querySelector(".mobile-menu-toggle");
 	const mobileMenu = document.querySelector(".mobile-menu");
 	const body = document.querySelector("body");
+	const main = document.querySelector("main");
+	const footer = document.querySelector("footer");
 
 	if (menuToggle && mobileMenu) {
 		menuToggle.addEventListener("click", () => {
-			menuToggle.classList.toggle("active");
-			mobileMenu.classList.toggle("active");
-			if (body) body.classList.toggle("blur");
+			const isActive = menuToggle.classList.toggle("active");
+			mobileMenu.classList.toggle("translate-x-full");
+			mobileMenu.classList.toggle("translate-x-0");
+			mobileMenu.classList.toggle("hidden"); // Remove hidden to show
+			mobileMenu.classList.toggle("flex"); // Add flex to layout
+
+			if (body) body.classList.toggle("overflow-hidden");
+			if (main) main.classList.toggle("blur-sm");
+			if (footer) footer.classList.toggle("blur-sm");
+		});
+	}
+
+	// Theme Toggle Logic
+	const themeToggle = document.getElementById("theme-toggle");
+	const sunIcon = document.querySelector(".sun-icon");
+	const moonIcon = document.querySelector(".moon-icon");
+
+	const updateIcons = (theme) => {
+		if (theme === "dark") {
+			sunIcon?.classList.remove("hidden");
+			moonIcon?.classList.add("hidden");
+		} else {
+			sunIcon?.classList.add("hidden");
+			moonIcon?.classList.remove("hidden");
+		}
+	};
+
+	// Initialize icons based on current theme
+	const currentTheme = localStorage.getItem("theme") || "light";
+	updateIcons(currentTheme);
+
+	if (themeToggle) {
+		themeToggle.addEventListener("click", () => {
+			const current = document.documentElement.getAttribute("data-theme");
+			const newTheme = current === "dark" ? "light" : "dark";
+
+			document.documentElement.setAttribute("data-theme", newTheme);
+			localStorage.setItem("theme", newTheme);
+			updateIcons(newTheme);
 		});
 	}
 </script>
 
 <style>
-	.navbar {
-		position: fixed;
-		top: 0;
-		z-index: 11;
-		width: 100%;
-		height: 70px;
-		padding: 0px 50px;
-		background-color: var(--navy);
-		backdrop-filter: blur(10px);
-		transition: var(--transition);
-		box-sizing: border-box;
-		border-bottom: 1px solid var(--lightest-navy);
-	}
-
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		position: relative;
-		width: 100%;
-		height: 100%;
-		color: var(--lightest-slate);
-		font-family: var(--font-mono);
-		counter-reset: item 0;
-		z-index: 12;
-	}
-
-	.logo a {
-		color: var(--green);
-		font-size: var(--fz-md);
-		font-weight: 700;
-		text-decoration: none;
-		font-family: var(--font-mono);
-	}
-
-	.nav-links {
-		display: flex;
-		align-items: center;
-	}
-
-	.nav-links ol {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0;
-		margin: 0;
-		list-style: none;
-	}
-
-	.nav-links ol li {
-		margin: 0 15px;
-		position: relative;
-		counter-increment: item 1;
-		font-size: var(--fz-xs);
-	}
-
-	.nav-links ol li a {
-		padding: 10px;
-		color: var(--lightest-slate);
-	}
-
-	.nav-links ol li a:hover {
-		color: var(--green);
-	}
-
-	.nav-links ol li a span {
-		color: var(--green);
-		font-size: var(--fz-xxs);
-		margin-right: 5px;
-	}
-
-	/* Mobile Menu Styles */
-	.mobile-menu-toggle {
-		display: none;
-		position: relative;
-		z-index: 15;
-		cursor: pointer;
-		background: transparent;
-		border: none;
-		padding: 15px;
-		margin-right: -15px;
-	}
-
-	.hamburger-box {
-		width: 30px;
-		height: 24px;
-		display: inline-block;
-		position: relative;
-	}
-
-	.hamburger-inner {
-		display: block;
-		top: 50%;
-		margin-top: -2px;
-	}
-
-	.hamburger-inner,
-	.hamburger-inner::before,
-	.hamburger-inner::after {
-		width: 30px;
-		height: 2px;
-		background-color: var(--green);
-		border-radius: 4px;
-		position: absolute;
-		transition: transform 0.15s ease;
-	}
-
-	.hamburger-inner::before,
-	.hamburger-inner::after {
-		content: "";
-		display: block;
-	}
-
-	.hamburger-inner::before {
-		top: -10px;
-	}
-
-	.hamburger-inner::after {
-		bottom: -10px;
-	}
-
+	/* Custom Hamburger Animations that are hard to do with just Tailwind utilities efficiently without bloating HTML */
 	.mobile-menu-toggle.active .hamburger-inner {
 		transform: rotate(225deg);
 		transition-delay: 0.12s;
@@ -199,114 +269,5 @@ import { SITE_TITLE } from "../consts";
 		transition:
 			bottom 0.12s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
 			transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
-	}
-
-	.mobile-menu {
-		display: none;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		width: min(75vw, 400px);
-		height: 100vh;
-		background-color: var(--light-navy);
-		box-shadow: -10px 0px 30px -15px var(--navy-shadow);
-		z-index: 10;
-		transform: translateX(100%);
-		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-		visibility: hidden;
-	}
-
-	.home-subnav {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding: 10px 50px;
-		background-color: var(--navy);
-		border-top: 1px solid var(--lightest-navy);
-	}
-	.home-subnav a {
-		color: var(--lightest-slate);
-		text-decoration: none;
-		font-family: var(--font-mono);
-		font-size: var(--fz-xs);
-	}
-	.home-subnav a:hover {
-		color: var(--green);
-	}
-
-	.mobile-nav {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		width: 100%;
-	}
-
-	.mobile-nav ol {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		width: 100%;
-	}
-
-	.mobile-nav li {
-		margin: 0 auto 20px;
-		counter-increment: item 1;
-		font-size: var(--fz-lg);
-	}
-
-	.mobile-nav a {
-		display: inline-block;
-		text-decoration: none;
-		color: var(--lightest-slate);
-		padding: 3px 20px 20px;
-		width: 100%;
-	}
-
-	.mobile-nav a span {
-		display: block;
-		margin-bottom: 5px;
-		color: var(--green);
-		font-size: var(--fz-sm);
-	}
-
-	@media (min-width: 769px) {
-		.mobile-menu {
-			display: none !important;
-			visibility: hidden !important;
-			transform: translateX(100%) !important;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.navbar {
-			padding: 0 25px;
-		}
-
-		.nav-links {
-			display: none;
-		}
-
-		.mobile-menu-toggle {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.mobile-menu {
-			display: block; /* But hidden by transform */
-		}
-
-		.mobile-menu.active {
-			transform: translateX(0);
-			visibility: visible;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.home-subnav {
-			padding: 10px 25px;
-		}
 	}
 </style>

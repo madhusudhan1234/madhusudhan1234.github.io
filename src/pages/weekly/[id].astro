@@ -25,69 +25,10 @@ const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.
 <html lang="en">
 	<head>
 		<BaseHead title={`${episode.data.title} | ${SITE_TITLE}`} description={episode.data.description} />
-
-		<style>
-			.episode-container {
-				max-width: 800px;
-				margin: 0 auto;
-				padding: 0 1rem;
-			}
-			.episode-detail {
-				background: var(--light-navy);
-				border-radius: var(--border-radius);
-				padding: 2rem;
-				border: 1px solid var(--lightest-navy);
-			}
-			.episode-title {
-				font-size: 2rem;
-				margin-bottom: 1.5rem;
-				color: var(--lightest-slate);
-			}
-			.episode-description {
-				margin-bottom: 2rem;
-				line-height: 1.8;
-				color: var(--light-slate);
-			}
-			.back-link {
-				display: inline-block;
-				margin-bottom: 1rem;
-				color: var(--green);
-				text-decoration: none;
-				font-family: var(--font-mono);
-				font-size: var(--fz-sm);
-			}
-			.back-link:hover {
-				text-decoration: underline;
-			}
-			.episode-meta {
-				color: var(--slate);
-				margin-bottom: 1rem;
-				font-size: 0.9rem;
-				font-family: var(--font-mono);
-			}
-			.episode-tags {
-				margin-top: 1.5rem;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-			}
-			.tag {
-				background: var(--navy);
-				color: var(--green);
-				padding: 0.25rem 0.5rem;
-				border-radius: var(--border-radius);
-				font-size: var(--fz-xs);
-				font-family: var(--font-mono);
-			}
-			audio {
-				width: 100%;
-				margin-top: 1.5rem;
-			}
-		</style>
 	</head>
-	<body>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
 		<Header />
-		<main>
+		<main class="w-full max-w-4xl mx-auto px-6 pt-[110px] pb-12">
 			<script type="application/ld+json">
 				{JSON.stringify({
 					'@context': 'https://schema.org',
@@ -105,23 +46,29 @@ const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.
 					}
 				})}
 			</script>
-			<div class="episode-container">
-				<a href="/weekly" class="back-link" aria-label="Back to episodes list">← Back to Episodes</a>
-					<div class="episode-detail">
-						<h1 class="episode-title">Episode #{episode.data.id}: {episode.data.title}</h1>
-						<div class="episode-meta">
-							Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
-							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
-						</div>
-						<div class="episode-tags">
-						{episode.data.tags.split(',').map((tag) => (
-							<span class="tag">#{tag}</span>
-						))}
+			<div>
+				<a href="/weekly" class="inline-block mb-8 text-[var(--green)] font-mono text-xs hover:underline" aria-label="Back to episodes list">← Back to Episodes</a>
+				
+				<div class="bg-[var(--light-navy)] rounded border border-[var(--lightest-navy)] p-6 md:p-8">
+					<h1 class="text-2xl md:text-4xl font-bold text-[var(--lightest-slate)] mb-4">Episode #{episode.data.id}: {episode.data.title}</h1>
+					<div class="text-[var(--slate)] font-mono text-sm mb-6 pb-6 border-b border-[var(--lightest-navy)]">
+						Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
+						{episode.data.duration && ` • Duration: ${episode.data.duration}`}
 					</div>
-						<iframe src={audioLink} width="100%" height="120" frameborder="0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay" loading="lazy">
+					
+					<div class="mb-8">
+						<iframe src={audioLink} class="w-full h-[120px] border-0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay" loading="lazy">
 						</iframe>
-					<div class="episode-description">
+					</div>
+
+					<div class="prose prose-invert max-w-none prose-a:text-[var(--green)] prose-headings:text-[var(--lightest-slate)] text-[var(--slate)] leading-relaxed">
 						<Content />
+					</div>
+					
+					<div class="flex flex-wrap gap-2 mt-8 pt-8 border-t border-[var(--lightest-navy)]">
+						{episode.data.tags.split(',').map((tag) => (
+							<span class="bg-[var(--navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono">#{tag}</span>
+						))}
 					</div>
 				</div>
 			</div>

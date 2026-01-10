@@ -23,74 +23,11 @@ const tagList: string[] =
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} image={heroImage ? `/${heroImage}` : undefined} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: var(--gray-dark);
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: var(--gray);
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.tags {
-				margin-top: 2em;
-				padding-top: 1em;
-				border-top: 1px solid var(--lightest-navy);
-				display: flex;
-				gap: 0.5rem;
-				flex-wrap: wrap;
-				align-items: center;
-			}
-			.tag {
-				background: var(--light-navy);
-				color: var(--green);
-				padding: 0.25rem 0.5rem;
-				border-radius: var(--border-radius);
-				font-size: var(--fz-xs);
-				font-family: var(--font-mono);
-			}
-			.tags a {
-				color: var(--green);
-				text-decoration: none;
-			}
-			.tags a:hover {
-				text-decoration: underline;
-			}
-		</style>
 	</head>
 
-	<body>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
 		<Header />
-		<main>
+		<main class="w-full max-w-4xl mx-auto px-4 pt-[110px] pb-12">
 			<script type="application/ld+json">
 				{JSON.stringify({
 					'@context': 'https://schema.org',
@@ -119,7 +56,7 @@ const tagList: string[] =
 				})}
 			</script>
 			<article>
-				<div class="hero-image">
+				<div class="w-full mb-8">
 					{
 						heroImage && (
 							<img
@@ -127,35 +64,38 @@ const tagList: string[] =
 								height={510}
 								src={`/${heroImage}`}
 								alt={title}
+                                class="block mx-auto rounded-xl shadow-[var(--box-shadow)] w-full h-auto"
 								loading="lazy"
 								decoding="async"
 							/>
 						)
 					}
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+				<div class="w-full max-w-[720px] mx-auto p-4 text-[var(--light-slate)]">
+					<div class="text-center mb-4 py-4 leading-none">
+						<div class="mb-2 text-[var(--slate)]">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
-									<div class="last-updated-on">
+									<div class="italic">
 										Last updated on{" "}
 										<FormattedDate date={updatedDate} />
 									</div>
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<h1 class="mb-2 text-[var(--lightest-slate)] text-2xl md:text-4xl font-bold">{title}</h1>
+						<hr class="border-[var(--lightest-navy)] my-4" />
 					</div>
-					<slot />
+					<div class="prose prose-invert max-w-none prose-a:text-[var(--green)] prose-headings:text-[var(--lightest-slate)] text-[var(--slate)] leading-relaxed prose-img:rounded-xl prose-img:w-full prose-pre:bg-[var(--light-navy)] prose-pre:border prose-pre:border-[var(--lightest-navy)]">
+					    <slot />
+                    </div>
 					{
 						tagList.length > 0 && (
-							<div class="tags" aria-label="Tags">
-								<span class="tag">Tags:</span>
+							<div class="mt-8 pt-4 border-t border-[var(--lightest-navy)] flex gap-2 flex-wrap items-center" aria-label="Tags">
+								<span class="bg-[var(--light-navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono">Tags:</span>
 								{tagList.map((t) => (
-									<a href={`/notes/tag/${t}`} class="tag">
+									<a href={`/notes/tag/${t}`} class="bg-[var(--light-navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono no-underline hover:underline">
 										#{t}
 									</a>
 								))}
