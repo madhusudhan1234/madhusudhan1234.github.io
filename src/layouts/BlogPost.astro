@@ -85,9 +85,22 @@ const tagList: string[] =
 							}
 						</div>
 						<h1 class="mb-2 text-[var(--lightest-slate)] text-2xl md:text-4xl font-bold">{title}</h1>
-						<hr class="border-[var(--lightest-navy)] my-4" />
+						<hr class="border-[var(--lightest-navy)] my-8" />
 					</div>
-					<div class="prose prose-invert max-w-none prose-a:text-[var(--green)] prose-headings:text-[var(--lightest-slate)] text-[var(--slate)] leading-relaxed prose-img:rounded-xl prose-img:w-full prose-pre:bg-[var(--light-navy)] prose-pre:border prose-pre:border-[var(--lightest-navy)]">
+					<div class="prose prose-invert prose-lg max-w-none 
+                        prose-headings:text-[var(--lightest-slate)] prose-headings:font-bold 
+                        prose-p:text-[var(--slate)] prose-p:leading-relaxed 
+                        prose-a:text-[var(--green)] prose-a:no-underline hover:prose-a:underline
+                        prose-strong:text-[var(--lightest-slate)]
+                        prose-code:text-[var(--green)] prose-code:font-mono prose-code:bg-[var(--light-navy)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                        prose-pre:bg-[var(--light-navy)] prose-pre:text-[var(--slate)] prose-pre:border prose-pre:border-[var(--lightest-navy)] prose-pre:rounded-lg
+                        prose-li:text-[var(--slate)]
+                        prose-table:border-collapse prose-table:border prose-table:border-[var(--lightest-navy)] prose-table:w-full prose-table:my-8
+                        prose-th:border prose-th:border-[var(--lightest-navy)] prose-th:bg-[var(--light-navy)] prose-th:text-[var(--lightest-slate)] prose-th:p-3 prose-th:text-left
+                        prose-td:border prose-td:border-[var(--lightest-navy)] prose-td:text-[var(--slate)] prose-td:p-3
+                        prose-img:rounded-xl prose-img:shadow-xl
+                        prose-hr:border-[var(--lightest-navy)]
+                        prose-blockquote:border-l-[var(--green)] prose-blockquote:text-[var(--light-slate)] prose-blockquote:bg-[var(--light-navy)]/30 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r">
 					    <slot />
                     </div>
 					{

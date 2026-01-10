@@ -18,5 +18,8 @@
     "lucide-astro": "^0.556.0",
     "sharp": "^0.34.1",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19"
   }
 }
