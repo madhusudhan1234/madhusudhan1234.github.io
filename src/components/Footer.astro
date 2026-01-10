@@ -2,15 +2,12 @@
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Madhu Sudhan Subedi. All rights reserved.
+<footer
+	class="py-8 px-6 pb-24 md:pb-8 text-center text-[var(--light-slate)] font-mono text-xs"
+>
+	<div class="mb-2.5">
+		Designed & Built by <span class="text-[var(--green)]"
+			>{today.getFullYear()} Madhu Sudhan Subedi</span
+		>
+	</div>ghts reserved.
 </footer>
-<style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: var(--navy);
-		color: var(--gray);
-		text-align: center;
-		font-size: var(--fz-sm);
-	}
-</style>
