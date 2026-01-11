@@ -1,6 +1,7 @@
 
 import { EditorView, basicSetup } from "codemirror";
 import { EditorState } from "@codemirror/state";
+import { vscodeDark } from '@uiw/codemirror-theme-vscode';
 
 async function main() {
     const codeblocks = document.querySelectorAll('pre');
@@ -66,36 +67,7 @@ async function main() {
             extensions: [
                 ...extensions,
                 EditorView.editable.of(false),
-                EditorView.theme({
-                    "&": {
-                        color: "var(--slate)",
-                        backgroundColor: "var(--light-navy)",
-                        borderRadius: "0.5rem",
-                        border: "1px solid var(--lightest-navy)",
-                        padding: "0.5rem 0",
-                    },
-                    ".cm-content": {
-                        padding: "0 1rem",
-                    },
-                    "&.cm-focused .cm-cursor": {
-                        borderLeftColor: "#fff"
-                    },
-                    "&.cm-focused .cm-selectionBackground, ::selection": {
-                        backgroundColor: "#222"
-                    },
-                    ".cm-gutters": {
-                        backgroundColor: "var(--light-navy)",
-                        color: "var(--slate)",
-                        border: "none",
-                        padding: "0 0.5rem"
-                    },
-                    ".cm-scroller": {
-                        fontFamily: "var(--font-mono)"
-                    },
-                    ".cm-line": {
-                        padding: "0"
-                    }
-                })
+                vscodeDark
             ]
         });
 
