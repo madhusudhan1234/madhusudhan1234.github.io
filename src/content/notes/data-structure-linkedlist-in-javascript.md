@@ -27,7 +27,7 @@ Linked List Usage
 - Video Player
 
 
-```
+```js
 class Node {
     constructor(value) {
         this.value = value
@@ -58,7 +58,7 @@ class LinkedList {
 }
 ```
 
-```
+```js
 const list = new LinkedList()
 console.log(list.isEmpty()) // true
 console.log(list.getSize()) // 0

@@ -36,7 +36,7 @@ Circular Queue usage:
 - print() - print the elements in the queue
 
 
-```
+```js
 class CircularQueue {
   constructor(capacity) {
     this.items = new Array(capacity)
@@ -109,7 +109,7 @@ class CircularQueue {
 
 This is the implementation for the circular queue data structure in JavaScript. Let's check if it workks correctly.
 
-```
+```js
 const circularQueue = new CircularQueue(5)
 console.log(circularQueue.isEmpty()) // true
 
