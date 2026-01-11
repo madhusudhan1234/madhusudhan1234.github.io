@@ -45,7 +45,7 @@ your-folder-name/
 First, define the server host machines and ensure they are accessible via SSH. Set up the necessary SSH configuration using private/public keys, then specify the hosts in the inventory/hosts file like this:
 
 inventory/hosts
-```
+```ini
 [web_servers]
 your-host-ip # for example: 192.168.1.10
 ```
@@ -53,7 +53,7 @@ your-host-ip # for example: 192.168.1.10
 Define the ansible.cfg file like this:
 
 ansible.cfg
-```
+```ini
 [defaults]
 inventory = inventory/hosts
 remote_user = ubuntu
@@ -95,7 +95,7 @@ Here is the breakdown of the ansible.cfg settings:
 Ansible uses simple, human-readable scripts called playbooks to automate tasks. Now add the playbook file in the following location:
 
 playbooks/provision.yml
-```
+```yaml
 - name: Provision PHP
   hosts: web_servers
   become: true
@@ -143,7 +143,7 @@ The roles/ directory is where Ansible stores reusable automation logic. Each rol
 Now let's configure the `common` role. This role is mainly useful for common tasks like updating the apt cache, installing packages, setting timezone, etc.
 
 roles/common/tasks/main.yml
-```
+```yaml
 - name: Install common packages
   apt:
     name:
@@ -168,7 +168,7 @@ roles/common/tasks/main.yml
 The {{ timezone }} variable is defined in the roles/common/vars/main.yml file:
 
 roles/common/vars/main.yml
-```
+```yaml
 ---
 timezone: Asia/Tokyo
 ```
@@ -176,7 +176,7 @@ timezone: Asia/Tokyo
 Now that the common role is ready, let's set up the PHP role in a similar way:
 
 roles/php/tasks/main.yml
-```
+```yaml
 - name: Install PHP and extensions
   apt:
     name:
@@ -194,7 +194,7 @@ roles/php/tasks/main.yml
 This will install PHP and php-fpm (PHP FastCGI Process Manager) and notify the handler to restart php-fpm. The handler is defined like this:
 
 roles/php/handlers/main.yml
-```
+```yaml
 - name: restart php-fpm
   service:
     name: "php{{ php_version }}-fpm"
@@ -205,7 +205,7 @@ roles/php/handlers/main.yml
 Set the PHP version in the following variable file:
 
 roles/php/vars/main.yml
-```
+```yaml
 ---
 php_version: 8.3
 ```
@@ -214,7 +214,9 @@ If you need to add secret variables, you can use an Ansible vault file. When usi
 
 Finally, run this command to provision the server:
 
-`ansible-playbook playbooks/provision.yml`
+```bash
+ansible-playbook playbooks/provision.yml
+```
 
 This is the basic way of using Ansible. For more advanced usage, please check additional resources about Ansible. Creating a README.md file for each role is a best practice to document all necessary details.
 
