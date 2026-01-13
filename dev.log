@@ -1,0 +1,29 @@
+
+> madhusudhan1234.github.io@0.0.1 dev
+> astro dev
+
+▶ Astro collects anonymous usage data.
+  This information helps us improve Astro.
+  Run "astro telemetry disable" to opt-out.
+  https://astro.build/telemetry
+
+15:12:11 [types] Generated 1ms
+
+ update  ▶ New version of Astro available: 5.16.9
+  Run npx @astrojs/upgrade to update
+
+15:12:12 [content] Syncing content
+[Shiki] The language "env" doesn't exist, falling back to "plaintext".
+[Shiki] The language "env" doesn't exist, falling back to "plaintext".
+[Shiki] The language "env" doesn't exist, falling back to "plaintext".
+15:12:14 [content] Synced content
+
+ astro  v5.5.2 ready in 4259 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+15:12:15 watching for file changes...
+15:13:00 [200] / 7682ms
+15:13:07 [200] HEAD / 4944ms
+15:13:20 [200] / 4921ms
