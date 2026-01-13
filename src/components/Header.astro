@@ -17,17 +17,52 @@ import { SITE_TITLE } from "../consts";
 			>
 		</div>
 
-		<!-- Mobile Menu Toggle -->
-		<button
-			class="mobile-menu-toggle flex items-center justify-center md:hidden relative z-50 cursor-pointer bg-transparent border-none p-4 -mr-4"
-			aria-label="Toggle menu"
-		>
-			<span class="hamburger-box relative inline-block w-[30px] h-[24px]">
-				<span
-					class="hamburger-inner block absolute top-1/2 -mt-[2px] w-[30px] h-[2px] bg-[var(--green)] rounded transition-transform duration-150 ease-linear before:content-[''] before:block before:w-[30px] before:h-[2px] before:bg-[var(--green)] before:rounded before:absolute before:-top-[10px] before:transition-all before:duration-150 after:content-[''] after:block after:w-[30px] after:h-[2px] after:bg-[var(--green)] after:rounded after:absolute after:-bottom-[10px] after:transition-all after:duration-150"
-				></span>
-			</span>
-		</button>
+		<div class="flex items-center gap-4 md:hidden">
+			<!-- Mobile Theme Toggle -->
+			<button
+				class="theme-toggle p-2 text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors cursor-pointer"
+				aria-label="Toggle theme"
+			>
+				<svg
+					class="sun-icon hidden w-5 h-5"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+					></path></svg
+				>
+				<svg
+					class="moon-icon hidden w-5 h-5"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+					></path></svg
+				>
+			</button>
+
+			<!-- Mobile Menu Toggle -->
+			<button
+				class="mobile-menu-toggle flex items-center justify-center relative z-50 cursor-pointer bg-transparent border-none p-4 -mr-4"
+				aria-label="Toggle menu"
+			>
+				<span class="hamburger-box relative inline-block w-[30px] h-[24px]">
+					<span
+						class="hamburger-inner block absolute top-1/2 -mt-[2px] w-[30px] h-[2px] bg-[var(--green)] rounded transition-transform duration-150 ease-linear before:content-[''] before:block before:w-[30px] before:h-[2px] before:bg-[var(--green)] before:rounded before:absolute before:-top-[10px] before:transition-all before:duration-150 after:content-[''] after:block after:w-[30px] after:h-[2px] after:bg-[var(--green)] after:rounded after:absolute after:-bottom-[10px] after:transition-all after:duration-150"
+					></span>
+				</span>
+			</button>
+		</div>
 
 		<!-- Desktop Nav -->
 		<div class="hidden md:flex items-center">
@@ -78,8 +113,7 @@ import { SITE_TITLE } from "../consts";
 				</li>
 			</ol>
 			<button
-				id="theme-toggle"
-				class="ml-6 p-2 text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors cursor-pointer"
+				class="theme-toggle ml-6 p-2 text-[var(--lightest-slate)] hover:text-[var(--green)] transition-colors cursor-pointer"
 				aria-label="Toggle theme"
 			>
 				<svg
@@ -217,32 +251,37 @@ import { SITE_TITLE } from "../consts";
 	}
 
 	// Theme Toggle Logic
-	const themeToggle = document.getElementById("theme-toggle");
-	const sunIcon = document.querySelector(".sun-icon");
-	const moonIcon = document.querySelector(".moon-icon");
+	const themeToggles = document.querySelectorAll(".theme-toggle");
 
 	const updateIcons = (theme) => {
-		if (theme === "dark") {
-			sunIcon?.classList.remove("hidden");
-			moonIcon?.classList.add("hidden");
-		} else {
-			sunIcon?.classList.add("hidden");
-			moonIcon?.classList.remove("hidden");
-		}
+		themeToggles.forEach(toggle => {
+			const sunIcon = toggle.querySelector(".sun-icon");
+			const moonIcon = toggle.querySelector(".moon-icon");
+
+			if (theme === "dark") {
+				sunIcon?.classList.remove("hidden");
+				moonIcon?.classList.add("hidden");
+			} else {
+				sunIcon?.classList.add("hidden");
+				moonIcon?.classList.remove("hidden");
+			}
+		});
 	};
 
 	// Initialize icons based on current theme
 	const currentTheme = localStorage.getItem("theme") || "light";
 	updateIcons(currentTheme);
 
-	if (themeToggle) {
-		themeToggle.addEventListener("click", () => {
-			const current = document.documentElement.getAttribute("data-theme");
-			const newTheme = current === "dark" ? "light" : "dark";
+	if (themeToggles.length > 0) {
+		themeToggles.forEach(toggle => {
+			toggle.addEventListener("click", () => {
+				const current = document.documentElement.getAttribute("data-theme");
+				const newTheme = current === "dark" ? "light" : "dark";
 
-			document.documentElement.setAttribute("data-theme", newTheme);
-			localStorage.setItem("theme", newTheme);
-			updateIcons(newTheme);
+				document.documentElement.setAttribute("data-theme", newTheme);
+				localStorage.setItem("theme", newTheme);
+				updateIcons(newTheme);
+			});
 		});
 	}
 </script>
