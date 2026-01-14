@@ -24,7 +24,6 @@
     "@codemirror/state": "^6.5.3",
     "@codemirror/view": "^6.39.9",
     "@tailwindcss/vite": "^4.1.18",
-    "@uiw/codemirror-theme-vscode": "^4.25.4",
     "astro": "^5.5.2",
     "codemirror": "^6.0.2",
     "lucide-astro": "^0.556.0",
