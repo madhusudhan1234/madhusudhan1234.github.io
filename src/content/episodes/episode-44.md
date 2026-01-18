@@ -11,7 +11,7 @@ audioLink: https://audio.lifeandmessage.com/embed/42
 
 ---
 
-### **My LLM coding workflow going into 2026 **
+### **My LLM coding workflow going into 2026**
 
 AI coding assistants transformed development in 2025, but using them effectively requires structure and discipline. Google engineer Addy Osmani shares his proven workflow going into 2026.
 The key insight? Treat AI as a powerful pair programmer, not autonomous magic. Start with detailed specs before writing any code. Break work into small, testable chunks. Provide extensive context about your codebase and constraints. And critically—always review and test everything the AI generates.
