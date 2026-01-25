@@ -23,7 +23,7 @@ With this acquisition, Cloudflare is doubling down on making web development fas
 
 ---
 
-### **More HTTP/3 focus, one backend less **
+### **More HTTP/3 focus, one backend less**
 
 Big news from the curl project this week!
 The popular networking tool is simplifying its HTTP/3 support by dropping OpenSSL's QUIC backend. The decision? Performance and memory issues.
