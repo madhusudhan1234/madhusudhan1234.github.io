@@ -9,14 +9,38 @@ import FormattedDate from "../../components/FormattedDate.astro";
 const posts: any[] = (await getCollection("notes" as any)).sort(
   (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const groupedByFolder: Record<string, any[]> = posts.reduce(
+  (acc: Record<string, any[]>, post: any) => {
+    const parts = String(post.id).split("/");
+    const folder = parts.length > 1 ? parts[0] : "misc";
+    if (!acc[folder]) acc[folder] = [];
+    acc[folder].push(post);
+    return acc;
+  },
+  {},
+);
+
+const folderNames = Object.keys(groupedByFolder).sort((a, b) =>
+  a.localeCompare(b),
+);
+
+const formatFolderName = (name: string) =>
+  name === "misc"
+    ? "Misc"
+    : name
+        .split(/[-_/]/)
+        .filter(Boolean)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead
-      title={`Notes | Data Structures, JavaScript & Backend`}
-      description={`Developer notes on JavaScript data structures, backend engineering, DevOps and practical tips.`}
+      title={`Notes | My Personal Notes`}
+      description={`My personal notes`}
     />
   </head>
   <body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
@@ -28,62 +52,46 @@ const posts: any[] = (await getCollection("notes" as any)).sort(
         >
           Notes
         </h1>
-        <p class="text-[var(--slate)] text-lg max-w-2xl">
-          Developer notes on JavaScript data structures, backend engineering,
-          DevOps and practical tips.
-        </p>
+        <p class="text-[var(--slate)] text-lg max-w-2xl">My personal notes.</p>
       </div>
 
-      <section>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {
-            posts.map((post) => (
-              <li class="group">
-                <a
-                  href={`/notes/${post.id}/`}
-                  class="block h-full bg-[var(--light-navy)] rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-lg"
-                >
-                  <div class="aspect-video w-full overflow-hidden relative bg-[var(--navy)]">
-                    {post.data.heroImage ? (
-                      <img
-                        width={720}
-                        height={360}
-                        src={`/${post.data.heroImage}`}
-                        alt={post.data.title}
-                        loading="lazy"
-                        decoding="async"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
-                      />
-                    ) : (
-                      <img
-                        width={720}
-                        height={360}
-                        src="/note-placeholder.svg"
-                        alt="Placeholder"
-                        loading="lazy"
-                        decoding="async"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-80 mix-blend-luminosity group-hover:mix-blend-normal"
-                      />
-                    )}
-                  </div>
-                  <div class="p-6">
-                    <h4 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
-                      {post.data.title}
-                    </h4>
-                    <p class="text-[var(--light-slate)] text-sm font-mono mb-4">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                    {post.data.description && (
-                      <p class="text-[var(--slate)] line-clamp-3 text-sm">
-                        {post.data.description}
-                      </p>
-                    )}
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+      <section class="space-y-10">
+        {
+          folderNames.map((folder) => {
+            const items = groupedByFolder[folder].sort(
+              (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+            );
+            return (
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-[var(--lightest-slate)] mb-4">
+                  {formatFolderName(folder)}
+                </h2>
+                <ul class="space-y-3">
+                  {items.map((post) => (
+                    <li class="flex items-start justify-between gap-4 p-4 bg-[var(--light-navy)] rounded-lg hover:bg-[var(--lightest-navy)] transition-colors">
+                      <div class="flex-1">
+                        <a
+                          href={`/notes/${post.id}/`}
+                          class="text-[var(--lightest-slate)] font-semibold hover:text-[var(--green)]"
+                        >
+                          {post.data.title}
+                        </a>
+                        {post.data.description && (
+                          <p class="text-[var(--slate)] text-sm mt-1">
+                            {post.data.description}
+                          </p>
+                        )}
+                      </div>
+                      <div class="text-[var(--light-slate)] text-xs font-mono whitespace-nowrap">
+                        <FormattedDate date={post.data.pubDate} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })
+        }
       </section>
     </main>
     <Footer />

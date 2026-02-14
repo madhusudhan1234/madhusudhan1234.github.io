@@ -7,7 +7,7 @@ tags: 'js-data-structure'
 
 ## Overview
 
-A map is an un ordered collection of key value pairs. Both keys and values can of any data type.
+A Map is a collection of key-value pairs that preserves insertion order. Both keys and values can of any data type.
 
 To retrieve a value, you can use the corssponding key.
 
