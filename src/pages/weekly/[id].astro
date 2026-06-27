@@ -37,12 +37,12 @@ const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.
 					'description': episode.data.description,
 					'datePublished': new Date(episode.data.publishDate).toISOString(),
 					'duration': episode.data.duration || undefined,
-					'url': `/weekly/${episode.data.id}`,
+					'url': `https://madhusudhansubedi.com.np/weekly/${episode.data.id}`,
 					'embedUrl': audioLink,
 					'partOfSeries': {
 						'@type': 'PodcastSeries',
 						'name': 'Madhu Sudhan Subedi Tech Weekly',
-						'url': '/weekly'
+						'url': 'https://madhusudhansubedi.com.np/weekly'
 					}
 				})}
 			</script>
