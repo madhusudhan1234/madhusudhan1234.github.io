@@ -13,7 +13,6 @@ export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const TWITTER_HANDLE = '@xmadhusudhan';
 
 export const SOCIALS = {
-  x: 'https://x.com/xmadhusudhan',
   linkedin: 'https://www.linkedin.com/in/madhusudhan1994/',
   github: 'https://github.com/madhusudhan1234',
 };

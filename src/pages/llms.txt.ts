@@ -46,7 +46,6 @@ export const GET: APIRoute = async () => {
     `- [Sitemap](${SITE_URL}/sitemap-index.xml)`,
     `- [GitHub](${SOCIALS.github})`,
     `- [LinkedIn](${SOCIALS.linkedin})`,
-    `- [X / Twitter](${SOCIALS.x})`,
     '',
   ];
 
