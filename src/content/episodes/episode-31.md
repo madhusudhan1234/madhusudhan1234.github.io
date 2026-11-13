@@ -2,7 +2,7 @@
 id: 31
 title: "Code That Proves, Agents That Think, Systems That Last"
 description: "In this week’s edition, we are presenting a collection of insights on how developers are pushing the boundaries of reliability and intelligence in software. From writing provable code in Lean to evaluating AI agents and building durable distributed systems, each topic highlights practical ways to make technology smarter, safer, and more efficient."
-published: false
+published: true
 tags: aiagents, softwarereliability, techlearning, codingbestpractices
 publishDate: "2025-10-18"
 duration: 6:22

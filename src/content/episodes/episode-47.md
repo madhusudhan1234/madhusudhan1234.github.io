@@ -2,7 +2,7 @@
 id: 47
 title: "OpenAI's Agentic AI Push, Codex, Laravel's AI SDK, Fundamentals Over Frameworks"
 description: "OpenAI's acquisition of agent framework OpenClaw marks a turning point — AI is shifting from chat to action. Codex is already living that future, with 90%+ of its code written by itself and engineers managing agents instead of writing lines. Laravel joined in with a first-class AI SDK covering everything from text to embeddings across multiple providers. And amid the chaos, one reminder stands above the noise: learn fundamentals, not frameworks — because when AI-generated code breaks, that's what saves you."
-published: false
+published: true
 tags: aiagents, developertools, softwareengineering, technews
 publishDate: "2026-02-23"
 duration: 7:56

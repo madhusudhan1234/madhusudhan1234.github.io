@@ -55,6 +55,14 @@ All colors use CSS custom properties defined in `src/styles/global.css`. Light m
 
 `src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION` used across pages for `<BaseHead>` titles.
 
+### SEO / AIO
+
+- `BaseHead.astro` is the single head component (canonical, OG/Twitter, robots, optional `jsonLd` prop). Emit JSON-LD only through `JsonLd.astro` / the `jsonLd` prop: expressions inside a plain `<script>` are NOT evaluated by Astro.
+- Shared identity and URLs live in `src/consts.ts`; schema helpers (`personNode`, `websiteNode`, `breadcrumbList`, `toIsoDuration`) in `src/utils/seo.ts`.
+- Always use `getPublishedEpisodes()` (`src/utils/episodes.ts`) instead of `getCollection('episodes')` so the `published` flag is honoured everywhere.
+- `/llms.txt` and `/llms-full.txt` are generated from the collections; the sitemap is `@astrojs/sitemap` only (lastmod from `src/utils/lastmod.mjs`). `robots.txt` explicitly allows AI crawlers.
+- `public/CNAME` must stay `madhusudhansubedi.com.np`. After changing JSON-LD, validate the built `dist/` output (parse every `application/ld+json` block).
+
 ## Deployment
 
 Static output goes to `dist/`. Deployed to GitHub Pages at `madhusudhansubedi.com.np` (see `CNAME`). The `astro.config.mjs` sets `site: 'https://madhusudhansubedi.com.np'` which affects sitemap and canonical URLs.

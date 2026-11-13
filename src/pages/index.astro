@@ -2,7 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, PERSON_ID, WEBSITE_ID } from "../consts";
+import { personNode, websiteNode } from "../utils/seo";
 import {
 	Code,
 	LayoutGrid,
@@ -16,10 +17,24 @@ import {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<meta
-			name="keywords"
-			content="software engineer, Japan, Nepal, Astro, React, Node.js, web development, Laravel, PHP, backend"
+		<BaseHead
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			jsonLd={{
+				"@context": "https://schema.org",
+				"@graph": [
+					personNode,
+					websiteNode,
+					{
+						"@type": "ProfilePage",
+						"@id": `${SITE_URL}/#profilepage`,
+						url: SITE_URL,
+						name: SITE_TITLE,
+						isPartOf: { "@id": WEBSITE_ID },
+						mainEntity: { "@id": PERSON_ID },
+					},
+				],
+			}}
 		/>
 	</head>
 	<body
@@ -160,7 +175,8 @@ import {
 					<a
 						href="https://x.com/xmadhusudhan"
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="me noopener noreferrer"
+						aria-label="X (Twitter)"
 						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
@@ -178,7 +194,8 @@ import {
 					<a
 						href="https://github.com/madhusudhan1234"
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="me noopener noreferrer"
+						aria-label="GitHub"
 						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
@@ -196,7 +213,8 @@ import {
 					<a
 						href="https://www.linkedin.com/in/madhusudhan1994"
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="me noopener noreferrer"
+						aria-label="LinkedIn"
 						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
 					>
 						<svg
@@ -756,46 +774,5 @@ import {
 
 			<Footer />
 		</div>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Madhu Sudhan Subedi",
-				"jobTitle": "Software Engineer",
-				"experienceYears": "9+",
-				"birthPlace": {
-					"@type": "Place",
-					"address": {
-						"@type": "PostalAddress",
-						"addressCountry": "Nepal"
-					}
-				},
-				"workLocation": {
-					"@type": "Place",
-					"address": {
-						"@type": "PostalAddress",
-						"addressCountry": "Japan"
-					}
-				},
-				"sameAs": [
-					"https://twitter.com/xmadhusudhan",
-					"https://www.linkedin.com/in/madhusudhan1994/"
-				]
-			}
-		</script>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "Madhu Sudhan Subedi",
-				"url": "https://madhusudhansubedi.com.np",
-				"logo": "https://madhusudhansubedi.com.np/apple-touch-icon.png",
-				"sameAs": [
-					"https://x.com/xmadhusudhan",
-					"https://www.linkedin.com/in/madhusudhan1994/",
-					"https://github.com/madhusudhan1234"
-				]
-			}
-		</script>
 	</body>
 </html>

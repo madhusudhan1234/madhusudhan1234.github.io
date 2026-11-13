@@ -2,7 +2,7 @@
 id: 32
 title: "AWS Outage Breakdown, Digital Immortality, Junior Devs, Werner Vogels & Spotify System Design"
 description: "This week, we cover the October 20 AWS outage and how it impacted global services, explore Maxwell Nye’s bold roadmap to digital immortality, and discuss why junior developers still matter in the AI era. Plus, insights from Werner Vogels on how experience shapes better developers, and a deep dive into Spotify’s scalable system design with Neo Kim and Hayk Simonyan."
-published: false
+published: true
 tags: awsoutage, digitalimmortality, juniordevelopers, systemdesign
 publishDate: "2025-10-26"
 duration: 6:22

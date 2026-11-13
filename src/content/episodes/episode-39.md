@@ -2,7 +2,7 @@
 id: 39
 title: "Anthropic's Bun Bet, the PM Drought & Seattle's AI Backlash"
 description: "Anthropic acquires Bun JavaScript runtime while keeping it open source. AI companies hire 34% fewer Product Managers than other tech sectors. Seattle engineers push back against forced AI adoption. Plus: why some developers are choosing craft over career growth, and why test code deserves production-grade standards."
-published: false
+published: true
 tags: bunruntime, productmanagement, aiadoption, softwareengineering
 publishDate: "2025-12-14"
 duration: 7:38

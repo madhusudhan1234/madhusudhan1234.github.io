@@ -2,7 +2,7 @@
 id: 44
 title: "LLM Workflows, Code Bottlenecks & AI Adoption in 2026"
 description: "In this episode, learn AI coding best practices from Google's Addy Osmani, discover how to become a more effective engineer beyond technical skills, explore Cloudflare's 2025 internet trends with AI bots and post-quantum encryption, understand why AI-driven coding creates new bottlenecks in testing and deployment, and get practical lessons from Imprint's 18-month internal AI adoption journey. Essential insights for engineering leaders navigating AI transformation in 2026."
-published: false
+published: true
 tags: aiengineering, llmcoding, engineeringleadership, devops
 publishDate: "2026-01-03"
 duration: 7:43

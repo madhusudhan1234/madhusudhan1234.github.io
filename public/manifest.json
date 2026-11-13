@@ -1,6 +1,9 @@
 {
+  "id": "/",
   "name": "Madhu Sudhan Subedi - Software Engineer",
   "short_name": "MSS",
+  "description": "Personal website, blog, notes and Tech Weekly podcast of Madhu Sudhan Subedi, a software engineer from Nepal based in Japan.",
+  "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -1,0 +1,11 @@
+---
+// Renders schema.org JSON-LD. `set:html` is required: expressions inside a plain
+// <script> tag are not evaluated by Astro. Escape "<" so content can't close the tag.
+interface Props {
+	data: Record<string, unknown> | Record<string, unknown>[];
+}
+const { data } = Astro.props;
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={json} />

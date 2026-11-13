@@ -2,8 +2,8 @@
 id: 19
 title: "From Legacy Code to AI Myths & Edge Innovation"
 description: "This episode explores the real forces behind tech progress: why infrastructure changes shape killer apps, how tiny tools like s3mini power edge computing, and why the “AI will take all jobs” narrative isn’t what it seems. Plus, lessons learned from taming ancient mainframe code and how platform engineering is helping teams build better software, faster. Discover what’s hype, what’s history, and what’s shaping the next chapter of technology!"
-published: false
-tags: Tech, NewsAIEdge, ComputingSoftware, Development
+published: true
+tags: tech, newsaiedge, computingsoftware, development
 publishDate: "2025-07-27"
 duration: 6:59
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/19

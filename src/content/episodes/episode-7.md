@@ -6,7 +6,7 @@ published: true
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/7
 publishDate: "2025-05-06"
 duration: "09:29"
-tags: bigtech, byd, xAI, azure
+tags: bigtech, byd, xai, azure
 ---
 
 ---

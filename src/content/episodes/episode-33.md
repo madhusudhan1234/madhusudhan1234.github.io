@@ -2,7 +2,7 @@
 id: 33
 title: "Amazon’s Layoffs, AI Integration, and Modern PHP — Trends Shaping 2025"
 description: "This week’s highlights cover Amazon’s recent layoffs aimed at reducing bureaucracy, Chrome’s new on-device Writer API for private AI text generation, and the upcoming PHP 8.5 release focused on cleaner and more reliable code. We also look at the growing risk of “comprehension debt” from AI-generated code and how PHP continues to evolve and remain strong in 2025."
-published: false
+published: true
 tags: technews, aianddevelopertools, phpupdates, amazonlayoffs
 publishDate: "2025-11-02"
 duration: 7:59

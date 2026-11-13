@@ -4,68 +4,99 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { AUTHOR_NAME, PERSON_ID, SITE_URL, WEBSITE_ID } from "../consts";
+import { absoluteUrl, authorRef, breadcrumbList, splitTags, truncate } from "../utils/seo";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+	kind?: "blog" | "notes";
+	slug?: string;
+	tags?: string;
+	heroImageAlt?: string;
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
-const rawTags = (Astro.props as any)?.tags ?? "";
-const tagList: string[] =
-	typeof rawTags === "string"
-		? rawTags
-				.split(",")
-				.map((t) => t.trim())
-				.filter(Boolean)
-		: Array.isArray(rawTags)
-			? rawTags
-			: [];
+const { title, description, pubDate, updatedDate, heroImage, heroImageAlt, kind = "blog", slug = "", tags } = Astro.props;
+const tagList: string[] = splitTags(tags);
+
+const titleCase = (s: string) => s.replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+const folder = kind === "notes" && slug.includes("/") ? slug.split("/")[0] : "";
+const section = kind === "blog" ? "Blog" : folder ? titleCase(folder) : "Notes";
+
+const base = kind === "blog" ? "/blog/" : "/notes/";
+const pagePath = `${base}${slug}/`;
+const pageUrl = absoluteUrl(pagePath);
+const metaDescription = truncate(description, 160);
+const imageUrl = heroImage ? absoluteUrl(`/${heroImage}`) : undefined;
+const imageAlt = heroImageAlt ?? title;
+
+const crumbs = [
+	{ name: "Home", path: "/" },
+	{ name: kind === "blog" ? "Blog" : "Notes", path: base },
+	...(folder ? [{ name: section }] : []),
+	{ name: title },
+];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": kind === "blog" ? "BlogPosting" : "TechArticle",
+			"@id": `${pageUrl}#article`,
+			headline: title,
+			description,
+			url: pageUrl,
+			mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+			image: imageUrl ? [imageUrl] : [absoluteUrl("/images/og-default.jpg")],
+			datePublished: pubDate.toISOString(),
+			dateModified: (updatedDate ?? pubDate).toISOString(),
+			author: authorRef,
+			publisher: { "@id": PERSON_ID },
+			isPartOf: { "@id": WEBSITE_ID },
+			articleSection: section,
+			keywords: tagList.length ? tagList.join(", ") : undefined,
+			inLanguage: "en",
+		},
+		breadcrumbList(
+			crumbs
+				.map((c, i) => ({ name: c.name, path: i === crumbs.length - 1 ? pagePath : c.path }))
+				.filter((c): c is { name: string; path: string } => Boolean(c.path))
+		),
+	],
+};
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={heroImage ? `/${heroImage}` : undefined} type="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<BaseHead
+			title={title}
+			description={metaDescription}
+			image={heroImage ? `/${heroImage}` : undefined}
+			imageAlt={heroImage ? imageAlt : undefined}
+			type="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			section={section}
+			tags={tagList}
+			jsonLd={jsonLd}
+		/>
 	</head>
 
 	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
 		<Header />
 		<main class="w-full max-w-4xl mx-auto px-4 pt-[110px] pb-12">
-			<script type="application/ld+json">
-				{JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'Article',
-					'headline': title,
-					'description': description,
-					'image': heroImage ? `/${heroImage}` : undefined,
-					'datePublished': (Astro.props as any).pubDate?.toISOString?.() || undefined,
-					'dateModified': (Astro.props as any).updatedDate?.toISOString?.() || undefined,
-					'author': {
-						'@type': 'Person',
-						'name': 'Madhu Sudhan Subedi',
-					},
-					'publisher': {
-						'@type': 'Organization',
-						'name': 'Madhu Sudhan Subedi',
-						'logo': {
-							'@type': 'ImageObject',
-							'url': '/apple-touch-icon.png'
-						}
-					},
-					'mainEntityOfPage': {
-						'@type': 'WebPage',
-						'@id': Astro.url
-					}
-				})}
-			</script>
+			<div class="w-full max-w-[720px] mx-auto px-4"><Breadcrumbs items={crumbs} /></div>
 			<article>
 				<div class="w-full mb-8">
 					{
 						heroImage && (
 							<img
-								width={1020}
-								height={510}
+								width={1536}
+								height={1024}
 								src={`/${heroImage}`}
-								alt={title}
+								alt={imageAlt}
                                 class="block mx-auto rounded-xl shadow-[var(--box-shadow)] w-full h-auto"
-								loading="lazy"
+								loading="eager"
+								fetchpriority="high"
 								decoding="async"
 							/>
 						)
@@ -108,13 +139,18 @@ const tagList: string[] =
 							<div class="mt-8 pt-4 border-t border-[var(--lightest-navy)] flex gap-2 flex-wrap items-center" aria-label="Tags">
 								<span class="bg-[var(--light-navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono">Tags:</span>
 								{tagList.map((t) => (
-									<a href={`/notes/tag/${t}`} class="bg-[var(--light-navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono no-underline hover:underline">
+									<a href={`/notes/tag/${t}/`} class="bg-[var(--light-navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono no-underline hover:underline">
 										#{t}
 									</a>
 								))}
 							</div>
 						)
 					}
+					<aside class="mt-10 p-5 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] text-sm" aria-label="About the author">
+						<p class="m-0 font-mono text-xs text-[var(--green)] mb-1">Written by</p>
+						<p class="m-0 text-[var(--lightest-slate)] font-bold text-base"><a href="/about/" rel="author" class="no-underline hover:underline text-[var(--lightest-slate)]">{AUTHOR_NAME}</a></p>
+						<p class="mt-2 mb-0 text-[var(--slate)] leading-relaxed">Software engineer from Nepal based in Japan, with 9+ years of experience building web applications, APIs and backend systems. I also host the <a href="/weekly/" class="text-[var(--green)]">Tech Weekly</a> podcast.</p>
+					</aside>
 				</div>
 			</article>
 		</main>

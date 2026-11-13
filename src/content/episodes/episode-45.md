@@ -2,7 +2,7 @@
 id: 45
 title: "Astro Joins Cloudflare, Curl Drops OpenSSL QUIC, AI Can't Replace Developers"
 description: "This week in tech: Astro joins Cloudflare while staying open source, curl drops a bloated backend for performance, and we examine why 50 years of trying to replace developers has taught us that tools amplify talent but can't replace thinking. Plus: why design systems matter and why CSS's complexity is a feature, not a bug."
-published: false
+published: true
 tags: webdev, opensource, devops, technews
 publishDate: "2026-01-25"
 duration: 6:51

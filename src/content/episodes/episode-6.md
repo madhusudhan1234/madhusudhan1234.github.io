@@ -6,7 +6,7 @@ published: true
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/6
 publishDate: "2025-04-27"
 duration: "09:29"
-tags: phpstorm, techjobs, ansible, MarkZuckerberg
+tags: phpstorm, techjobs, ansible, markzuckerberg
 ---
 
 ---

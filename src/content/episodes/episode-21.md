@@ -2,7 +2,7 @@
 id: 21
 title: "From GPT-5 to DevOps Mastery — AI, Cloud, and Career Insights"
 description: "In this episode, we cover the latest in AI, cloud, and DevOps. From OpenAI’s powerful GPT-5 and Anthropic’s multi-agent research breakthroughs, to practical tips for cutting Kubernetes costs, making platform engineering work for startups, and nailing your next DevOps interview. Whether you’re building the future with AI, scaling cloud systems, or leveling up your engineering career, this episode is packed with insights you can use today."
-published: false
+published: true
 tags: gpt-5, anthropic, cloudcostoptimization, kubernetes
 publishDate: "2025-08-10"
 duration: 7:01

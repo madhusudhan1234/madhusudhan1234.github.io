@@ -2,7 +2,7 @@
 id: 35
 title: "Laravel Live Japan, Billion-Scale Architecture, AI-Ready Repos & Rethinking Software Progress"
 description: "In this week’s edition of Madhu Sudhan Subedi Tech Weekly, we cover Laravel Live Japan 2026, highlighting talks from industry leaders like Taylor Otwell and tips for aspiring speakers. We dive into scaling databases from millions to billions of API requests using ClickHouse, Kafka, and Vector, and share strategies for optimizing codebases for both humans and AI agents. We also explore the new realities of AI-powered software teams, emphasizing robust testing, fast feedback, and rethinking workflows, and reflect on true software progress, showing why clarity, collaboration, and maintainable code matter more than chasing trends. Stay informed with insights on practical development, database optimization, AI collaboration, and building resilient software teams."
-published: false
+published: true
 tags: laravellivejapan, databasescaling, aipowereddevelopment, softwaredevelopment
 publishDate: "2025-11-17"
 duration: 6:13

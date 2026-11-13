@@ -1,0 +1,84 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE_URL, PERSON_ID, WEBSITE_ID, SOCIALS, AUTHOR_NAME } from '../consts';
+import { absoluteUrl, breadcrumbList, personNode } from '../utils/seo';
+
+const description =
+	'Madhu Sudhan Subedi is a software engineer from Nepal based in Japan with 9+ years of experience in backend development, APIs, AWS and web applications.';
+
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'About' }];
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		personNode,
+		{
+			'@type': 'ProfilePage',
+			'@id': `${SITE_URL}/about/#profilepage`,
+			url: absoluteUrl('/about/'),
+			name: `About ${AUTHOR_NAME}`,
+			description,
+			isPartOf: { '@id': WEBSITE_ID },
+			mainEntity: { '@id': PERSON_ID },
+		},
+		breadcrumbList([
+			{ name: 'Home', path: '/' },
+			{ name: 'About', path: '/about/' },
+		]),
+	],
+};
+
+const jobs = [
+	{ role: 'Backend Software Engineer', company: 'Hivelocity Inc.', period: 'August 2024 – Present', summary: 'Backend for a multi-tenant e-commerce and fan-commerce platform with RESTful APIs used by leading Japanese brands and influencers; Laravel and PHP upgrades for industrial company websites.' },
+	{ role: 'CSM & Sr. Software Engineer', company: 'UBA Solutions', period: 'April 2018 – August 2024', summary: 'ETL pipelines and legacy-to-new system migration for millions of users and orders, an AWS migration that saved about $5,000 per month, security-header hardening, and Scrum Master coaching.' },
+	{ role: 'Software Engineer', company: 'Introcept Nepal', period: 'October 2016 – March 2018', summary: 'A Laravel-backed CRM for 400 education consultancies worldwide, and a frontend migration from jQuery to Vue.js.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About ${AUTHOR_NAME}`} description={description} jsonLd={jsonLd} />
+	</head>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
+		<Header />
+		<main class="w-full max-w-3xl mx-auto px-6 pt-[110px] pb-16">
+			<Breadcrumbs items={crumbs} />
+			<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-8">About {AUTHOR_NAME}</h1>
+
+			<div class="text-lg leading-relaxed flex flex-col gap-5">
+				<p>
+					I'm a software engineer from Nepal, currently based in Japan, with more than nine years of experience building web applications, APIs and backend systems. My day-to-day stack is Laravel and PHP, with Node.js, AWS and DevOps tooling around it.
+				</p>
+				<p>
+					I started writing code out of necessity and it grew into a creative pursuit. I enjoy exploring new technologies and sharing what I learn: through the <a href="/blog/" class="text-[var(--green)] hover:underline">blog</a>, my <a href="/notes/" class="text-[var(--green)] hover:underline">developer notes</a> on data structures in JavaScript, and the <a href="/weekly/" class="text-[var(--green)] hover:underline">Tech Weekly podcast</a>, a short weekly roundup of software engineering, DevOps and architecture news.
+				</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Experience</h2>
+			<ul class="list-none p-0 m-0 flex flex-col gap-6">
+				{jobs.map((job) => (
+					<li>
+						<h3 class="text-xl font-semibold text-[var(--lightest-slate)] m-0">{job.role} <span class="text-[var(--green)]">@ {job.company}</span></h3>
+						<p class="font-mono text-xs text-[var(--light-slate)] mt-1 mb-2">{job.period}</p>
+						<p class="m-0">{job.summary}</p>
+					</li>
+				))}
+			</ul>
+
+			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Skills</h2>
+			<p class="m-0">JavaScript, TypeScript, PHP, Node.js, Laravel, NestJS, Express, React, Vue.js, Next.js, Tailwind CSS, RESTful APIs, MySQL, MongoDB, Redis, AWS, Docker, Ansible, Git and GitHub.</p>
+
+			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Find me online</h2>
+			<ul class="list-none p-0 m-0 flex flex-col gap-2 font-mono text-sm">
+				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.github} class="text-[var(--green)] hover:underline">GitHub</a></li>
+				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.linkedin} class="text-[var(--green)] hover:underline">LinkedIn</a></li>
+				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.x} class="text-[var(--green)] hover:underline">X (Twitter)</a></li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

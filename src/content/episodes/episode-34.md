@@ -2,7 +2,7 @@
 id: 34
 title: "PHP Tricks, LLM Collaboration, SQL Speedups, and the Future of Web Payments"
 description: "In this week’s edition of Madhu Sudhan Subedi Tech Weekly, we explore the hidden risks of dynamic method calls in PHP, the evolving role of developers as non-engineers start coding with LLMs, and how smart indexing can supercharge SQL performance. We also share lessons beyond code for new programmers and dive into the revival of HTTP 402, showing how agentic payments could reshape the web economy. Stay ahead with insights on practical coding, team collaboration, database optimization, and the future of digital transactions."
-published: false
+published: true
 tags: phpdevelopment, aiandllms, sqlperformance, webpayments
 publishDate: "2025-11-09"
 duration: 8:05

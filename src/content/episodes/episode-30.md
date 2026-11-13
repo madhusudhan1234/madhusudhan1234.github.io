@@ -2,7 +2,7 @@
 id: 30
 title: "Dotter, Claude Code, Regex, and Startup Insights"
 description: "This week’s Tech Weekly covers tools and strategies to work smarter and grow sustainably. Explore Dotter for easy dotfile management, learn when automation truly adds value, and see how simplicity powers AI coding with Claude Code. Master regex for faster threat detection, and discover why building a startup is more like marathon training than a sprint."
-published: false
+published: true
 tags: developertools, aifordevelopers, cybersecurity, startupmindset
 publishDate: "2025-10-12"
 duration: 5:25

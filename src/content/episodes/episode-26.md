@@ -2,8 +2,8 @@
 id: 26
 title: "Chrome Turns 17, AI Scraping Rules, and Oracle’s $300B Bet"
 description: "This week explores Chrome’s 17-year journey shaping the modern web, the shift in tech compensation with front-loaded vesting, and a new licensing standard that could force AI to pay for scraped data. We also dive into Palantir’s expanding surveillance power, Amazon’s push into smart glasses, and OpenAI’s record-breaking $300B cloud deal with Oracle."
-published: false
-tags: chrome, web, AI, compensation, palantir, amazon, smartglasses, oracle, openai, cloud, surveillance, techweekly
+published: true
+tags: chrome, web, ai, compensation, palantir, amazon, smartglasses, oracle, openai, cloud, surveillance, techweekly
 publishDate: "2025-09-13"
 duration: 11:21
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/26

@@ -2,7 +2,7 @@
 id: 15
 title: "Cloudflare’s 13 New AI Servers, AI Coding Tips, and Dev Truths"
 description: "Cloudflare rolls out 13 powerful MCP servers for real-time development, we explore smart ways to use AI for coding, why even senior devs Google basic syntax, a Kubernetes guide with an amusement park twist, and a head-to-head performance battle between SFTP and FTPS."
-published: false
+published: true
 tags: cloudflare, aiindev, kubernetes, devtips
 publishDate: "2025-06-29"
 duration: 06:30

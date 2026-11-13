@@ -2,8 +2,8 @@
 id: 20
 title: "Meta’s Comeback, Design Disruption, and How AI is Redefining Tech Skills"
 description: "In this special 20th episode, Madhu Sudhan explores Meta’s surprising smartwatch comeback, why “designer” might become an outdated job title, the myth of endless focus time for engineers, three ways to tackle software complexity, and how coding with AI turns strategy into your real superpower. Dive in for crisp insights on tech’s fast-changing landscape!"
-published: false
-tags: MetaSmartwatch, AITrends, TechCareers, SoftwareDevelopment
+published: true
+tags: metasmartwatch, aitrends, techcareers, softwaredevelopment
 publishDate: "2025-08-03"
 duration: 06:09
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/20

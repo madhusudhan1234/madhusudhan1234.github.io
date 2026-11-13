@@ -2,13 +2,40 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { SITE_URL, WEBSITE_ID, PERSON_ID } from "../../consts";
+import { absoluteUrl, authorRef, breadcrumbList } from "../../utils/seo";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Blog",
+			"@id": `${SITE_URL}/blog/#blog`,
+			url: absoluteUrl("/blog/"),
+			name: "Blog",
+			description: "Articles on software engineering, web development, DevOps, and architecture by Madhu Sudhan Subedi.",
+			isPartOf: { "@id": WEBSITE_ID },
+			publisher: { "@id": PERSON_ID },
+			blogPost: posts.map((post) => ({
+				"@type": "BlogPosting",
+				headline: post.data.title,
+				url: absoluteUrl(`/blog/${post.id}/`),
+				datePublished: post.data.pubDate.toISOString(),
+				author: authorRef,
+			})),
+		},
+		breadcrumbList([
+			{ name: "Home", path: "/" },
+			{ name: "Blog", path: "/blog/" },
+		]),
+	],
+};
 ---
 
 <!doctype html>
@@ -17,6 +44,7 @@ const posts = (await getCollection("blog")).sort(
 		<BaseHead
 			title={`Blog | Software Engineering, Web Development, DevOps`}
 			description={`Articles on software engineering, web development, DevOps, and architecture by Madhu Sudhan Subedi.`}
+			jsonLd={jsonLd}
 		/>
 	</head>
 	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
@@ -47,19 +75,19 @@ const posts = (await getCollection("blog")).sort(
 								>
 									<div class="aspect-video w-full overflow-hidden">
 										<img
-											width={720}
-											height={360}
+											width={1536}
+											height={1024}
 											src={`/${post.data.heroImage}`}
-											alt={post.data.title}
+											alt={post.data.heroImageAlt ?? post.data.title}
 											loading="lazy"
 											decoding="async"
 											class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
 										/>
 									</div>
 									<div class="p-6">
-										<h4 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
+										<h2 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
 											{post.data.title}
-										</h4>
+										</h2>
 										<p class="text-[var(--light-slate)] text-sm font-mono mb-4">
 											<FormattedDate
 												date={post.data.pubDate}

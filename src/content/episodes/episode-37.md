@@ -2,7 +2,7 @@
 id: 37
 title: "AI, Enterprise Knowledge, and the Future of Engineering"
 description: "This week in tech, Stack Overflow unveils Stack Internal, a next-gen enterprise knowledge platform combining human insight with AI to improve productivity, reduce risk, and power smarter collaboration. Linus Torvalds shares his take on AI and vibe coding, praising it for beginners but warning against using it in production, while noting Rust’s growing role in the Linux kernel. Security remains critical with LLM01 Prompt Injection, a growing AI vulnerability highlighted by OWASP. Social media strategy is evolving too: X’s algorithm favors genuine engagement, niche consistency, and meaningful interactions. Finally, engineering in 2025 is being transformed by automation, AI, and robotics, with a focus on intelligent, sustainable, and fully automated systems."
-published: false
+published: true
 tags: promptinjection, enterpriseknowledge, stackoverflow, xalgorithm
 publishDate: "2025-11-30"
 duration: 6:46

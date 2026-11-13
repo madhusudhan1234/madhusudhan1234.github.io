@@ -2,8 +2,8 @@
 id: 17
 title: "Git Mastery, Algorithms, Why are there So many Databases, AI Agents & Prompting"
 description: "We’re diving into advanced Git techniques, a paradigm-shifting discovery in algorithm design, the ever-expanding world of databases, the rise of AI-first protocols, and the secret sauce behind next-gen coding assistants. Whether you’re a developer, data enthusiast, or AI explorer, these stories will sharpen your skills and expand your perspective."
-published: false
-tags: SoftwareDevelopment, AIandMachineLearning, Databases, TechTrends
+published: true
+tags: softwaredevelopment, aiandmachinelearning, databases, techtrends
 publishDate: "2025-07-12"
 duration: 07:34
 audioLink: https://weekly.madhusudhansubedi.com.np/embed/17
