@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { absoluteUrl, authorRef, breadcrumbList, splitTags, toIsoDuration, truncate } from '../../utils/seo';
-import { formatEpisodeDate, getPublishedEpisodes, SERIES_ID, type Episode } from '../../utils/episodes';
+import { formatEpisodeDate, getPublishedEpisodes, getRelatedEpisodes, SERIES_ID, type Episode } from '../../utils/episodes';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,6 +15,7 @@ export async function getStaticPaths() {
             entry,
             newer: episodes[i - 1] ?? null,
             older: episodes[i + 1] ?? null,
+            related: getRelatedEpisodes(entry, episodes, 3),
         },
     }));
 }
@@ -23,9 +24,10 @@ interface Props {
     entry: Episode;
     newer: Episode | null;
     older: Episode | null;
+    related: Episode[];
 }
 
-const { entry: episode, newer, older } = Astro.props;
+const { entry: episode, newer, older, related } = Astro.props;
 const { Content } = await render(episode);
 const audioLink = `https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`;
 
@@ -128,6 +130,23 @@ const jsonLd = {
 						</a>
 					) : <span />}
 				</nav>
+				{
+					related.length > 0 && (
+						<section class="mt-12" aria-labelledby="related-episodes">
+							<h2 id="related-episodes" class="text-xl font-bold text-[var(--lightest-slate)] mb-4">Related episodes</h2>
+							<ul class="list-none p-0 m-0 flex flex-col gap-3">
+								{related.map((e) => (
+									<li>
+										<a href={`/weekly/${e.data.id}/`} class="block rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-4 no-underline hover:border-[var(--green)] transition-colors">
+											<span class="block font-mono text-xs text-[var(--green)] mb-1">Episode #{e.data.id} · {formatEpisodeDate(e.data.publishDate)}</span>
+											<span class="text-[var(--lightest-slate)] font-semibold">{e.data.title}</span>
+										</a>
+									</li>
+								))}
+							</ul>
+						</section>
+					)
+				}
 				<p class="mt-6 font-mono text-xs"><a href="/weekly/" class="text-[var(--green)] hover:underline">← All episodes</a></p>
 			</div>
 		</main>

@@ -2,7 +2,11 @@
 title: 'Data Structure: Queue in JavaScript'
 description: 'FIFO structure, operations, array/class implementations, performance, and pitfalls.'
 pubDate: 'Jan 4 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 6
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
@@ -145,3 +149,14 @@ queue.print() // 10,20,30
 console.log(queue.dequeue()) // 10
 console.log(queue.peek()) // 20
 ```
+
+## Why this still matters when AI writes your code
+
+Generated code commonly uses an array as a queue with `push` and `shift`. `shift` re-indexes the array, so with a large backlog it becomes a real cost. A linked list or a [circular queue](/blog/fundamentals/data-structure-circular-queue-in-javascript/) gives O(1) at both ends.
+
+Two more review questions for any queue:
+
+- **Is it bounded?** An unbounded in-memory queue is a memory leak waiting for a traffic spike. Decide on backpressure.
+- **Is it in the right place?** For work shared across servers, an in-process array is the wrong tool; see [why Redis beats databases for job queues](/blog/why-redis-is-better-than-database-to-store-jobs-in-multi-server-application/).
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

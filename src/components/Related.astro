@@ -1,0 +1,23 @@
+---
+import PostCard from "./PostCard.astro";
+import type { Post } from "../utils/posts";
+
+interface Props {
+	posts: Post[];
+	heading?: string;
+}
+const { posts, heading = "Keep reading" } = Astro.props;
+---
+
+{
+	posts.length > 0 && (
+		<section class="mt-16" aria-labelledby="related-heading">
+			<h2 id="related-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">{heading}</h2>
+			<ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
+				{posts.map((p) => (
+					<li><PostCard post={p} compact /></li>
+				))}
+			</ul>
+		</section>
+	)
+}

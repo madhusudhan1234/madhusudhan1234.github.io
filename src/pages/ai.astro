@@ -1,0 +1,193 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PostCard from '../components/PostCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE_URL, PERSON_ID, WEBSITE_ID } from '../consts';
+import { absoluteUrl, breadcrumbList } from '../utils/seo';
+import { getPosts } from '../utils/posts';
+import { getPublishedEpisodes, isAiEpisode, formatEpisodeDate } from '../utils/episodes';
+
+const description =
+	'How AI coding agents change software engineering: what changes, what does not, a practical spec-review-test workflow, guardrails, and answers to common questions.';
+
+const posts = (await getPosts()).filter((p) => p.data.category === 'ai-engineering');
+const episodes = (await getPublishedEpisodes()).filter(isAiEpisode).slice(0, 6);
+
+// TODO(confirm): the workflow, guardrails and FAQ answers below are a general, defensible framing.
+// Edit them so they describe how you personally work before publishing.
+const steps = [
+	{ title: 'Specify', body: 'Write down the outcome, the constraints and the acceptance criteria before any code exists. A vague request gets a confident, vague answer.' },
+	{ title: 'Delegate', body: 'Hand well-bounded tasks to an agent: a feature behind an interface, a refactor with tests, a migration with a clear checklist. Keep the architecture decisions yourself.' },
+	{ title: 'Review', body: 'Read the diff like a pull request from a fast junior. Check correctness, security, edge cases, and whether it fits the codebase, not just whether it runs.' },
+	{ title: 'Test', body: 'Make tests the contract. Executable checks are how you know the agent finished, and how you catch the plausible-looking mistake.' },
+	{ title: 'Ship and observe', body: 'Deploy behind logs, metrics and alerts. Production behaviour, especially for LLM features, is the only evaluation that matters in the end.' },
+];
+
+const changes = [
+	'The cost of producing a first draft of code has collapsed.',
+	'Reading, reviewing and verifying code is now a larger share of the job.',
+	'Writing clear specs and tests is a core engineering skill, not paperwork.',
+	'Breadth matters: one engineer can now cover more of the stack.',
+];
+const stays = [
+	'Someone must understand the system and own what ships.',
+	'Fundamentals (data structures, complexity, databases, networking) decide whether you can judge the output.',
+	'Security, reliability and operability still come from engineering discipline.',
+	'Understanding the problem and the people matters more than typing speed.',
+];
+
+const guardrails = [
+	{ title: 'Security and secrets', body: 'Never paste credentials or customer data into prompts. Review generated code for injection, auth gaps and unsafe defaults.' },
+	{ title: 'Hallucinated APIs and packages', body: 'Verify that functions, flags and dependencies actually exist. Pin versions and check what you install.' },
+	{ title: 'Licensing and provenance', body: 'Know the licence implications of what you ship and keep a human accountable for each change.' },
+	{ title: 'Skill atrophy', body: 'Keep writing code by hand sometimes. If you cannot explain a change, you do not own it.' },
+];
+
+const faq = [
+	{ q: 'Will AI replace software engineers?', a: 'AI is automating a growing share of code production, but software engineering is more than writing code: understanding requirements, designing systems, making trade-offs, reviewing, securing and operating software. The job is shifting toward specifying, reviewing and verifying work, which is why fundamentals and judgment matter more, not less.' },
+	{ q: 'Which skills matter most for engineers working with AI coding agents?', a: 'Strong fundamentals so you can judge generated code, the ability to write precise specs and tests, code review discipline, security awareness, and systems thinking. Fluent use of the tools helps, but the tools change quickly while these skills compound.' },
+	{ q: 'Should junior developers still learn fundamentals like data structures?', a: 'Yes. When an agent produces code, you need the knowledge to notice that an O(n^2) approach, a wrong data structure or a subtle concurrency bug is hiding in it. Fundamentals are how you verify AI output instead of trusting it.' },
+	{ q: 'How should AI-generated code be reviewed?', a: 'Treat it like a pull request from a fast but inexperienced contributor: check correctness against the spec, edge cases, security, performance, dependencies it introduced, and consistency with the existing codebase, and run the tests. See the practical checklist in the linked article.' },
+	{ q: 'Is it safe to add LLM features to a production backend?', a: 'Yes, if you treat the model like any unreliable external dependency: enforce timeouts, retries with backoff, queues for slow work, cost and rate limits, input and output validation, privacy controls, and observability so you can see what it is doing in production.' },
+	{ q: 'Is the content on this site written with AI?', a: 'Some articles are drafted with AI assistance and then reviewed and edited by the author; articles say so where that applies. The opinions and the responsibility for accuracy are the author\'s.' },
+];
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${SITE_URL}/ai/#page`,
+			url: absoluteUrl('/ai/'),
+			name: 'Software engineering in the AI era',
+			description,
+			isPartOf: { '@id': WEBSITE_ID },
+			about: [
+				{ '@type': 'Thing', name: 'Software engineering' },
+				{ '@type': 'Thing', name: 'AI coding agents' },
+				{ '@type': 'Thing', name: 'Large language models' },
+			],
+			author: { '@id': PERSON_ID },
+			inLanguage: 'en',
+		},
+		breadcrumbList([
+			{ name: 'Home', path: '/' },
+			{ name: 'AI era', path: '/ai/' },
+		]),
+	],
+};
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'AI era' }];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Software Engineering in the AI Era" description={description} jsonLd={jsonLd} />
+	</head>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
+		<Header />
+		<main class="w-full max-w-4xl mx-auto px-6 pt-[110px] pb-16">
+			<Breadcrumbs items={crumbs} />
+			<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6 leading-tight">Software engineering in the AI era</h1>
+			<p class="text-xl leading-relaxed max-w-3xl mb-10">
+				AI coding agents can now draft features, refactors and tests in minutes. That does not make engineers obsolete; it moves the work. Less typing, more specifying, reviewing, verifying and operating. This page is my working model of what that means in practice.
+			</p>
+
+			<section aria-labelledby="tldr" class="mb-12 p-6 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)]">
+				<h2 id="tldr" class="font-mono text-sm text-[var(--green)] mt-0 mb-3">TL;DR</h2>
+				<ul class="m-0 pl-5 list-disc flex flex-col gap-2 text-[var(--lightest-slate)]">
+					<li>Code is getting cheap. Correct, secure, maintainable software is not.</li>
+					<li>Fundamentals, specs, tests and review are the skills that compound.</li>
+					<li>Treat agents as fast juniors: delegate bounded work, verify everything, own the result.</li>
+					<li>Treat LLM features like any unreliable dependency: timeouts, queues, limits, observability.</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="changes-heading" class="mb-12">
+				<h2 id="changes-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">What changes and what does not</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div class="rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-6">
+						<h3 class="mt-0 mb-3 text-lg text-[var(--lightest-slate)]">What changes</h3>
+						<ul class="m-0 pl-5 list-disc flex flex-col gap-2">{changes.map((c) => <li>{c}</li>)}</ul>
+					</div>
+					<div class="rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-6">
+						<h3 class="mt-0 mb-3 text-lg text-[var(--lightest-slate)]">What stays the same</h3>
+						<ul class="m-0 pl-5 list-disc flex flex-col gap-2">{stays.map((c) => <li>{c}</li>)}</ul>
+					</div>
+				</div>
+			</section>
+
+			<section aria-labelledby="workflow-heading" class="mb-12">
+				<h2 id="workflow-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">A practical workflow</h2>
+				<ol class="list-none p-0 m-0 flex flex-col gap-4">
+					{
+						steps.map((s, i) => (
+							<li class="flex gap-4 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-5">
+								<span class="font-mono text-[var(--green)] text-lg shrink-0">{String(i + 1).padStart(2, '0')}</span>
+								<div>
+									<h3 class="m-0 mb-1 text-lg text-[var(--lightest-slate)]">{s.title}</h3>
+									<p class="m-0">{s.body}</p>
+								</div>
+							</li>
+						))
+					}
+				</ol>
+			</section>
+
+			<section aria-labelledby="guardrails-heading" class="mb-12">
+				<h2 id="guardrails-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">Guardrails</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{
+						guardrails.map((g) => (
+							<div class="rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-6">
+								<h3 class="mt-0 mb-2 text-lg text-[var(--lightest-slate)]">{g.title}</h3>
+								<p class="m-0">{g.body}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			{
+				posts.length > 0 && (
+					<section aria-labelledby="read-heading" class="mb-12">
+						<h2 id="read-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">Go deeper</h2>
+						<ul class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 m-0">
+							{posts.map((p) => <li><PostCard post={p} compact /></li>)}
+						</ul>
+						<p class="mt-6 font-mono text-sm">
+							<a href="/blog/topic/ai-engineering/" class="text-[var(--green)] hover:underline">All AI engineering articles →</a>
+						</p>
+					</section>
+				)
+			}
+
+			{
+				episodes.length > 0 && (
+					<section aria-labelledby="podcast-heading" class="mb-12">
+						<h2 id="podcast-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-2">From the Tech Weekly podcast</h2>
+						<p class="mb-6">Episodes on AI, agents and what they mean for developers.</p>
+						<ul class="list-none p-0 m-0 flex flex-col gap-3">
+							{
+								episodes.map((e) => (
+									<li>
+										<a href={`/weekly/${e.data.id}/`} class="block rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-4 no-underline hover:border-[var(--green)] transition-colors">
+											<span class="block font-mono text-xs text-[var(--green)] mb-1">Episode #{e.data.id} · {formatEpisodeDate(e.data.publishDate)}</span>
+											<span class="text-[var(--lightest-slate)] font-semibold">{e.data.title}</span>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</section>
+				)
+			}
+
+			<Faq items={faq} />
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -4,10 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE_URL, PERSON_ID, WEBSITE_ID, SOCIALS, AUTHOR_NAME } from '../consts';
+import Faq from '../components/Faq.astro';
 import { absoluteUrl, breadcrumbList, personNode } from '../utils/seo';
 
 const description =
-	'Madhu Sudhan Subedi is a software engineer from Nepal based in Japan with 9+ years of experience in backend development, APIs, AWS and web applications.';
+	'Madhu Sudhan Subedi is a software engineer from Nepal based in Japan with 9+ years of experience in backend development and APIs, writing about engineering in the era of AI.';
 
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'About' }];
 
@@ -54,9 +55,28 @@ const jobs = [
 					I'm a software engineer from Nepal, currently based in Japan, with more than nine years of experience building web applications, APIs and backend systems. My day-to-day stack is Laravel and PHP, with Node.js, AWS and DevOps tooling around it.
 				</p>
 				<p>
-					I started writing code out of necessity and it grew into a creative pursuit. I enjoy exploring new technologies and sharing what I learn: through the <a href="/blog/" class="text-[var(--green)] hover:underline">blog</a>, my <a href="/notes/" class="text-[var(--green)] hover:underline">developer notes</a> on data structures in JavaScript, and the <a href="/weekly/" class="text-[var(--green)] hover:underline">Tech Weekly podcast</a>, a short weekly roundup of software engineering, DevOps and architecture news.
+					I started writing code out of necessity and it grew into a creative pursuit. Along the way I've worked on e-commerce and fan-commerce platforms for Japanese brands, large legacy-to-modern system migrations, ETL pipelines, and a CRM used by education consultancies around the world.
 				</p>
 			</div>
+
+			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Engineering in the AI era</h2>
+			<div class="text-lg leading-relaxed flex flex-col gap-5">
+				<!-- TODO(confirm): edit this section so it reflects how you personally work with AI tools. -->
+				<p>
+					AI coding agents are changing how software gets made. I think the craft is moving from typing code toward specifying, reviewing and operating it, which makes fundamentals, tests and judgment more valuable, not less. I write about that shift in the <a href="/blog/topic/ai-engineering/" class="text-[var(--green)] hover:underline">AI engineering articles</a>, and summarise my working model on the <a href="/ai/" class="text-[var(--green)] hover:underline">AI era page</a>.
+				</p>
+				<p>
+					I also revisit the fundamentals in the <a href="/blog/topic/fundamentals/" class="text-[var(--green)] hover:underline">Fundamentals series</a>, and every week on the <a href="/weekly/" class="text-[var(--green)] hover:underline">Tech Weekly podcast</a> I cover the software engineering, DevOps and AI news that matters to people who build software.
+				</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Principles</h2>
+			<ul class="m-0 pl-5 list-disc flex flex-col gap-3 text-lg">
+				<li><strong class="text-[var(--lightest-slate)]">Fundamentals first.</strong> They are how you judge what a tool gives you.</li>
+				<li><strong class="text-[var(--lightest-slate)]">Own what you ship.</strong> Whoever merges the change is accountable for it, whoever (or whatever) wrote it.</li>
+				<li><strong class="text-[var(--lightest-slate)]">Tests over trust.</strong> Executable checks beat confidence, from humans and agents alike.</li>
+				<li><strong class="text-[var(--lightest-slate)]">Learn in public.</strong> Writing and teaching are the fastest way to find the gaps in what you know.</li>
+			</ul>
 
 			<h2 class="text-2xl font-bold text-[var(--lightest-slate)] mt-12 mb-6">Experience</h2>
 			<ul class="list-none p-0 m-0 flex flex-col gap-6">
@@ -76,8 +96,17 @@ const jobs = [
 			<ul class="list-none p-0 m-0 flex flex-col gap-2 font-mono text-sm">
 				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.github} class="text-[var(--green)] hover:underline">GitHub</a></li>
 				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.linkedin} class="text-[var(--green)] hover:underline">LinkedIn</a></li>
-				<li><a rel="me noopener noreferrer" target="_blank" href={SOCIALS.x} class="text-[var(--green)] hover:underline">X (Twitter)</a></li>
 			</ul>
+
+			<Faq
+				heading="Questions about me and this site"
+				items={[
+					{ q: 'Who is Madhu Sudhan Subedi?', a: 'A software engineer from Nepal based in Japan with more than nine years of experience building web applications, APIs and backend systems with Laravel, PHP, Node.js and AWS. He writes about software engineering in the era of AI and hosts the Tech Weekly podcast.' },
+					{ q: 'What does Madhu Sudhan write about?', a: 'Software engineering in the era of AI coding agents, backend engineering (databases, queues, APIs), DevOps automation, and computer science fundamentals explained with JavaScript.' },
+					{ q: 'What is Tech Weekly?', a: 'A weekly podcast covering software engineering, DevOps, architecture and AI news, with show notes and source links for every episode.' },
+					{ q: 'Where can I find his code?', a: 'On GitHub at github.com/madhusudhan1234.' },
+				]}
+			/>
 		</main>
 		<Footer />
 	</body>

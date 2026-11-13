@@ -1,0 +1,38 @@
+---
+// Visible FAQ (details/summary) plus FAQPage JSON-LD. Answers are plain text.
+import JsonLd from "./JsonLd.astro";
+
+interface Props {
+	items: { q: string; a: string }[];
+	heading?: string;
+}
+const { items, heading = "Frequently asked questions" } = Astro.props;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: items.map((i) => ({
+		"@type": "Question",
+		name: i.q,
+		acceptedAnswer: { "@type": "Answer", text: i.a },
+	})),
+};
+---
+
+<section class="mt-12" aria-labelledby="faq-heading">
+	<h2 id="faq-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">{heading}</h2>
+	<div class="flex flex-col gap-3">
+		{
+			items.map((i) => (
+				<details class="group rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-4">
+					<summary class="cursor-pointer font-semibold text-[var(--lightest-slate)] list-none flex justify-between items-center gap-4">
+						{i.q}
+						<span aria-hidden="true" class="font-mono text-[var(--green)] group-open:rotate-45 transition-transform">+</span>
+					</summary>
+					<p class="mt-3 mb-0 text-[var(--slate)] leading-relaxed">{i.a}</p>
+				</details>
+			))
+		}
+	</div>
+</section>
+<JsonLd data={jsonLd} />

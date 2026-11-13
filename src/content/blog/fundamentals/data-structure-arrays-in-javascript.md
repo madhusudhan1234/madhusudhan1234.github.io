@@ -2,7 +2,11 @@
 title: 'Data Structure: Arrays in JavaScript'
 description: 'Core concepts, common methods, patterns, performance, and pitfalls when working with arrays.'
 pubDate: 'Jan 2 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 1
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
@@ -122,3 +126,16 @@ nums.sort((a, b) => a - b);
 - Arrays are zero‑indexed
 - `shift`/`unshift` reindex elements and are O(n)
 - Prefer non‑mutating methods when working with immutable patterns or UI state
+
+## Why this still matters when AI writes your code
+
+Arrays are the default container in almost all generated JavaScript, so reviewing array code is a daily skill. Things worth catching:
+
+- `includes` or `indexOf` inside a loop: each call scans the array, so the loop is O(n²). A [Set](/blog/fundamentals/data-structure-set-in-javascript/) or [Map](/blog/fundamentals/data-structure-map-in-javascript/) lookup is O(1) on average.
+- `shift` and `unshift` on large arrays in hot paths: they re-index every element.
+- Spreading or `concat`-ing the accumulator inside `reduce`: it copies the array on every iteration.
+- Mutating methods such as `sort`, `splice` and `reverse` on arrays that are shared or came from props or state.
+
+If a generated snippet does any of these, ask whether the input size makes it matter.
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

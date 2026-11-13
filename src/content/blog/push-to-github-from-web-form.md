@@ -3,13 +3,15 @@ title: 'Push to GitHub from a Web Form'
 description: 'Build a Node.js app that turns form submissions into JSON files committed to a GitHub repo using the Contents API.'
 pubDate: 'Dec 12 2025'
 heroImage: 'images/blogs/form-to-push-github.png'
+category: 'backend'
+tags: 'nodejs, github-api, automation, ai-assisted'
 ---
 
 > Note: This article includes AI‑generated content and may contain minor inaccuracies. Please validate steps before use.
 
 Ever wanted to save form submissions directly to GitHub? This guide shows you how to build a simple Node.js app that turns web form data into JSON files stored in your GitHub repository—no complicated git commands required.
 
-## 🎯 What You're Building
+## What You're Building
 
 A lightweight web app with three main parts:
 
@@ -21,7 +23,7 @@ Think of it as a mini-database that lives in GitHub, with full version control b
 
 ---
 
-## 🚀 Before You Start
+## Before You Start
 
 Make sure you have:
 
@@ -33,7 +35,7 @@ Make sure you have:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 Your project will have these files:
 
@@ -49,7 +51,7 @@ your-project/
 
 ---
 
-## ⚙️ Step-by-Step Setup
+## Step-by-Step Setup
 
 ### 1. Install Dependencies
 
@@ -87,7 +89,7 @@ Then open your browser to `http://localhost:3010/`
 
 ---
 
-## 💡 How It Works
+## How It Works
 
 ### When Someone Submits a Name
 
@@ -106,7 +108,7 @@ Then open your browser to `http://localhost:3010/`
 
 ---
 
-## 🔧 The Complete Code
+## The Complete Code
 
 ### server.js
 
@@ -448,7 +450,7 @@ PORT=3010
 
 ---
 
-## 🎨 Ideas for Customization
+## Ideas for Customization
 
 Once you have the basics working, try these enhancements:
 
@@ -462,7 +464,7 @@ Once you have the basics working, try these enhancements:
 
 ---
 
-## 🔍 Understanding the GitHub API
+## Understanding the GitHub API
 
 This app uses GitHub's Contents API, which lets you:
 
@@ -498,7 +500,7 @@ const body = {
 
 ---
 
-## ✅ Testing Your App
+## Testing Your App
 
 1. Visit `http://localhost:3010/`
 2. Submit a name through the form
@@ -508,7 +510,7 @@ const body = {
 
 ---
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 **"GitHub environment not configured"**  
 → Double-check your `.env` file has all required variables
@@ -524,7 +526,7 @@ const body = {
 
 ---
 
-## 🎯 Why Use This Approach?
+## Why Use This Approach?
 
 Using GitHub as a data store gives you:
 
@@ -538,7 +540,7 @@ It's perfect for small projects, prototypes, or situations where you want simple
 
 ---
 
-## 📚 Next Steps
+## Next Steps
 
 Now that you have a working app, you could:
 
@@ -550,3 +552,6 @@ Now that you have a working app, you could:
 
 Happy coding! 🚀
 
+### Related reading
+
+- [Reviewing AI-Generated Code: A Practical Checklist](/blog/reviewing-ai-generated-code-checklist/): how to review code like this before you rely on it.

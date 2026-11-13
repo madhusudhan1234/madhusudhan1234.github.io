@@ -1,14 +1,10 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { AUTHOR_NAME, SITE_URL, SITE_DESCRIPTION } from '../consts';
 import { getPublishedEpisodes } from '../utils/episodes';
+import { getPosts } from '../utils/posts';
 
 export const GET: APIRoute = async () => {
-  const [blog, notes, episodes] = await Promise.all([
-    getCollection('blog'),
-    getCollection('notes'),
-    getPublishedEpisodes(),
-  ]);
+  const [blog, episodes] = await Promise.all([getPosts(), getPublishedEpisodes()]);
 
   const day = (d: Date) => d.toISOString().split('T')[0];
   const sections: string[] = [
@@ -20,26 +16,13 @@ export const GET: APIRoute = async () => {
     '',
   ];
 
-  for (const p of blog.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())) {
+  for (const p of blog) {
     sections.push(
       '---',
       '',
       `# ${p.data.title}`,
       '',
       `URL: ${SITE_URL}/blog/${p.id}/`,
-      `Published: ${day(p.data.pubDate)}${p.data.updatedDate ? ` (updated ${day(p.data.updatedDate)})` : ''}`,
-      '',
-      p.body ?? '',
-      '',
-    );
-  }
-  for (const p of notes.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())) {
-    sections.push(
-      '---',
-      '',
-      `# ${p.data.title}`,
-      '',
-      `URL: ${SITE_URL}/notes/${p.id}/`,
       `Published: ${day(p.data.pubDate)}${p.data.updatedDate ? ` (updated ${day(p.data.updatedDate)})` : ''}`,
       '',
       p.body ?? '',

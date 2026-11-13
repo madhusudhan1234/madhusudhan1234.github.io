@@ -2,7 +2,11 @@
 title: 'Data Structure: Set in JavaScript'
 description: 'Unique values collection, operations, iteration, conversions, set algebra, performance, and pitfalls.'
 pubDate: 'Jan 3 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 4
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
@@ -180,3 +184,13 @@ true
 - Object equality is by reference
 - No index access—iterate or convert to array
 - Cache conversions for large sets to avoid repeated cost
+
+## Why this still matters when AI writes your code
+
+A Set is the right tool for de-duplication and membership checks, and it is the usual fix for generated O(n²) code: replace `array.includes(x)` in a loop with `set.has(x)`.
+
+One trap to know about: a Set compares objects by reference, not by value. A Set of `{ id: 1 }` objects will happily hold two equal-looking entries. If you need value uniqueness, key by a primitive such as the `id` (a Map is often a better fit).
+
+When reviewing AI-written code, scan for repeated membership checks on large arrays and for "unique" logic built from nested loops.
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

@@ -2,14 +2,26 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PostCard from "../../components/PostCard.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 import { SITE_URL, WEBSITE_ID, PERSON_ID } from "../../consts";
 import { absoluteUrl, authorRef, breadcrumbList } from "../../utils/seo";
-import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
+import { TOPICS, TOPIC_SLUGS, getPosts, postUrl, readingTime } from "../../utils/posts";
 
-const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getPosts();
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.id !== featured.id);
+const topics = TOPIC_SLUGS.map((slug) => ({
+	slug,
+	...TOPICS[slug],
+	count: posts.filter((p) => p.data.category === slug).length,
+})).filter((t) => t.count > 0);
+
+const seriesNames = [...new Set(posts.map((p) => p.data.series).filter(Boolean))] as string[];
+
+const DESCRIPTION =
+	"Articles on software engineering in the AI era, backend systems, DevOps and computer science fundamentals by Madhu Sudhan Subedi.";
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -19,13 +31,13 @@ const jsonLd = {
 			"@id": `${SITE_URL}/blog/#blog`,
 			url: absoluteUrl("/blog/"),
 			name: "Blog",
-			description: "Articles on software engineering, web development, DevOps, and architecture by Madhu Sudhan Subedi.",
+			description: DESCRIPTION,
 			isPartOf: { "@id": WEBSITE_ID },
 			publisher: { "@id": PERSON_ID },
 			blogPost: posts.map((post) => ({
 				"@type": "BlogPosting",
 				headline: post.data.title,
-				url: absoluteUrl(`/blog/${post.id}/`),
+				url: absoluteUrl(postUrl(post)),
 				datePublished: post.data.pubDate.toISOString(),
 				author: authorRef,
 			})),
@@ -36,73 +48,106 @@ const jsonLd = {
 		]),
 	],
 };
+const crumbs = [{ name: "Home", path: "/" }, { name: "Blog" }];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`Blog | Software Engineering, Web Development, DevOps`}
-			description={`Articles on software engineering, web development, DevOps, and architecture by Madhu Sudhan Subedi.`}
-			jsonLd={jsonLd}
-		/>
+		<BaseHead title="Blog: Software Engineering in the AI Era" description={DESCRIPTION} jsonLd={jsonLd} />
 	</head>
 	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
 		<Header />
 		<main class="w-full max-w-6xl mx-auto px-6 md:px-12 pt-[110px] pb-12">
-			<div class="mb-12">
-				<h1
-					class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6"
-				>
-					Blog
-				</h1>
+			<Breadcrumbs items={crumbs} />
+			<div class="mb-10">
+				<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">Blog</h1>
 				<p class="text-[var(--slate)] text-lg max-w-2xl">
-					Thoughts on software engineering, web development, DevOps,
-					and architecture.
+					Practical writing on software engineering in the era of AI coding agents, backend systems, DevOps and the fundamentals that outlast every framework.
 				</p>
 			</div>
 
-			<section>
-				<ul
-					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+			<nav aria-label="Topics" class="flex flex-wrap gap-3 mb-12">
+				{
+					topics.map((t) => (
+						<a
+							href={`/blog/topic/${t.slug}/`}
+							class="px-3 py-2 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] font-mono text-xs text-[var(--lightest-slate)] no-underline hover:text-[var(--green)] hover:border-[var(--green)] transition-colors"
+						>
+							{t.short} <span class="text-[var(--light-slate)]">({t.count})</span>
+						</a>
+					))
+				}
+			</nav>
+
+			<section aria-labelledby="featured-heading" class="mb-14">
+				<h2 id="featured-heading" class="font-mono text-sm text-[var(--green)] mb-4">Featured</h2>
+				<a
+					href={postUrl(featured)}
+					class="group grid grid-cols-1 md:grid-cols-2 gap-0 rounded-xl overflow-hidden bg-[var(--light-navy)] shadow-lg no-underline"
 				>
-					{
-						posts.map((post) => (
-							<li class="group">
-								<a
-									href={`/blog/${post.id}/`}
-									class="block h-full bg-[var(--light-navy)] rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-lg"
-								>
-									<div class="aspect-video w-full overflow-hidden">
-										<img
-											width={1536}
-											height={1024}
-											src={`/${post.data.heroImage}`}
-											alt={post.data.heroImageAlt ?? post.data.title}
-											loading="lazy"
-											decoding="async"
-											class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
-										/>
-									</div>
-									<div class="p-6">
-										<h2 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
-											{post.data.title}
-										</h2>
-										<p class="text-[var(--light-slate)] text-sm font-mono mb-4">
-											<FormattedDate
-												date={post.data.pubDate}
-											/>
-										</p>
-										<p class="text-[var(--slate)] line-clamp-3 text-sm">
-											{post.data.description}
-										</p>
-									</div>
-								</a>
-							</li>
-						))
-					}
+					<div class="aspect-video md:aspect-auto md:min-h-[260px] bg-[var(--lightest-navy)] overflow-hidden">
+						{
+							featured.data.heroImage ? (
+								<img
+									width={1536}
+									height={1024}
+									src={`/${featured.data.heroImage}`}
+									alt={featured.data.heroImageAlt ?? featured.data.title}
+									loading="eager"
+									fetchpriority="high"
+									class="w-full h-full object-cover"
+								/>
+							) : (
+								<div class="w-full h-full flex flex-col justify-between p-6 font-mono text-[var(--light-slate)]" aria-hidden="true">
+									<span class="text-xs uppercase tracking-widest">{TOPICS[featured.data.category].short}</span>
+									<span class="text-5xl text-[var(--lightest-slate)] leading-none">{"</>"}</span>
+								</div>
+							)
+						}
+					</div>
+					<div class="p-6 md:p-10 flex flex-col justify-center">
+						<p class="font-mono text-xs text-[var(--green)] m-0 mb-3">
+							{TOPICS[featured.data.category].short} · {readingTime(featured.body)} min read
+						</p>
+						<h3 class="text-2xl md:text-3xl font-bold text-[var(--lightest-slate)] group-hover:text-[var(--green)] transition-colors m-0 mb-3">
+							{featured.data.title}
+						</h3>
+						<p class="text-[var(--slate)] m-0 mb-4">{featured.data.description}</p>
+						<p class="font-mono text-xs text-[var(--light-slate)] m-0"><FormattedDate date={featured.data.pubDate} /></p>
+					</div>
+				</a>
+			</section>
+
+			<section aria-labelledby="all-heading">
+				<h2 id="all-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-6">All articles</h2>
+				<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0 m-0">
+					{rest.map((post) => <li><PostCard post={post} /></li>)}
 				</ul>
 			</section>
+
+			{
+				seriesNames.length > 0 && (
+					<section class="mt-16" aria-labelledby="series-heading">
+						<h2 id="series-heading" class="text-2xl font-bold text-[var(--lightest-slate)] mb-4">Series</h2>
+						{seriesNames.map((name) => {
+							const items = posts
+								.filter((p) => p.data.series === name)
+								.sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+							return (
+								<div class="mb-6">
+									<h3 class="text-lg font-semibold text-[var(--lightest-slate)] mb-3">{name}</h3>
+									<ol class="m-0 pl-5 list-decimal flex flex-col gap-1">
+										{items.map((p) => (
+											<li><a href={postUrl(p)} class="text-[var(--green)] hover:underline">{p.data.title}</a></li>
+										))}
+									</ol>
+								</div>
+							);
+						})}
+					</section>
+				)
+			}
 		</main>
 		<Footer />
 	</body>

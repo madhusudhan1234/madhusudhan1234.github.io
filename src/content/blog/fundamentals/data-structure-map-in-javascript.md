@@ -2,14 +2,18 @@
 title: 'Data Structure: Map in JavaScript'
 description: 'Key-value store with arbitrary keys, operations, iteration, conversions, performance, and pitfalls.'
 pubDate: 'Jan 3 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 3
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
 
 A Map is a collection of key-value pairs that preserves insertion order. Both keys and values can of any data type.
 
-To retrieve a value, you can use the corssponding key.
+To retrieve a value, you can use the corresponding key.
 
 Maps are iterables, They can be use of for...of loop.
 
@@ -97,4 +101,23 @@ And ther there is no any key value pair in the console.
 | delete / clear        | O(1)       |
 | iterate (entries)     | O(n)       |
 
+## Why this still matters when AI writes your code
 
+Agents often reach for a plain object as a key-value store out of habit. Prefer a Map when:
+
+- keys are not strings (objects, numbers you do not want coerced),
+- entries are added and removed frequently,
+- you need insertion order and an accurate `size`.
+
+A very common review fix is replacing a `find` inside a loop with a Map built once:
+
+```javascript
+const usersById = new Map(users.map((u) => [u.id, u]));
+for (const order of orders) {
+  const user = usersById.get(order.userId); // O(1) instead of O(n)
+}
+```
+
+Remember that object keys in a Map compare by reference, so two equal-looking objects are different keys.
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

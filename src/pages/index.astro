@@ -4,6 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, PERSON_ID, WEBSITE_ID } from "../consts";
 import { personNode, websiteNode } from "../utils/seo";
+import SectionHeading from "../components/SectionHeading.astro";
+import PostCard from "../components/PostCard.astro";
+import { getPosts, TOPICS, TOPIC_SLUGS } from "../utils/posts";
+import { getPublishedEpisodes, formatEpisodeDate } from "../utils/episodes";
 import {
 	Code,
 	LayoutGrid,
@@ -11,7 +15,46 @@ import {
 	Database,
 	Cloud,
 	GitBranch,
+	Bot,
+	ArrowRight,
+	Layers,
+	FileCheck,
+	ShieldCheck,
+	Podcast,
 } from "lucide-astro";
+
+const posts = await getPosts();
+const latestPosts = posts.slice(0, 3);
+const latestEpisodes = (await getPublishedEpisodes()).slice(0, 3);
+const activeTopics = TOPIC_SLUGS.filter((slug) => posts.some((p) => p.data.category === slug));
+
+// TODO(confirm): principles below are my framing of the AI-era engineering themes in the articles; edit to match your own views.
+const principles = [
+	{
+		icon: Layers,
+		title: "Fundamentals first",
+		body: "When an agent writes the code, you still have to know whether it is right. Data structures, complexity and system design are how you judge it.",
+		href: "/blog/fundamentals-over-frameworks-in-the-age-of-ai/",
+	},
+	{
+		icon: ShieldCheck,
+		title: "Agents write, humans own the review",
+		body: "Generated code is a draft from a fast, confident junior. Review it for correctness, security and fit, and own what ships.",
+		href: "/blog/reviewing-ai-generated-code-checklist/",
+	},
+	{
+		icon: FileCheck,
+		title: "Specs and tests are the interface",
+		body: "Clear requirements and executable tests are how you hand work to an agent and know when it is actually done.",
+		href: "/blog/specs-and-tests-as-the-interface-for-ai-agents/",
+	},
+	{
+		icon: Bot,
+		title: "Production is the real eval",
+		body: "LLM features need timeouts, retries, queues, cost limits and observability like any other dependency, only more so.",
+		href: "/blog/adding-llm-features-to-a-backend-safely/",
+	},
+];
 ---
 
 <!doctype html>
@@ -132,38 +175,34 @@ import {
 						<h2
 							class="text-3xl md:text-5xl lg:text-[60px] font-bold text-[var(--slate)] leading-none mb-8 md:mb-10"
 						>
-							I build things for the web.
+							Software engineer in the era of AI.
 						</h2>
 						<p
-							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-8 md:mb-12"
+							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-6 md:mb-8"
 						>
-							Greetings! I'm a seasoned software engineer from
-							Nepal 🇳🇵 with over nine years of experience crafting
-							elegant solutions in software development.
+							I'm a software engineer from Nepal 🇳🇵, now based in Japan 🇯🇵,
+							with over nine years of experience building web
+							applications, APIs and backend systems.
 						</p>
 						<p
-							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-8 md:mb-12"
+							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-6 md:mb-8"
 						>
-							Currently based in Japan 🇯🇵, I combine my passion
-							for problem-solving with technical expertise to
-							create impactful software. My experience spans
-							across various projects, including web applications,
-							APIs, and backend systems.
+							AI coding agents now write a growing share of the code.
+							I believe the craft is shifting from typing code to
+							specifying, reviewing and operating it, which makes
+							fundamentals, tests and judgment more valuable, not less.
 						</p>
 						<p
-							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-12 md:mb-14"
+							class="text-[var(--slate)] text-lg md:text-xl leading-relaxed mb-10 md:mb-12"
 						>
-							My journey in technology began from writing code out
-							of necessity and has grown into a creative pursuit
-							for innovation. I'm passionate about exploring new
-							technologies and sharing knowledge with others.
+							This site is where I write about that shift, and where I
+							host Tech Weekly, a weekly podcast on software
+							engineering news.
 						</p>
-						<div class="mt-8 md:mt-12">
-							<a
-								href="/weekly"
-								class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-7 py-5 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out"
-								>Listen Madhu Sudhan subedi Tech Weekly</a
-							>
+						<div class="mt-8 md:mt-12 flex flex-wrap gap-4">
+							<a href="/blog/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Read the blog</a>
+							<a href="/ai/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Engineering in the AI era</a>
+							<a href="/weekly/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Listen to Tech Weekly</a>
 						</div>
 					</div>
 				</section>
@@ -172,25 +211,6 @@ import {
 				<div
 					class="hidden md:flex fixed bottom-0 right-[40px] z-10 flex-col items-center gap-5 w-10 text-[var(--light-slate)]"
 				>
-					<a
-						href="https://x.com/xmadhusudhan"
-						target="_blank"
-						rel="me noopener noreferrer"
-						aria-label="X (Twitter)"
-						class="text-[var(--light-slate)] hover:text-[var(--green)] hover:-translate-y-1 transition-all duration-250 p-2"
-					>
-						<svg
-							viewBox="0 0 24 24"
-							aria-hidden="true"
-							width="20"
-							height="20"
-							class="w-5 h-5 fill-current"
-						>
-							<path
-								d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-							></path>
-						</svg>
-					</a>
 					<a
 						href="https://github.com/madhusudhan1234"
 						target="_blank"
@@ -235,13 +255,92 @@ import {
 					</div>
 				</div>
 
+				<!-- Principles Section -->
+				<section id="ai-era" class="py-12 md:py-24 max-w-[1000px] mx-auto">
+					<SectionHeading number="01.">How I think about engineering in the AI era</SectionHeading>
+					<ul class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 m-0">
+						{
+							principles.map((item) => (
+								<li>
+									<a
+										href={item.href}
+										class="block h-full bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-6 no-underline transition-all duration-250 hover:-translate-y-1 hover:shadow-xl"
+									>
+										<h3 class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2 m-0">
+											<item.icon size={18} class="text-[var(--green)] shrink-0" />
+											{item.title}
+										</h3>
+										<p class="text-[var(--slate)] text-base leading-relaxed m-0">{item.body}</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+					<p class="mt-8 font-mono text-sm">
+						<a href="/ai/" class="text-[var(--green)] hover:underline inline-flex items-center gap-2">
+							The full picture: a practical AI-era workflow <ArrowRight size={14} />
+						</a>
+					</p>
+				</section>
+
+				<!-- Latest writing -->
+				<section id="writing" class="py-12 md:py-24 max-w-[1000px] mx-auto">
+					<SectionHeading number="02.">Latest writing</SectionHeading>
+					<ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
+						{latestPosts.map((post) => <li><PostCard post={post} compact /></li>)}
+					</ul>
+					<div class="mt-8 flex flex-wrap gap-3 items-center font-mono text-xs">
+						<a href="/blog/" class="text-[var(--green)] hover:underline mr-3">All articles →</a>
+						{
+							activeTopics.map((slug) => (
+								<a
+									href={`/blog/topic/${slug}/`}
+									class="px-3 py-2 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] text-[var(--lightest-slate)] no-underline hover:text-[var(--green)] hover:border-[var(--green)] transition-colors"
+								>
+									{TOPICS[slug].short}
+								</a>
+							))
+						}
+					</div>
+				</section>
+
+				<!-- Podcast -->
+				<section id="podcast" class="py-12 md:py-24 max-w-[1000px] mx-auto">
+					<SectionHeading number="03.">Tech Weekly podcast</SectionHeading>
+					<p class="text-[var(--slate)] text-lg max-w-2xl mb-8">
+						A short weekly roundup of software engineering, DevOps and AI news, with the context on why it matters to people who build software.
+					</p>
+					<ul class="list-none p-0 m-0 flex flex-col gap-4">
+						{
+							latestEpisodes.map((e) => (
+								<li>
+									<a
+										href={`/weekly/${e.data.id}/`}
+										class="block bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 no-underline transition-all duration-250 hover:-translate-y-1 hover:shadow-xl"
+									>
+										<p class="font-mono text-xs text-[var(--green)] m-0 mb-2">
+											Episode #{e.data.id} · {formatEpisodeDate(e.data.publishDate)} · {e.data.duration}
+										</p>
+										<h3 class="text-[var(--lightest-slate)] text-lg font-semibold m-0">{e.data.title}</h3>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+					<p class="mt-8 font-mono text-sm">
+						<a href="/weekly/" class="text-[var(--green)] hover:underline inline-flex items-center gap-2">
+							<Podcast size={14} /> Browse all episodes
+						</a>
+					</p>
+				</section>
+
 				<!-- Experience Section -->
 				<section
 					id="experience"
 					class="py-12 md:py-24 max-w-[1000px] mx-auto"
 				>
 					<h2
-						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['02.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['04.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
 					>
 						Where I've Worked
 					</h2>
@@ -447,110 +546,13 @@ import {
 					</div>
 				</section>
 
-				<!-- Projects Section -->
-				<section
-					id="projects"
-					class="py-12 md:py-24 max-w-[1000px] mx-auto"
-				>
-					<h2
-						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['03.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
-					>
-						Some Things I've Built
-					</h2>
-					<div class="flex flex-col gap-12 mt-12">
-						<div
-							class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
-						>
-							<div class="text-left">
-								<div
-									class="text-[var(--green)] font-mono text-xs my-2.5"
-								>
-									Featured Project
-								</div>
-								<h3
-									class="text-[var(--lightest-slate)] text-2xl font-semibold mb-5"
-								>
-									Tech Weekly Audio Streaming
-								</h3>
-								<div
-									class="p-6 rounded bg-[var(--light-navy)] text-[var(--light-slate)] text-base shadow-xl mb-6"
-								>
-									<p>
-										An audio streaming platform for my Tech
-										Weekly podcast episodes, featuring a
-										custom player, episode management, and
-										content delivery.
-									</p>
-								</div>
-								<ul
-									class="flex flex-wrap gap-x-5 gap-y-1 mb-6 text-[var(--light-slate)] font-mono text-xs whitespace-nowrap"
-								>
-									<li>Astro</li>
-									<li>JavaScript</li>
-									<li>HTML5 Audio</li>
-									<li>CSS3</li>
-									<li>Responsive Design</li>
-								</ul>
-								<div
-									class="flex items-center text-[var(--lightest-slate)]"
-								>
-									<a
-										href="/weekly"
-										aria-label="Weekly Link"
-										target="_blank"
-										rel="noopener noreferrer"
-										class="hover:text-[var(--green)] transition-all"
-									>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											role="img"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="w-6 h-6"
-											><path
-												d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-											></path><polyline
-												points="15 3 21 3 21 9"
-											></polyline><line
-												x1="10"
-												y1="14"
-												x2="21"
-												y2="3"></line></svg
-										>
-									</a>
-								</div>
-							</div>
-							<div
-								class="h-[300px] w-full rounded border border-[var(--lightest-navy)] overflow-hidden"
-							>
-								<a
-									href="/weekly"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="block w-full h-full bg-[var(--green)]"
-								>
-									<div
-										class="w-full h-full flex items-center justify-center text-[var(--white)] font-bold text-xl bg-[var(--navy)]/90 hover:bg-[var(--navy)]/80 transition-all p-6 text-center"
-									>
-										Check new streaming
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</section>
-
 				<!-- Skills Section -->
 				<section
 					id="skills"
 					class="py-12 md:py-24 max-w-[1000px] mx-auto"
 				>
 					<h2
-						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['04.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+						class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-nowrap after:content-[''] after:block after:w-[100px] md:after:w-[300px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-['05.'] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
 					>
 						Skills & Technologies
 					</h2>
@@ -763,8 +765,58 @@ import {
 										GitHub
 									</li>
 								</ul>
+							<!-- TODO(confirm): edit this group to list the AI tools and practices you actually use -->
+							<div
+								class="bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-5 transition-all duration-250 cursor-default hover:-translate-y-1 hover:shadow-xl"
+							>
+								<h3
+									class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2"
+								>
+									<Bot
+										size={18}
+										class="text-[var(--green)] shrink-0"
+									/> AI &amp; Agents
+								</h3>
+								<ul
+									class="flex flex-wrap gap-2 list-none p-0 m-1.5 ml-0"
+								>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										AI coding agents
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										LLM APIs
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Prompting &amp; specs
+									</li>
+									<li
+										class="bg-[var(--navy)] text-[var(--lightest-slate)] border border-[var(--lightest-navy)] rounded px-2.5 py-1.5 text-xs font-mono"
+									>
+										Code review of AI output
+									</li>
+								</ul>
+							</div>
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<!-- Contact -->
+				<section id="contact" class="py-12 md:py-24 max-w-[700px] mx-auto text-center">
+					<p class="text-[var(--green)] font-mono text-base mb-4">06. What's next?</p>
+					<h2 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">Get in touch</h2>
+					<p class="text-[var(--slate)] text-lg mb-10">
+						Want to talk engineering, AI tooling or the podcast? My code is on GitHub, and I'm easiest to reach on LinkedIn.
+					</p>
+					<div class="flex flex-wrap justify-center gap-4">
+						<a href="https://github.com/madhusudhan1234" rel="me noopener noreferrer" target="_blank" class="inline-block text-[var(--green)] border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all">GitHub</a>
+						<a href="https://www.linkedin.com/in/madhusudhan1994/" rel="me noopener noreferrer" target="_blank" class="inline-block text-[var(--green)] border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all">LinkedIn</a>
 					</div>
 				</section>
 			</main>
