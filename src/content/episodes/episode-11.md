@@ -2,7 +2,7 @@
 id: 11
 title: "AI Policy Debates, Smarter Terminals, and Cloud Native Breakthroughs"
 description: "This week’s roundup covers the Debian community’s bold move to clarify its stance on AI models and open-source compliance, the arrival of TmuxAI as your new terminal sidekick, and how AI is reshaping cloud native infrastructure for SREs. Plus, we explore the liberating “Seven-Year Rule” for personal growth and share expert best practices for getting the most out of Cursor, the AI coding assistant. Stay ahead with the latest trends and tools transforming tech and personal productivity."
-published: false
+published: true
 tags: 7yearrule, tmuxai, cursorbestpractices, cloudnativeai
 publishDate: "2025-06-01"
 duration: 7:27

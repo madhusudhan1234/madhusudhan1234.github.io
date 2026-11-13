@@ -2,7 +2,7 @@
 id: 24
 title: "Lockfiles Debate, Docker’s New Cadence, AI Agent Playbooks, and Security Wake‑Ups"
 description: "This week’s roundup challenges lockfile orthodoxy with a case for fully pinned, deterministic dependency resolution; spotlights Docker Desktop’s shift to a bi‑weekly release rhythm with smarter, silent component updates; and distills six field‑tested principles for building reliable AI agents, from crisp system prompts and lean context to tight tools and actor‑critic feedback loops. It also covers practical career compounding for engineers—tests, refactoring, pairing, deep reading, and teaching—and a must‑read security incident where a GitHub issue prompt‑injects an AI assistant to exfiltrate private data, plus how session‑scoped credentials and protocol‑level interceptors shut the attack down."
-published: false
+published: true
 tags: softwareengineering, devops, aiagents, security
 publishDate: "2025-08-31"
 duration: 7:51

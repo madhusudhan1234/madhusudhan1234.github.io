@@ -2,7 +2,7 @@
 id: 25
 title: "OpenAI Hiring, FastSearch Speed, AI Coding Reality, Trendy Hiring Risks, Illegible Work"
 description: "This week I am going to present a fast tour of five themes shaping software right now: OpenAI’s push into AI-driven hiring and certifications, Google’s speed-first FastSearch for Gemini, what the latest studies say about AI coding tools and real shipping output, why chasing trendy résumés backfires versus “programmer Moneyball,” and how balancing legible processes with the “illegible” work that actually ships products can boost real-world execution."
-published: false
+published: true
 tags: aihiring, searchandretrieval, developerproductivity, engineeringculture
 publishDate: "2025-09-07"
 duration: 7:38

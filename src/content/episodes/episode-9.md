@@ -2,7 +2,7 @@
 id: 9
 title: "Metaverse Setbacks, AI Privacy, Uber’s Kubernetes Leap, Discord’s Search Revolution & The “AI-First” Mandate"
 description: "Meta’s metaverse ambitions stumble with staggering Reality Labs losses, while WhatsApp pushes privacy boundaries with encrypted AI-powered features. Uber completes a massive migration to Kubernetes, setting a new benchmark for large-scale cloud infrastructure. Discord engineers unveil a breakthrough system for indexing trillions of messages, redefining real-time search. Meanwhile, tech CEOs are making “AI-first” the new workplace mantra-are they driving innovation or just flexing for the crowd? Dive into the stories shaping the future of tech, from bold bets and engineering marvels to the latest trends in workplace culture."
-published: false
+published: true
 tags: whatsapp, kubernates, ai, discordmessages
 publishDate: "2025-05-18"
 duration: 06:26

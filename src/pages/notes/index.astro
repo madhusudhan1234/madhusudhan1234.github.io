@@ -2,7 +2,8 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { SITE_URL, WEBSITE_ID } from "../../consts";
+import { absoluteUrl, breadcrumbList } from "../../utils/seo";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
@@ -33,14 +34,44 @@ const formatFolderName = (name: string) =>
         .filter(Boolean)
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
         .join(" ");
+
+const NOTES_DESCRIPTION =
+  "Developer notes by Madhu Sudhan Subedi: practical explanations and JavaScript implementations of data structures such as arrays, linked lists, stacks, queues and more.";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/notes/#collection`,
+      url: absoluteUrl("/notes/"),
+      name: "Notes",
+      description: NOTES_DESCRIPTION,
+      isPartOf: { "@id": WEBSITE_ID },
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: posts.map((post, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          url: absoluteUrl(`/notes/${post.id}/`),
+          name: post.data.title,
+        })),
+      },
+    },
+    breadcrumbList([
+      { name: "Home", path: "/" },
+      { name: "Notes", path: "/notes/" },
+    ]),
+  ],
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead
-      title={`Notes | My Personal Notes`}
-      description={`My personal notes`}
+      title="Developer Notes: Data Structures in JavaScript"
+      description={NOTES_DESCRIPTION}
+      jsonLd={jsonLd}
     />
   </head>
   <body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
@@ -52,7 +83,7 @@ const formatFolderName = (name: string) =>
         >
           Notes
         </h1>
-        <p class="text-[var(--slate)] text-lg max-w-2xl">My personal notes.</p>
+        <p class="text-[var(--slate)] text-lg max-w-2xl">My personal notes: practical write-ups and JavaScript implementations of data structures and other engineering topics.</p>
       </div>
 
       <section class="space-y-10">

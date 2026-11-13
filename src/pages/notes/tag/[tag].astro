@@ -2,33 +2,30 @@
 import BaseHead from "../../../components/BaseHead.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
+import { splitTags } from "../../../utils/seo";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const allNotes: any[] = await getCollection("notes" as any);
-  const tags = Array.from(
-    new Set(
-      allNotes
-        .map((n: any) => n.data.tags)
-        .filter((t: any) => typeof t === "string" && t.length > 0),
-    ),
-  );
+  const tags = Array.from(new Set(allNotes.flatMap((n: any) => splitTags(n.data.tags))));
   return tags.map((t) => ({ params: { tag: t } }));
 }
 
 const tag = Astro.params.tag ?? "";
 const allNotes: any[] = await getCollection("notes" as any);
-const notes = allNotes.filter((n: any) => (n.data.tags ?? "").includes(tag));
+const notes = allNotes
+  .filter((n: any) => splitTags(n.data.tags).includes(tag))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead
-      title={`Notes tagged "${tag}" | JavaScript & Data Structures`}
-      description={`Notes tagged "${tag}" on JavaScript, data structures, backend engineering and practical tips.`}
+      title={`Notes tagged #${tag}`}
+      description={`${notes.length} note${notes.length === 1 ? "" : "s"} tagged "${tag}" by Madhu Sudhan Subedi: ${notes.slice(0, 3).map((n: any) => n.data.title).join("; ")}.`}
+      noindex={notes.length < 3}
     />
   </head>
   <body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
@@ -41,7 +38,7 @@ const notes = allNotes.filter((n: any) => (n.data.tags ?? "").includes(tag));
           Notes tagged: <span class="text-[var(--green)]">#{tag}</span>
         </h1>
         <a
-          href="/notes"
+          href="/notes/"
           class="inline-block text-[var(--green)] font-mono text-xs hover:underline"
           >← Back to all notes</a
         >
@@ -72,7 +69,7 @@ const notes = allNotes.filter((n: any) => (n.data.tags ?? "").includes(tag));
                         width={720}
                         height={360}
                         src="/note-placeholder.svg"
-                        alt="Placeholder"
+                        alt=""
                         loading="lazy"
                         decoding="async"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-80 mix-blend-luminosity group-hover:mix-blend-normal"
@@ -80,9 +77,9 @@ const notes = allNotes.filter((n: any) => (n.data.tags ?? "").includes(tag));
                     )}
                   </div>
                   <div class="p-6">
-                    <h4 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
+                    <h2 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2">
                       {post.data.title}
-                    </h4>
+                    </h2>
                     <p class="text-[var(--light-slate)] text-sm font-mono mb-4">
                       <FormattedDate date={post.data.pubDate} />
                     </p>

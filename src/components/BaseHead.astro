@@ -2,30 +2,69 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { SITE_TITLE } from "../consts";
+import JsonLd from "./JsonLd.astro";
+import {
+	SITE_TITLE,
+	SITE_URL,
+	AUTHOR_NAME,
+	AUTHOR_URL,
+	TWITTER_HANDLE,
+	DEFAULT_OG_IMAGE,
+} from "../consts";
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	imageAlt?: string;
 	type?: "website" | "article";
 	pubDate?: Date;
 	updatedDate?: Date;
+	section?: string;
+	tags?: string[];
+	noindex?: boolean;
+	/** Override the canonical path (defaults to the current path). */
+	canonicalPath?: string;
+	/** schema.org JSON-LD object(s) to emit in <head>. */
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
 	title,
 	description,
-	image = "/images/madhusudhansubedi.JPG",
+	image = DEFAULT_OG_IMAGE,
+	imageAlt,
 	type = "website",
 	pubDate,
 	updatedDate,
+	section,
+	tags = [],
+	noindex = false,
+	canonicalPath,
+	jsonLd,
 } = Astro.props;
 
-const ogImage = new URL(image, Astro.site);
+// Always canonicalise to a trailing-slash URL on the production origin.
+const rawPath = canonicalPath ?? Astro.url.pathname;
+const path = rawPath.endsWith("/") || /\.[a-z0-9]+$/i.test(rawPath) ? rawPath : `${rawPath}/`;
+const canonicalURL = new URL(path, SITE_URL);
+
+// Append the site name only when the result still fits a SERP title (~60-65 chars).
+const suffixed = `${title} | ${AUTHOR_NAME}`;
+const fullTitle =
+	title === SITE_TITLE || title.includes(AUTHOR_NAME) || suffixed.length > 65 ? title : suffixed;
+
+const ogImage = new URL(image, SITE_URL);
+const isDefaultImage = image === DEFAULT_OG_IMAGE;
+const ogImageAlt = imageAlt ?? (isDefaultImage ? `${AUTHOR_NAME} - Software Engineer` : title);
+const ogImageType = /\.png$/i.test(image) ? "image/png" : /\.webp$/i.test(image) ? "image/webp" : "image/jpeg";
+
+const robots = noindex
+	? "noindex, follow"
+	: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 ---
+
+<meta charset="utf-8" />
 
 <!-- Theme Initialization Script -->
 <script is:inline>
@@ -35,20 +74,22 @@ const ogImage = new URL(image, Astro.site);
 </script>
 
 <!-- Global Metadata -->
-<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{fullTitle}</title>
 <meta name="description" content={description} />
-<meta name="author" content="Madhu Sudhan Subedi" />
-<meta name="robots" content="index, follow" />
+<meta name="author" content={AUTHOR_NAME} />
+<meta name="robots" content={robots} />
+<link rel="author" href={AUTHOR_URL} />
 <link
 	rel="alternate"
 	type="application/rss+xml"
@@ -56,27 +97,36 @@ const ogImage = new URL(image, Astro.site);
 	href="/rss.xml"
 />
 <link rel="manifest" href="/manifest.json" />
-<meta name="theme-color" content="#000000" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
 <!-- Open Graph -->
 <meta property="og:type" content={type} />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:image:alt" content={title} />
+<meta property="og:image:type" content={ogImageType} />
+{isDefaultImage && <meta property="og:image:width" content="1200" />}
+{isDefaultImage && <meta property="og:image:height" content="630" />}
+<meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:locale" content="en_US" />
 {type === "article" && pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
-{type === "article" && updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
-{type === "article" && <meta property="article:author" content="Madhu Sudhan Subedi" />}
+{type === "article" && (updatedDate ?? pubDate) && <meta property="article:modified_time" content={(updatedDate ?? pubDate)!.toISOString()} />}
+{type === "article" && <meta property="article:author" content={AUTHOR_URL} />}
+{type === "article" && section && <meta property="article:section" content={section} />}
+{type === "article" && tags.map((t) => <meta property="article:tag" content={t} />)}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage} />
-<meta property="twitter:image:alt" content={title} />
-<meta name="twitter:site" content="@xmadhusudhan" />
-<meta name="twitter:creator" content="@xmadhusudhan" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
+<meta name="twitter:site" content={TWITTER_HANDLE} />
+<meta name="twitter:creator" content={TWITTER_HANDLE} />
+
+<!-- Structured data -->
+{jsonLd && <JsonLd data={jsonLd} />}

@@ -2,7 +2,7 @@
 id: 29
 title: "Rethinking How We Build, Secure, and Simplify Software"
 description: "This week, Japan’s Asahi cyberattack showed how vulnerable factories are when OT and IT security fail to align. AI is reshaping startups, yet we’re still early in the AI-native era. Platform engineering is simplifying DevOps with self-service tools, while true AI breakthroughs advance quietly behind the scenes. And in JavaScript, bloated edge-case libraries remind us that simplicity is still the smartest optimization."
-published: false
+published: true
 tags: techtrends, cybersecurity, airevolution, devopssimplified
 publishDate: "2025-10-06"
 duration: 7:11

@@ -2,7 +2,7 @@
 id: 36
 title: "Outages, AI Coding Vibes, Lightning-Fast Linux & Surprising Performance Wins"
 description: "This week’s edition covers a global Cloudflare outage that briefly shook the internet, the rise of “vibe coding” where natural language replaces syntax, and the growing power of lightweight Linux distros for Kubernetes and Docker setups. We also look at new research showing how hashed sorting can outperform hash tables in large-scale data processing, and wrap up with a practical comparison of gRPC vs REST for modern API architectures. A packed week of performance, reliability, and the future of software development."
-published: false
+published: true
 tags: cloudflare, outage, aicoding, vibecoding
 publishDate: "2025-11-24"
 duration: 6:58

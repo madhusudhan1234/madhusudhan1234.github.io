@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Page not found"
+			description="The page you were looking for doesn't exist. Browse the blog, notes or Tech Weekly podcast instead."
+			noindex
+			canonicalPath="/404/"
+		/>
+	</head>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
+		<Header />
+		<main class="w-full max-w-3xl mx-auto px-6 pt-[140px] pb-16 min-h-[70vh]">
+			<p class="font-mono text-[var(--green)] mb-4">404</p>
+			<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">Page not found</h1>
+			<p class="text-lg mb-8">That page doesn't exist or has moved. Try one of these instead:</p>
+			<ul class="list-none p-0 m-0 flex flex-col gap-3 font-mono text-sm">
+				<li><a href="/" class="text-[var(--green)] hover:underline">Home</a></li>
+				<li><a href="/blog/" class="text-[var(--green)] hover:underline">Blog</a></li>
+				<li><a href="/notes/" class="text-[var(--green)] hover:underline">Notes</a></li>
+				<li><a href="/weekly/" class="text-[var(--green)] hover:underline">Tech Weekly podcast</a></li>
+				<li><a href="/about/" class="text-[var(--green)] hover:underline">About</a></li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

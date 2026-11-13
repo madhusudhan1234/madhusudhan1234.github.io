@@ -1,80 +1,15 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE } from '../../consts';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import WeeklyList from '../../components/WeeklyList.astro';
+import { getPublishedEpisodes, EPISODES_PAGE_SIZE } from '../../utils/episodes';
 
-const WEEKLY_TITLE = "Madhu Sudhan Subedi Tech Weekly";
-const WEEKLY_DESCRIPTION = "Tech Weekly update covering Software Engineering, DevOps, and Software Architecture topics.";
-const episodes:CollectionEntry<'episodes'>[] = await getCollection('episodes');
-const sortedEpisodes = episodes.sort((a, b) => b.data.id - a.data.id);
-const pageSize = 10;
-const totalPages = Math.ceil(sortedEpisodes.length / pageSize);
-const pageEpisodes = sortedEpisodes.slice(0, pageSize);
+const episodes = await getPublishedEpisodes();
+const totalPages = Math.ceil(episodes.length / EPISODES_PAGE_SIZE);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`${WEEKLY_TITLE} | ${SITE_TITLE}`} description={WEEKLY_DESCRIPTION} />
-	</head>
-	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
-		<Header />
-		<main class="w-full max-w-4xl mx-auto px-6 pt-[110px] pb-12">
-			<div class="mb-12">
-				<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">{WEEKLY_TITLE}</h1>
-				<p class="text-[var(--slate)] text-lg max-w-2xl">{WEEKLY_DESCRIPTION}</p>
-			</div>
-
-			<script type="application/ld+json">
-				{JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'ItemList',
-					'name': WEEKLY_TITLE,
-					'itemListElement': pageEpisodes.map((episode, index) => ({
-						'@type': 'ListItem',
-						'position': index + 1,
-						'url': `/weekly/${episode.data.id}`,
-						'name': `Episode #${episode.data.id}: ${episode.data.title}`,
-						'description': episode.data.description
-					}))
-				})}
-			</script>
-			
-			<div class="flex flex-col gap-8">
-				{pageEpisodes.map((episode) => (
-					<div class="bg-[var(--light-navy)] rounded border border-[var(--lightest-navy)] p-5 md:p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
-						<h2 class="text-xl md:text-2xl font-bold text-[var(--lightest-slate)] mb-2" title={`Episode #${episode.data.id}: ${episode.data.title}`}>
-							<a href={`/weekly/${episode.data.id}`} class="hover:text-[var(--green)] transition-colors">
-								Episode #{episode.data.id}: {episode.data.title}
-							</a>
-						</h2>
-						<p class="text-[var(--light-slate)] font-mono text-xs md:text-sm mb-4">
-							Published on: {new Date(episode.data.publishDate).toLocaleDateString()}
-							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
-						</p>
-						<div class="flex flex-wrap gap-2 mb-4" title={episode.data.tags.split(',').map(tag => `#${tag}`).join(' ')}>
-							{episode.data.tags.split(',').map((tag) => (
-								<span class="bg-[var(--navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono">#{tag}</span>
-							))}
-						</div>
-						<div class="w-full">
-							<iframe src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`} class="w-full h-[120px] border-0" title={`Episode ${episode.data.id} - ${episode.data.title}`} allow="autoplay" loading="lazy">
-							</iframe>
-						</div>
-					</div>
-				))}
-			</div>
-			
-			<nav aria-label="Pagination" class="mt-8 flex gap-4 items-center font-mono text-sm">
-				{totalPages > 1 && (
-					<a href={`/weekly/page/2`} class="text-[var(--green)] hover:underline">Next »</a>
-				)}
-				<span class="text-[var(--slate)]">Page 1 of {totalPages}</span>
-			</nav>
-        </main>
-        <Footer />
-    </body>
-</html>
+<WeeklyList
+	pageEpisodes={episodes.slice(0, EPISODES_PAGE_SIZE)}
+	currentPage={1}
+	totalPages={totalPages}
+	total={episodes.length}
+	pageSize={EPISODES_PAGE_SIZE}
+/>

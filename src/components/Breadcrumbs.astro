@@ -1,0 +1,26 @@
+---
+// Visible breadcrumb trail. Pair with breadcrumbList() JSON-LD from utils/seo.ts.
+interface Props {
+	items: { name: string; path?: string }[];
+}
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="mb-6 font-mono text-xs text-[var(--light-slate)]">
+	<ol class="flex flex-wrap items-center gap-x-2 gap-y-1 list-none p-0 m-0">
+		{
+			items.map((item, i) => (
+				<li class="flex items-center gap-2">
+					{item.path && i < items.length - 1 ? (
+						<a href={item.path} class="text-[var(--green)] no-underline hover:underline">
+							{item.name}
+						</a>
+					) : (
+						<span aria-current="page" class="text-[var(--slate)]">{item.name}</span>
+					)}
+					{i < items.length - 1 && <span aria-hidden="true">/</span>}
+				</li>
+			))
+		}
+	</ol>
+</nav>

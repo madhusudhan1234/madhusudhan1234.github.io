@@ -2,7 +2,7 @@
 id: 43
 title: "New Emails, Angry Coders, and the Editor-Engineer Era"
 description: "In this week’s edition, explore Google’s long-overdue Gmail address change feature, watch a Go creator rage at fake AI kindness, learn why software engineers are becoming editors instead of typists, see how culture and gaming quietly built modern AI, and understand why IPv6 didn’t fail but simply waited for economics to catch up. Essential signals for anyone trying to survive the next phase of the internet in 2026."
-published: false
+published: true
 tags: aiengineering, futureoftheinternet, developerculture, techtrends2026
 publishDate: "2026-01-12"
 duration: 5:42

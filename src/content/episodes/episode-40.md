@@ -2,7 +2,7 @@
 id: 40
 title: "AI Coding Agents and Engineering Culture, 0.1x Engineers"
 description: "This week we explore software engineering's AI transformation. Discover why strong engineers write bad code at big tech companies due to structural issues like short tenures and constant reorgs. Learn about compound engineering where AI agents write 100% of production code, enabling one developer to do the work of five. We examine why engineering blogs still matter for career growth, explore defensive protocols that prevent AI coding errors, and meet the 0.1x engineer—the new elite role focused on curating and pruning code rather than writing it. In the age of AI coding assistants, discipline beats speed."
-published: false
+published: true
 tags: aicodingagent, softwareengineering, developerproductivity, codequality
 publishDate: "2025-12-21"
 duration: 7:40

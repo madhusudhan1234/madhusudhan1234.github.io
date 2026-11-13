@@ -2,7 +2,7 @@
 id: 46
 title: "AI Agents Build Compilers, SVG-First Apps, Markdown for Agents, and Why Code Is Now Cheap"
 description: "In this week's Madhu Sudhan Subedi tech weekly, we explore how AI is fundamentally inverting software development priorities—from Anthropic's experiment with 16 parallel Claude agents building a working C compiler in Rust, to Cloudflare's \"Markdown for Agents\" initiative that treats AI crawlers as first-class web consumers by serving markdown instead of token-heavy HTML, to the radical minimalism of SVG-first apps that challenge our complex web stacks, all pointing to the same conclusion: code generation has become trivially cheap through LLMs while architectural thinking, system design, and critical evaluation of AI outputs have become the scarcest and most valuable developer skills, reversing Linus Torvalds' famous \"talk is cheap, show me the code\" into \"code is cheap, show me the clear thinking behind it.”"
-published: false
+published: true
 tags: aiagents, softwaredevelopment, developertools, techtrends2026
 publishDate: "2026-02-15"
 duration: 7:27

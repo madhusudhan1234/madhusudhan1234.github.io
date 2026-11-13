@@ -2,7 +2,7 @@
 id: 27
 title: "Nepal’s Digital Revolution on Discord, Apple’s OS Leap, Cloudflare’s Lessons, and TikTok’s Future"
 description: "This week, we explore how Nepal’s Gen Z turned Discord into a digital parliament to elect a prime minister, Apple’s bold move to unify all its OS versions under “26” with a striking new interface, and what Cloudflare’s outage teaches React developers about managing side effects. We also unpack Andrew Chen’s “Anti-Pitch” framework for startup skeptics and dive into the Oracle–Andreessen–Silver Lake bid to reshape TikTok’s US future."
-published: false
+published: true
 tags: discord, appleos26, cloudflareoutage, tiktokaquisition
 publishDate: "2025-09-21"
 duration: 7:13

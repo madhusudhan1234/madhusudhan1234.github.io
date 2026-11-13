@@ -2,7 +2,7 @@
 id: 18
 title: "Smarter Testing, Simple Solutions, Playful Coding, Age in Tech, & SaaS Choices"
 description: "This week, we tackle bloated test automation, why simple tech beats enterprise for small business, the value of playful coding, ageism in tech, and SaaS vendor lock-in. Get sharp, practical insights to focus your workflow and keep your tech choices smart."
-published: false
+published: true
 tags: testing, smalbusinesstech, developermindset, saas
 publishDate: "2025-07-20"
 duration: 7:44

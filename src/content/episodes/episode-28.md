@@ -2,7 +2,7 @@
 id: 28
 title: "The Next Era of Development: Performance, Productivity, and Trust"
 description: "This week’s Tech Weekly explores how software development is being redefined across speed, workflows, and user experience. We look at how Bun’s reimagined approach to package installs delivers record-breaking performance, why async programming shifts developers from typing code to architecting solutions, and how traditional CPU utilization metrics can mislead server monitoring. We also dive into why AI agents struggle with user trust despite technical accuracy, and how voice-first computing opens new possibilities for creativity and productivity. Together, these trends highlight a common theme: the future of tech isn’t just about writing code faster, but about rethinking the tools, metrics, and interactions that shape how we build and collaborate."
-published: false
+published: true
 tags: developerproductivity, aiandtrust, systemperformance, futureofwork
 publishDate: "2025-09-28"
 duration: 7:30

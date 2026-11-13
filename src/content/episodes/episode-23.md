@@ -2,7 +2,7 @@
 id: 23
 title: "AI Coding Reality, Performance ROI, and Faster Shortest Paths"
 description: "This week in my tech weekly I covered real-world lessons from using AI agents in production, Rakuten’s Claude-powered development gains, why and when to build a performance engineering team, and a new shortest-path algorithm that breaks the classic sorting barrier."
-published: false
+published: true
 tags: aicoding, sentrymcp, claudecode, rakutenai
 publishDate: "2025-08-24"
 duration: 7:09

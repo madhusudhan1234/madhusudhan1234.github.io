@@ -1,0 +1,140 @@
+---
+// Shared markup for /weekly/ (page 1) and /weekly/page/N/ so they stay identical in structure.
+import BaseHead from "./BaseHead.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import {
+	AUTHOR_NAME,
+	PERSON_ID,
+	WEEKLY_TITLE,
+	WEEKLY_DESCRIPTION,
+	WEBSITE_ID,
+} from "../consts";
+import { absoluteUrl, breadcrumbList, splitTags, authorRef } from "../utils/seo";
+import { formatEpisodeDate, SERIES_ID, type Episode } from "../utils/episodes";
+
+interface Props {
+	pageEpisodes: Episode[];
+	currentPage: number;
+	totalPages: number;
+	total: number;
+	pageSize: number;
+}
+
+const { pageEpisodes, currentPage, totalPages, total, pageSize } = Astro.props;
+
+const pagePath = currentPage === 1 ? "/weekly/" : `/weekly/page/${currentPage}/`;
+const first = (currentPage - 1) * pageSize + 1;
+const last = Math.min(currentPage * pageSize, total);
+
+const title =
+	currentPage === 1 ? `${WEEKLY_TITLE} Podcast` : `Tech Weekly Podcast, Page ${currentPage} | ${AUTHOR_NAME}`;
+const description =
+	currentPage === 1
+		? WEEKLY_DESCRIPTION
+		: `Tech Weekly podcast archive, page ${currentPage} of ${totalPages}: episodes ${pageEpisodes.at(-1)?.data.id} to ${pageEpisodes[0]?.data.id} covering software engineering, DevOps and architecture.`;
+
+const prevPath = currentPage === 2 ? "/weekly/" : `/weekly/page/${currentPage - 1}/`;
+const nextPath = `/weekly/page/${currentPage + 1}/`;
+
+const crumbs = [
+	{ name: "Home", path: "/" },
+	{ name: "Tech Weekly", path: "/weekly/" },
+	...(currentPage > 1 ? [{ name: `Page ${currentPage}` }] : []),
+];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "PodcastSeries",
+			"@id": SERIES_ID,
+			name: WEEKLY_TITLE,
+			description: WEEKLY_DESCRIPTION,
+			url: absoluteUrl("/weekly/"),
+			author: authorRef,
+			publisher: { "@id": PERSON_ID },
+			isPartOf: { "@id": WEBSITE_ID },
+			inLanguage: "en",
+			numberOfEpisodes: total,
+		},
+		{
+			"@type": "CollectionPage",
+			"@id": `${absoluteUrl(pagePath)}#page`,
+			url: absoluteUrl(pagePath),
+			name: title,
+			isPartOf: { "@id": SERIES_ID },
+			mainEntity: {
+				"@type": "ItemList",
+				itemListElement: pageEpisodes.map((episode, index) => ({
+					"@type": "ListItem",
+					position: first + index,
+					url: absoluteUrl(`/weekly/${episode.data.id}/`),
+					name: `Episode #${episode.data.id}: ${episode.data.title}`,
+				})),
+			},
+		},
+		breadcrumbList(crumbs.map((c) => ({ name: c.name, path: c.path ?? pagePath }))),
+	],
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} jsonLd={jsonLd} />
+	</head>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
+		<Header />
+		<main class="w-full max-w-4xl mx-auto px-6 pt-[110px] pb-12">
+			<Breadcrumbs items={crumbs} />
+			<div class="mb-12">
+				<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">{WEEKLY_TITLE}</h1>
+				<p class="text-[var(--slate)] text-lg max-w-2xl">{WEEKLY_DESCRIPTION}</p>
+				{currentPage > 1 && (
+					<p class="text-[var(--light-slate)] font-mono text-sm mt-3">Episodes {first}&ndash;{last} of {total}</p>
+				)}
+			</div>
+
+			<div class="flex flex-col gap-8">
+				{pageEpisodes.map((episode) => (
+					<article class="bg-[var(--light-navy)] rounded border border-[var(--lightest-navy)] p-5 md:p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
+						<h2 class="text-xl md:text-2xl font-bold text-[var(--lightest-slate)] mb-2">
+							<a href={`/weekly/${episode.data.id}/`} class="hover:text-[var(--green)] transition-colors">
+								Episode #{episode.data.id}: {episode.data.title}
+							</a>
+						</h2>
+						<p class="text-[var(--light-slate)] font-mono text-xs md:text-sm mb-4">
+							Published on: <time datetime={episode.data.publishDate.toISOString()}>{formatEpisodeDate(episode.data.publishDate)}</time>
+							{episode.data.duration && ` • Duration: ${episode.data.duration}`}
+						</p>
+						<div class="flex flex-wrap gap-2 mb-4">
+							{splitTags(episode.data.tags).map((tag) => (
+								<span class="bg-[var(--navy)] text-[var(--green)] px-2 py-1 rounded text-xs font-mono">#{tag}</span>
+							))}
+						</div>
+						<div class="w-full">
+							<iframe
+								src={`https://weekly.madhusudhansubedi.com.np/embed/${episode.data.id}`}
+								class="w-full h-[120px] border-0"
+								width="100%"
+								height="120"
+								title={`Episode ${episode.data.id} - ${episode.data.title}`}
+								allow="autoplay"
+								loading="lazy"
+							></iframe>
+						</div>
+					</article>
+				))}
+			</div>
+
+			<nav aria-label="Pagination" class="mt-8 flex gap-4 items-center font-mono text-sm">
+				{currentPage > 1 && <a href={prevPath} rel="prev" class="text-[var(--green)] hover:underline">« Prev</a>}
+				<span class="text-[var(--slate)]">Page {currentPage} of {totalPages}</span>
+				{currentPage < totalPages && <a href={nextPath} rel="next" class="text-[var(--green)] hover:underline">Next »</a>}
+			</nav>
+		</main>
+		<Footer />
+	</body>
+</html>
