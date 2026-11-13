@@ -1,30 +1,18 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getPublishedEpisodes } from '../utils/episodes';
+import { getPosts, TOPICS } from '../utils/posts';
 import { splitTags } from '../utils/seo';
 
 export async function GET(context) {
-	const [posts, notes, episodes] = await Promise.all([
-		getCollection('blog'),
-		getCollection('notes'),
-		getPublishedEpisodes(),
-	]);
+	const [posts, episodes] = await Promise.all([getPosts(), getPublishedEpisodes()]);
 
 	const blogItems = posts.map((post) => ({
 		title: post.data.title,
 		description: post.data.description,
 		pubDate: post.data.pubDate,
 		link: `/blog/${post.id}/`,
-		categories: ['blog'],
-	}));
-
-	const noteItems = notes.map((note) => ({
-		title: note.data.title,
-		description: note.data.description,
-		pubDate: note.data.pubDate,
-		link: `/notes/${note.id}/`,
-		categories: ['notes', ...splitTags(note.data.tags)],
+		categories: [TOPICS[post.data.category].short, ...splitTags(post.data.tags)],
 	}));
 
 	const episodeItems = episodes.map((e) => ({
@@ -35,7 +23,7 @@ export async function GET(context) {
 		categories: ['podcast', ...splitTags(e.data.tags)],
 	}));
 
-	const allItems = [...blogItems, ...noteItems, ...episodeItems].sort(
+	const allItems = [...blogItems, ...episodeItems].sort(
 		(a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()
 	);
 

@@ -20,9 +20,11 @@ interface Props {
 	totalPages: number;
 	total: number;
 	pageSize: number;
+	/** Optional strip of AI-related episodes, shown on page 1 only. */
+	aiEpisodes?: Episode[];
 }
 
-const { pageEpisodes, currentPage, totalPages, total, pageSize } = Astro.props;
+const { pageEpisodes, currentPage, totalPages, total, pageSize, aiEpisodes = [] } = Astro.props;
 
 const pagePath = currentPage === 1 ? "/weekly/" : `/weekly/page/${currentPage}/`;
 const first = (currentPage - 1) * pageSize + 1;
@@ -96,6 +98,25 @@ const jsonLd = {
 					<p class="text-[var(--light-slate)] font-mono text-sm mt-3">Episodes {first}&ndash;{last} of {total}</p>
 				)}
 			</div>
+
+			{
+				currentPage === 1 && aiEpisodes.length > 0 && (
+					<section class="mb-12" aria-labelledby="ai-episodes">
+						<h2 id="ai-episodes" class="text-xl font-bold text-[var(--lightest-slate)] mb-2">Featured: AI and the future of software engineering</h2>
+						<p class="mb-4 text-[var(--slate)]">Episodes on AI coding agents, LLMs and what they mean for developers. See also <a href="/ai/" class="text-[var(--green)] hover:underline">software engineering in the AI era</a>.</p>
+						<ul class="list-none p-0 m-0 flex flex-col gap-3">
+							{aiEpisodes.map((e) => (
+								<li>
+									<a href={`/weekly/${e.data.id}/`} class="block rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)] p-4 no-underline hover:border-[var(--green)] transition-colors">
+										<span class="block font-mono text-xs text-[var(--green)] mb-1">Episode #{e.data.id} · {formatEpisodeDate(e.data.publishDate)}</span>
+										<span class="text-[var(--lightest-slate)] font-semibold">{e.data.title}</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
 
 			<div class="flex flex-col gap-8">
 				{pageEpisodes.map((episode) => (

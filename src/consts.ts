@@ -2,9 +2,9 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_URL = 'https://madhusudhansubedi.com.np';
-export const SITE_TITLE = 'Madhu Sudhan Subedi - Software Engineer';
+export const SITE_TITLE = 'Madhu Sudhan Subedi - Software Engineer in the AI Era';
 export const SITE_DESCRIPTION =
-  'Personal website and blog of Madhu Sudhan Subedi, a software engineer from Nepal based in Japan.';
+  'Software engineer from Nepal based in Japan. Writing on engineering in the AI era, backend systems and fundamentals, plus the Tech Weekly podcast.';
 
 export const AUTHOR_NAME = 'Madhu Sudhan Subedi';
 export const AUTHOR_URL = `${SITE_URL}/about/`;

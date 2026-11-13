@@ -1,8 +1,10 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
+export const CATEGORIES = ['ai-engineering', 'fundamentals', 'backend', 'devops'] as const;
+
 const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	// Load Markdown and MDX files in the `src/content/blog/` directory (including subfolders).
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
@@ -12,23 +14,19 @@ const blog = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
-	}),
-});
-
-const notes = defineCollection({
-	loader: glob({ base: './src/content/notes', pattern: '**/*.{md,mdx}' }),
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
+		heroImageAlt: z.string().optional(),
+		category: z.enum(CATEGORIES).default('backend'),
+		// Comma-separated string, split with splitTags()
 		tags: z.string().optional(),
+		series: z.string().optional(),
+		seriesOrder: z.number().optional(),
+		featured: z.boolean().default(false),
+		draft: z.boolean().default(false),
 	}),
 });
 
 const episodes = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	// Load Markdown and MDX files in the `src/content/episodes/` directory.
 	loader: glob({ base: './src/content/episodes', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
@@ -43,4 +41,4 @@ const episodes = defineCollection({
 	}),
 });
 
-export const collections = { blog, notes, episodes };
+export const collections = { blog, episodes };

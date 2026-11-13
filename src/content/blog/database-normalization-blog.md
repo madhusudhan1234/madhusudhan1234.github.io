@@ -3,6 +3,8 @@ title: 'An Introduction to Database Normalization'
 description: 'This post describes the basics of database normalization, including normal forms 1NF, 2NF, 3NF, BCNF, 4NF, and 5NF'
 pubDate: 'Jan 25 2025'
 heroImage: 'images/blogs/database-normalization.png'
+category: 'backend'
+tags: 'databases, sql, data-modeling, fundamentals'
 ---
 
 ### What is Database Normalization?
@@ -383,3 +385,8 @@ Database normalization is essential for eliminating redundancy, maintaining data
 
 - <https://www.datacamp.com/tutorial/normalization-in-sql>
 - <https://mariadb.com/kb/en/database-normalization-overview/>
+
+### Related reading
+
+- [Fundamentals Over Frameworks in the Age of AI](/blog/fundamentals-over-frameworks-in-the-age-of-ai/): why knowing how databases work matters even more when AI generates your queries.
+- [Reviewing AI-Generated Code: A Practical Checklist](/blog/reviewing-ai-generated-code-checklist/): includes the N+1 and missing-index checks.

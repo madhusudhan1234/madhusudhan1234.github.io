@@ -1,6 +1,6 @@
 ---
 import WeeklyList from '../../components/WeeklyList.astro';
-import { getPublishedEpisodes, EPISODES_PAGE_SIZE } from '../../utils/episodes';
+import { getPublishedEpisodes, isAiEpisode, EPISODES_PAGE_SIZE } from '../../utils/episodes';
 
 const episodes = await getPublishedEpisodes();
 const totalPages = Math.ceil(episodes.length / EPISODES_PAGE_SIZE);
@@ -12,4 +12,5 @@ const totalPages = Math.ceil(episodes.length / EPISODES_PAGE_SIZE);
 	totalPages={totalPages}
 	total={episodes.length}
 	pageSize={EPISODES_PAGE_SIZE}
+	aiEpisodes={episodes.filter(isAiEpisode).slice(0, 4)}
 />

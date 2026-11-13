@@ -1,0 +1,58 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import { categoryLabel, readingTime, postUrl, type Post } from "../utils/posts";
+
+interface Props {
+	post: Post;
+	/** Hide the description (used in dense lists). */
+	compact?: boolean;
+	/** Mark the card image as above the fold (no lazy loading). */
+	priority?: boolean;
+}
+const { post, compact = false, priority = false } = Astro.props;
+const { title, description, heroImage, heroImageAlt, category, pubDate } = post.data;
+const minutes = readingTime(post.body);
+---
+
+<article class="group h-full">
+	<a
+		href={postUrl(post)}
+		class="flex flex-col h-full bg-[var(--light-navy)] rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-lg no-underline"
+	>
+		<div class="aspect-video w-full overflow-hidden relative bg-[var(--lightest-navy)]">
+			{
+				heroImage ? (
+					<img
+						width={1536}
+						height={1024}
+						src={`/${heroImage}`}
+						alt={heroImageAlt ?? title}
+						loading={priority ? "eager" : "lazy"}
+						decoding="async"
+						class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+					/>
+				) : (
+					<div
+						class="w-full h-full flex flex-col justify-between p-5 font-mono text-[var(--light-slate)]"
+						aria-hidden="true"
+					>
+						<span class="text-xs uppercase tracking-widest">{categoryLabel(category)}</span>
+						<span class="text-3xl md:text-4xl text-[var(--lightest-slate)] leading-none">{"</>"}</span>
+					</div>
+				)
+			}
+		</div>
+		<div class="p-6 flex flex-col flex-1">
+			<p class="font-mono text-xs text-[var(--green)] mb-2 m-0">
+				{categoryLabel(category)} · {minutes} min read
+			</p>
+			<h3 class="text-xl font-bold text-[var(--lightest-slate)] mb-2 group-hover:text-[var(--green)] transition-colors line-clamp-2 m-0">
+				{title}
+			</h3>
+			<p class="text-[var(--light-slate)] text-xs font-mono mb-3 m-0">
+				<FormattedDate date={pubDate} />
+			</p>
+			{!compact && <p class="text-[var(--slate)] line-clamp-3 text-sm m-0">{description}</p>}
+		</div>
+	</a>
+</article>

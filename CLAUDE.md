@@ -23,29 +23,26 @@ No test suite. Verify changes with `npm run build` and manual review in the dev 
 
 ### Content Collections
 
-Defined in `src/content.config.ts`. Three collections:
+Defined in `src/content.config.ts`. Two collections:
 
 | Collection | Source directory | Key fields |
 |---|---|---|
-| `blog` | `src/content/blog/` | `title`, `description`, `pubDate`, `updatedDate?`, `heroImage?` |
-| `notes` | `src/content/notes/` | same as blog + `tags?` (comma-separated string) |
+| `blog` | `src/content/blog/` (subfolders allowed) | `title`, `description`, `pubDate`, `updatedDate?`, `heroImage?`, `category` (`ai-engineering` \| `fundamentals` \| `backend` \| `devops`), `tags?` (comma-separated string), `series?`, `seriesOrder?`, `featured?`, `draft?` |
 | `episodes` | `src/content/episodes/` | `id` (number), `title`, `description`, `published`, `audioLink`, `publishDate`, `duration`, `tags` (comma-separated) |
 
-Notes are organized into subfolders (e.g. `src/content/notes/data-structure/`). The notes index page groups them by folder name (title-cased), with `misc` as the fallback for root-level files.
+The former `notes` collection was merged into the blog as the **Fundamentals** series (`src/content/blog/fundamentals/`). Old `/notes/...` URLs redirect there (`notesRedirects()` in `src/utils/lastmod.mjs`, wired in `astro.config.mjs`). Use `getPosts()` (`src/utils/posts.ts`) rather than `getCollection('blog')` so drafts are excluded and order is consistent.
 
 ### Pages and Routing
 
-- `src/pages/index.astro` — home
-- `src/pages/blog/[...slug].astro` — blog post (uses `BlogPost.astro` layout)
-- `src/pages/notes/[...slug].astro` — note detail (uses `BlogPost.astro` layout)
-- `src/pages/notes/tag/[tag].astro` — notes filtered by tag
-- `src/pages/weekly/index.astro` — episode list (first page, 10 per page)
-- `src/pages/weekly/page/[page].astro` — paginated episodes
-- `src/pages/weekly/[id].astro` — single episode (keyed by `id` number, not slug)
+- `src/pages/index.astro` — home (hero, AI-era principles, latest writing, podcast, experience, skills, contact)
+- `src/pages/about.astro`, `src/pages/ai.astro` — about page and "Software engineering in the AI era" pillar page (both include FAQ + schema)
+- `src/pages/blog/index.astro` — blog index; `src/pages/blog/topic/[topic].astro` — topic hubs (one per `category`, `noindex` under 3 posts)
+- `src/pages/blog/[...slug].astro` — post (uses `BlogPost.astro` layout: reading time, series nav, related posts)
+- `src/pages/weekly/index.astro`, `weekly/page/[page].astro` — episode list (shared `WeeklyList.astro`), `weekly/[id].astro` — single episode (keyed by `id`)
 
 ### Shared Layout
 
-`BlogPost.astro` is the single layout used by both blog posts and notes. It injects CodeMirror via `<script>import "../scripts/codemirror-loader.js"</script>` in its `<body>` tail. The loader (`src/scripts/codemirror-loader.js`) runs at page load, finds all `<pre>` elements, and replaces them with read-only CodeMirror editors with VSCode light/dark themes.
+`BlogPost.astro` is the single layout used by blog posts. It injects CodeMirror via `<script>import "../scripts/codemirror-loader.js"</script>` in its `<body>` tail. The loader (`src/scripts/codemirror-loader.js`) runs at page load, finds all `<pre>` elements, and replaces them with read-only CodeMirror editors with VSCode light/dark themes.
 
 ### Theming
 
@@ -54,6 +51,11 @@ All colors use CSS custom properties defined in `src/styles/global.css`. Light m
 ### Global Constants
 
 `src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION` used across pages for `<BaseHead>` titles.
+
+### Content conventions
+
+- Anything in the copy that makes a first-person claim about the author's own AI workflow is marked `TODO(confirm)` (HTML comment in markdown/Astro, `//` in frontmatter code). Grep for `TODO(confirm)` and resolve each before treating the content as final.
+- AI-assisted articles carry a `> Note:` disclosure line at the top.
 
 ### SEO / AIO
 

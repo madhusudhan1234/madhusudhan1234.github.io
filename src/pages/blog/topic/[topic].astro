@@ -1,0 +1,80 @@
+---
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import PostCard from "../../../components/PostCard.astro";
+import { WEBSITE_ID } from "../../../consts";
+import { absoluteUrl, breadcrumbList } from "../../../utils/seo";
+import { TOPICS, TOPIC_SLUGS, getPosts, postUrl, type Category } from "../../../utils/posts";
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	// Only generate hubs that have at least one post.
+	return TOPIC_SLUGS.filter((slug) => posts.some((p) => p.data.category === slug)).map((slug) => ({
+		params: { topic: slug },
+		props: { posts: posts.filter((p) => p.data.category === slug) },
+	}));
+}
+
+const { topic } = Astro.params as { topic: Category };
+const { posts } = Astro.props;
+const meta = TOPICS[topic];
+const pagePath = `/blog/topic/${topic}/`;
+const crumbs = [{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }, { name: meta.short }];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "CollectionPage",
+			"@id": `${absoluteUrl(pagePath)}#page`,
+			url: absoluteUrl(pagePath),
+			name: `${meta.title} articles`,
+			description: meta.description,
+			isPartOf: { "@id": WEBSITE_ID },
+			mainEntity: {
+				"@type": "ItemList",
+				itemListElement: posts.map((p, i) => ({
+					"@type": "ListItem",
+					position: i + 1,
+					url: absoluteUrl(postUrl(p)),
+					name: p.data.title,
+				})),
+			},
+		},
+		breadcrumbList([
+			{ name: "Home", path: "/" },
+			{ name: "Blog", path: "/blog/" },
+			{ name: meta.short, path: pagePath },
+		]),
+	],
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`${meta.title}: Articles`}
+			description={meta.description}
+			jsonLd={jsonLd}
+			noindex={posts.length < 3}
+		/>
+	</head>
+	<body class="bg-[var(--navy)] text-[var(--slate)] font-sans antialiased">
+		<Header />
+		<main class="w-full max-w-6xl mx-auto px-6 md:px-12 pt-[110px] pb-12">
+			<Breadcrumbs items={crumbs} />
+			<div class="mb-12">
+				<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">{meta.title}</h1>
+				<p class="text-[var(--slate)] text-lg max-w-2xl">{meta.intro}</p>
+			</div>
+			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0 m-0">
+				{posts.map((post) => <li><PostCard post={post} /></li>)}
+			</ul>
+			<p class="mt-12 font-mono text-sm"><a href="/blog/" class="text-[var(--green)] hover:underline">← All articles</a></p>
+		</main>
+		<Footer />
+	</body>
+</html>

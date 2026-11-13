@@ -2,7 +2,11 @@
 title: 'Data Structure: Stack in JavaScript'
 description: 'LIFO structure, operations, implementations, performance, and pitfalls using arrays and classes.'
 pubDate: 'Jan 4 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 5
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
@@ -97,4 +101,23 @@ console.log(stack.size()); // 2
 | size      | O(1)       |
 | iterate   | O(n)       |
 
+## Why this still matters when AI writes your code
 
+Stacks hide in plain sight: the call stack itself is one. That has a practical consequence for generated code: **deep recursion can overflow the stack** on large input, and agents often write recursive solutions because they read cleanly.
+
+If the input depth is not bounded (nested structures, linked data, long chains), convert the recursion to an explicit stack:
+
+```javascript
+function walk(root) {
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop();
+    // ...process node
+    for (const child of node.children ?? []) stack.push(child);
+  }
+}
+```
+
+Stacks are also the answer to undo history, bracket matching and depth-first traversal.
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

@@ -1,0 +1,16 @@
+---
+// Numbered section heading used on the home page ("01. About" style).
+interface Props {
+	number: string;
+	id?: string;
+}
+const { number, id } = Astro.props;
+---
+
+<h2
+	id={id}
+	class="flex items-center relative w-full text-2xl md:text-3xl text-[var(--lightest-slate)] font-semibold mb-8 md:mb-10 whitespace-normal md:whitespace-nowrap after:content-[''] after:hidden md:after:block after:w-[200px] after:h-[1px] after:bg-[var(--lightest-navy)] after:ml-5 before:content-[attr(data-n)] before:mr-2.5 before:text-[var(--green)] before:font-mono before:font-normal before:text-xl md:before:text-2xl"
+	data-n={number}
+>
+	<slot />
+</h2>

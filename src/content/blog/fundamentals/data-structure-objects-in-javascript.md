@@ -2,7 +2,11 @@
 title: 'Data Structure: Objects in JavaScript'
 description: 'Core concepts, property access, methods, prototypes, cloning, merging, and common pitfalls when working with objects.'
 pubDate: 'Jan 2 2026'
-tags: 'js-data-structure'
+updatedDate: 'Nov 14 2026'
+category: 'fundamentals'
+series: 'Data Structures in JavaScript'
+seriesOrder: 2
+tags: 'javascript, data-structures, fundamentals'
 ---
 
 ## Overview
@@ -169,3 +173,15 @@ const cfg = { ...defaults, ...env };
 - Shallow clones share nested references
 - `for...in` includes inherited keys; prefer `Object.keys` + `Object.hasOwn`
 - `Object.freeze` is shallow; deep freeze requires recursion
+
+## Why this still matters when AI writes your code
+
+Generated code loves plain objects as dictionaries, which is where subtle bugs hide:
+
+- Keys like `__proto__` or `constructor` can collide with built-in properties when user input becomes a key. Use a [Map](/blog/fundamentals/data-structure-map-in-javascript/) or `Object.create(null)` for arbitrary keys.
+- Spread (`{ ...obj }`) and `Object.assign` copy only one level. Nested objects are still shared, so edits leak between copies. Use `structuredClone` when you need a deep copy.
+- A JSON round trip silently drops `undefined`, functions and converts `Date` to a string.
+
+When reviewing, ask: where did these keys come from, and who else holds a reference to this object?
+
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*

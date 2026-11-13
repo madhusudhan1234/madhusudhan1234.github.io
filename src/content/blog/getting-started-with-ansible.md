@@ -3,6 +3,8 @@ title: 'Getting Started with Ansible'
 description: 'Learn how to get started with Ansible automation through a practical example of PHP installation using Ansible playbooks.'
 pubDate: 'March 13 2025'
 heroImage: 'images/blogs/ansible.png'
+category: 'devops'
+tags: 'ansible, automation, devops, php'
 ---
 
 Ansible is a powerful automation tool that simplifies task automation on remote servers. Being agentless, it doesn't require any agent installation on the server - a simple SSH connection from the host to the servers suffices.
@@ -222,3 +224,7 @@ This is the basic way of using Ansible. For more advanced usage, please check ad
 
 ### References:
 https://docs.ansible.com/ansible/latest/index.html
+
+### Related reading
+
+- [Specs and Tests as the Interface for AI Agents](/blog/specs-and-tests-as-the-interface-for-ai-agents/): automation works best when "done" is something you can check.
