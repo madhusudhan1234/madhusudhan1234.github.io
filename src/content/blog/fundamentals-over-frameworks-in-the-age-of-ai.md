@@ -4,9 +4,10 @@ description: 'When AI generates the code, fundamentals are how you judge it. Rea
 pubDate: 'Nov 14 2026'
 category: 'ai-engineering'
 tags: 'fundamentals, data-structures, ai-agents, career, ai-assisted'
+draft: true
 ---
 
-> Note: This article was drafted with AI assistance and reviewed and edited by the author.
+> Note: This article was drafted with AI assistance and has not yet been reviewed by the author. (Update this note once reviewed.)
 
 **TL;DR:** Frameworks come and go, and AI can already write most framework boilerplate. What it cannot do for you is tell you whether the code is *right*. That judgment comes from fundamentals: data structures, complexity, databases and how the machine actually works.
 

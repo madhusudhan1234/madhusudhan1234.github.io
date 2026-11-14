@@ -120,4 +120,4 @@ for (const order of orders) {
 
 Remember that object keys in a Map compare by reference, so two equal-looking objects are different keys.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

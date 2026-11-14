@@ -159,4 +159,4 @@ Two more review questions for any queue:
 - **Is it bounded?** An unbounded in-memory queue is a memory leak waiting for a traffic spike. Decide on backpressure.
 - **Is it in the right place?** For work shared across servers, an in-process array is the wrong tool; see [why Redis beats databases for job queues](/blog/why-redis-is-better-than-database-to-store-jobs-in-multi-server-application/).
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

@@ -56,6 +56,7 @@ All colors use CSS custom properties defined in `src/styles/global.css`. Light m
 
 - Don't state specific personal AI tools, workflows or experience as fact unless the author has confirmed them. Opinions, general guidance and topics the site covers are fine. If an unconfirmed first-person claim is unavoidable, mark it `TODO(confirm)` (HTML comment in markdown/Astro, `//` in frontmatter code) and grep for it before finalising.
 - AI-assisted articles carry a `> Note:` disclosure line at the top.
+- AI-drafted content stays `draft: true` (or an underscore-prefixed page such as `src/pages/_ai.astro`) until the author has reviewed it; only then update the disclosure note to say it was reviewed. Parked: five AI-era articles in `src/content/blog/` (`draft: true`), the `/ai/` page, and three `engineering-notes/` case-study skeletons that need the author's real details.
 
 ### SEO / AIO
 

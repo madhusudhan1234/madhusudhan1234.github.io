@@ -184,4 +184,4 @@ Generated code loves plain objects as dictionaries, which is where subtle bugs h
 
 When reviewing, ask: where did these keys come from, and who else holds a reference to this object?
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

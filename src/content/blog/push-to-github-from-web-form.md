@@ -552,6 +552,3 @@ Now that you have a working app, you could:
 
 Happy coding! 🚀
 
-### Related reading
-
-- [Reviewing AI-Generated Code: A Practical Checklist](/blog/reviewing-ai-generated-code-checklist/): how to review code like this before you rely on it.

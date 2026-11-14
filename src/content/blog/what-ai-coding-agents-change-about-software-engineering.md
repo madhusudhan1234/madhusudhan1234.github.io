@@ -4,10 +4,10 @@ description: 'AI coding agents make writing code cheap. Here is what that change
 pubDate: 'Nov 14 2026'
 category: 'ai-engineering'
 tags: 'ai-agents, software-engineering, career, ai-assisted'
-featured: true
+draft: true
 ---
 
-> Note: This article was drafted with AI assistance and reviewed and edited by the author.
+> Note: This article was drafted with AI assistance and has not yet been reviewed by the author. (Update this note once reviewed.)
 
 **TL;DR:** AI coding agents have made the first draft of code cheap. They have not made correct, secure, maintainable software cheap. The job is moving from typing code toward specifying, reviewing, verifying and operating it, and the skills that matter most are the ones that were always the hard part.
 

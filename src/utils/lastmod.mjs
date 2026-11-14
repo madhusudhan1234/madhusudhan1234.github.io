@@ -65,7 +65,6 @@ export function buildLastmodMap(siteUrl) {
   if (overall) map.set(`${siteUrl}/`, overall);
   if (latest.blog) {
     map.set(`${siteUrl}/blog/`, latest.blog);
-    map.set(`${siteUrl}/ai/`, latest.blog);
   }
   if (latest.episodes) map.set(`${siteUrl}/weekly/`, latest.episodes);
   return map;

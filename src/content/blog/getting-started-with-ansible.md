@@ -225,6 +225,3 @@ This is the basic way of using Ansible. For more advanced usage, please check ad
 ### References:
 https://docs.ansible.com/ansible/latest/index.html
 
-### Related reading
-
-- [Specs and Tests as the Interface for AI Agents](/blog/specs-and-tests-as-the-interface-for-ai-agents/): automation works best when "done" is something you can check.
