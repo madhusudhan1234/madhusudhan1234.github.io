@@ -170,5 +170,4 @@ For multi‑server apps with many workers and real‑time/high‑volume tasks, R
 
 ### Related reading
 
-- [A Backend Engineer's Guide to Adding LLM Features Safely](/blog/adding-llm-features-to-a-backend-safely/): the same queue-first pattern applied to slow, costly LLM calls.
 - [Queue in JavaScript](/blog/fundamentals/data-structure-queue-in-javascript/): the data structure underneath every job queue.

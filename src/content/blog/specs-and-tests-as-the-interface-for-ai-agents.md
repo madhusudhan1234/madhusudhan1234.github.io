@@ -4,9 +4,10 @@ description: 'How to write requirements and executable tests that let an AI codi
 pubDate: 'Nov 14 2026'
 category: 'ai-engineering'
 tags: 'specs, testing, ai-agents, tdd, ai-assisted'
+draft: true
 ---
 
-> Note: This article was drafted with AI assistance and reviewed and edited by the author.
+> Note: This article was drafted with AI assistance and has not yet been reviewed by the author. (Update this note once reviewed.)
 
 **TL;DR:** An agent can only be as good as the outcome you describe, and you can only trust it as far as something verifies the result. Write a short spec and the acceptance tests first, hand both to the agent, and let "the tests pass" be the definition of done.
 

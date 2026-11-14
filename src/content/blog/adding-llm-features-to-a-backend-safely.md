@@ -4,9 +4,10 @@ description: 'Timeouts, retries, queues, caching, cost limits, output validation
 pubDate: 'Nov 14 2026'
 category: 'ai-engineering'
 tags: 'llm, backend, queues, reliability, laravel, nodejs, ai-assisted'
+draft: true
 ---
 
-> Note: This article was drafted with AI assistance and reviewed and edited by the author.
+> Note: This article was drafted with AI assistance and has not yet been reviewed by the author. (Update this note once reviewed.)
 
 **TL;DR:** An LLM call is a slow, expensive, non-deterministic network dependency that returns untrusted text. Treat it that way: put it behind timeouts, retries and a queue; cap cost; validate and sanitise the output; protect user data; and instrument it so you can see what it does in production.
 

@@ -120,4 +120,4 @@ function walk(root) {
 
 Stacks are also the answer to undo history, bracket matching and depth-first traversal.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

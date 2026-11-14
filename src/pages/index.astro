@@ -16,10 +16,6 @@ import {
 	Cloud,
 	GitBranch,
 	Bot,
-	ArrowRight,
-	Layers,
-	FileCheck,
-	ShieldCheck,
 	Podcast,
 } from "lucide-astro";
 
@@ -28,33 +24,6 @@ const latestPosts = posts.slice(0, 3);
 const latestEpisodes = (await getPublishedEpisodes()).slice(0, 3);
 const activeTopics = TOPIC_SLUGS.filter((slug) => posts.some((p) => p.data.category === slug));
 
-// Principles mirror the themes of the linked articles.
-const principles = [
-	{
-		icon: Layers,
-		title: "Fundamentals first",
-		body: "When an agent writes the code, you still have to know whether it is right. Data structures, complexity and system design are how you judge it.",
-		href: "/blog/fundamentals-over-frameworks-in-the-age-of-ai/",
-	},
-	{
-		icon: ShieldCheck,
-		title: "Agents write, humans own the review",
-		body: "Generated code is a draft from a fast, confident junior. Review it for correctness, security and fit, and own what ships.",
-		href: "/blog/reviewing-ai-generated-code-checklist/",
-	},
-	{
-		icon: FileCheck,
-		title: "Specs and tests are the interface",
-		body: "Clear requirements and executable tests are how you hand work to an agent and know when it is actually done.",
-		href: "/blog/specs-and-tests-as-the-interface-for-ai-agents/",
-	},
-	{
-		icon: Bot,
-		title: "Production is the real eval",
-		body: "LLM features need timeouts, retries, queues, cost limits and observability like any other dependency, only more so.",
-		href: "/blog/adding-llm-features-to-a-backend-safely/",
-	},
-];
 ---
 
 <!doctype html>
@@ -201,7 +170,6 @@ const principles = [
 						</p>
 						<div class="mt-8 md:mt-12 flex flex-wrap gap-4">
 							<a href="/blog/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Read the blog</a>
-							<a href="/ai/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Engineering in the AI era</a>
 							<a href="/weekly/" class="inline-block text-[var(--green)] bg-transparent border border-[var(--green)] rounded px-6 py-4 text-sm font-mono leading-none hover:bg-[var(--green-tint)] transition-all duration-250 ease-in-out">Listen to Tech Weekly</a>
 						</div>
 					</div>
@@ -255,37 +223,9 @@ const principles = [
 					</div>
 				</div>
 
-				<!-- Principles Section -->
-				<section id="ai-era" class="py-12 md:py-24 max-w-[1000px] mx-auto">
-					<SectionHeading number="01.">How I think about engineering in the AI era</SectionHeading>
-					<ul class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 m-0">
-						{
-							principles.map((item) => (
-								<li>
-									<a
-										href={item.href}
-										class="block h-full bg-[var(--light-navy)] border border-[var(--lightest-navy)] rounded p-6 no-underline transition-all duration-250 hover:-translate-y-1 hover:shadow-xl"
-									>
-										<h3 class="text-[var(--lightest-slate)] text-lg font-semibold mb-3 flex items-center gap-2 m-0">
-											<item.icon size={18} class="text-[var(--green)] shrink-0" />
-											{item.title}
-										</h3>
-										<p class="text-[var(--slate)] text-base leading-relaxed m-0">{item.body}</p>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-					<p class="mt-8 font-mono text-sm">
-						<a href="/ai/" class="text-[var(--green)] hover:underline inline-flex items-center gap-2">
-							The full picture: a practical AI-era workflow <ArrowRight size={14} />
-						</a>
-					</p>
-				</section>
-
 				<!-- Latest writing -->
 				<section id="writing" class="py-12 md:py-24 max-w-[1000px] mx-auto">
-					<SectionHeading number="02.">Latest writing</SectionHeading>
+					<SectionHeading number="01.">Latest writing</SectionHeading>
 					<ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
 						{latestPosts.map((post) => <li><PostCard post={post} compact /></li>)}
 					</ul>
@@ -306,7 +246,7 @@ const principles = [
 
 				<!-- Podcast -->
 				<section id="podcast" class="py-12 md:py-24 max-w-[1000px] mx-auto">
-					<SectionHeading number="03.">Tech Weekly podcast</SectionHeading>
+					<SectionHeading number="02.">Tech Weekly podcast</SectionHeading>
 					<p class="text-[var(--slate)] text-lg max-w-2xl mb-8">
 						A short weekly roundup of software engineering, DevOps and AI news, with the context on why it matters to people who build software.
 					</p>
@@ -808,7 +748,7 @@ const principles = [
 
 				<!-- Contact -->
 				<section id="contact" class="py-12 md:py-24 max-w-[700px] mx-auto text-center">
-					<p class="text-[var(--green)] font-mono text-base mb-4">06. What's next?</p>
+					<p class="text-[var(--green)] font-mono text-base mb-4">05. What's next?</p>
 					<h2 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6">Get in touch</h2>
 					<p class="text-[var(--slate)] text-lg mb-10">
 						Want to talk engineering, AI tooling or the podcast? My code is on GitHub, and I'm easiest to reach on LinkedIn.

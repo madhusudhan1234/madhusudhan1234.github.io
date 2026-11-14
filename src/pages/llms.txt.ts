@@ -20,7 +20,6 @@ export const GET: APIRoute = async () => {
     '',
     `- [Home](${SITE_URL}/): Bio, work experience and latest writing`,
     `- [About](${SITE_URL}/about/): Background, working principles and how to get in touch`,
-    `- [Software engineering in the AI era](${SITE_URL}/ai/): How AI coding agents change the craft, a practical workflow and guardrails`,
     '',
     ...TOPIC_SLUGS.flatMap((slug) => {
       const topicPosts = posts.filter((p) => p.data.category === slug);

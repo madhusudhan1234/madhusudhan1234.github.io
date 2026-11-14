@@ -193,4 +193,4 @@ One trap to know about: a Set compares objects by reference, not by value. A Set
 
 When reviewing AI-written code, scan for repeated membership checks on large arrays and for "unique" logic built from nested loops.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

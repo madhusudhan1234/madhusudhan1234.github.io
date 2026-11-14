@@ -80,4 +80,4 @@ Where it matters is in *understanding*: pointers and references are the foundati
 
 Draw the pointers on paper when you review one; it catches most of these.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

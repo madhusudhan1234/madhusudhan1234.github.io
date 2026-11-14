@@ -4,9 +4,10 @@ description: 'A practical, repeatable checklist for reviewing code written by AI
 pubDate: 'Nov 14 2026'
 category: 'ai-engineering'
 tags: 'code-review, ai-agents, security, testing, ai-assisted'
+draft: true
 ---
 
-> Note: This article was drafted with AI assistance and reviewed and edited by the author.
+> Note: This article was drafted with AI assistance and has not yet been reviewed by the author. (Update this note once reviewed.)
 
 **TL;DR:** AI-generated code looks finished far more often than it is. Review it like a pull request from a fast, confident junior engineer: verify the behaviour against the spec, hunt for the failure modes agents are prone to, and make the tests prove the result.
 

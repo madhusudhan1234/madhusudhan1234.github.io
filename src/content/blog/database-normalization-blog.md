@@ -386,7 +386,3 @@ Database normalization is essential for eliminating redundancy, maintaining data
 - <https://www.datacamp.com/tutorial/normalization-in-sql>
 - <https://mariadb.com/kb/en/database-normalization-overview/>
 
-### Related reading
-
-- [Fundamentals Over Frameworks in the Age of AI](/blog/fundamentals-over-frameworks-in-the-age-of-ai/): why knowing how databases work matters even more when AI generates your queries.
-- [Reviewing AI-Generated Code: A Practical Checklist](/blog/reviewing-ai-generated-code-checklist/): includes the N+1 and missing-index checks.

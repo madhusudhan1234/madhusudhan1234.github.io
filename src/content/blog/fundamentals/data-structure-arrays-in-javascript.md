@@ -138,4 +138,4 @@ Arrays are the default container in almost all generated JavaScript, so reviewin
 
 If a generated snippet does any of these, ask whether the input size makes it matter.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*

@@ -62,11 +62,11 @@ export const personNode = {
   image: absoluteUrl(DEFAULT_OG_IMAGE),
   jobTitle: 'Software Engineer',
   description:
-    'Software engineer from Nepal based in Japan with 9+ years of experience in backend development, APIs and web applications (Laravel, PHP, Node.js, AWS). Writes about software engineering in the era of AI coding agents and hosts the Tech Weekly podcast.',
+    'Software engineer from Nepal based in Japan with 9+ years of experience in backend development, APIs and web applications (Laravel, PHP, Node.js, AWS). Hosts the Tech Weekly podcast on software engineering news.',
   nationality: { '@type': 'Country', name: 'Nepal' },
   homeLocation: { '@type': 'Country', name: 'Japan' },
   worksFor: { '@type': 'Organization', name: 'Hivelocity Inc.' },
-  knowsAbout: ['Software engineering', 'AI-assisted software engineering', 'AI coding agents', 'LLM application development', 'Backend development', 'Laravel', 'PHP', 'Node.js', 'TypeScript', 'REST APIs', 'AWS', 'Docker', 'Data structures'],
+  knowsAbout: ['Software engineering', 'AI coding agents', 'Backend development', 'Legacy system migration', 'ETL pipelines', 'E-commerce platforms', 'CRM systems', 'Laravel', 'PHP', 'Node.js', 'TypeScript', 'REST APIs', 'AWS', 'Docker', 'Data structures'],
   sameAs: SAME_AS,
 };
 

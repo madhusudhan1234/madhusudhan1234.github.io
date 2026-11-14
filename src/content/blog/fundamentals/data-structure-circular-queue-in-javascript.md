@@ -143,4 +143,4 @@ It is also a classic place for generated code to be subtly wrong. The bugs clust
 
 If an agent writes one for you, insist on tests for empty, full, wrap-around and overwrite behaviour before trusting it.
 
-*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series. For the bigger picture, read [Fundamentals Over Frameworks](/blog/fundamentals-over-frameworks-in-the-age-of-ai/).*
+*This is part of the [Data Structures in JavaScript](/blog/topic/fundamentals/) series.*
