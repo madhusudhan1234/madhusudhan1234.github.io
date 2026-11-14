@@ -16,8 +16,7 @@ const description =
 const posts = (await getPosts()).filter((p) => p.data.category === 'ai-engineering');
 const episodes = (await getPublishedEpisodes()).filter(isAiEpisode).slice(0, 6);
 
-// TODO(confirm): the workflow, guardrails and FAQ answers below are a general, defensible framing.
-// Edit them so they describe how you personally work before publishing.
+// The workflow, guardrails and FAQ below are a general framing of AI-assisted engineering, not a description of a specific personal setup.
 const steps = [
 	{ title: 'Specify', body: 'Write down the outcome, the constraints and the acceptance criteria before any code exists. A vague request gets a confident, vague answer.' },
 	{ title: 'Delegate', body: 'Hand well-bounded tasks to an agent: a feature behind an interface, a refactor with tests, a migration with a clear checklist. Keep the architecture decisions yourself.' },
@@ -93,7 +92,7 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'AI era' }];
 			<Breadcrumbs items={crumbs} />
 			<h1 class="text-3xl md:text-5xl font-bold text-[var(--lightest-slate)] mb-6 leading-tight">Software engineering in the AI era</h1>
 			<p class="text-xl leading-relaxed max-w-3xl mb-10">
-				AI coding agents can now draft features, refactors and tests in minutes. That does not make engineers obsolete; it moves the work. Less typing, more specifying, reviewing, verifying and operating. This page is my working model of what that means in practice.
+				AI coding agents can now draft features, refactors and tests in minutes. That does not make engineers obsolete; it moves the work. Less typing, more specifying, reviewing, verifying and operating. This page is a practical framing of what that means.
 			</p>
 
 			<section aria-labelledby="tldr" class="mb-12 p-6 rounded border border-[var(--lightest-navy)] bg-[var(--light-navy)]">

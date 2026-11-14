@@ -12,7 +12,7 @@ tags: 'fundamentals, data-structures, ai-agents, career, ai-assisted'
 
 ## The reminder from the podcast
 
-One of the recurring themes on the [Tech Weekly podcast](/weekly/) lately is simple: learn fundamentals, not frameworks, because when AI-generated code breaks, fundamentals are what saves you. <!-- TODO(confirm): this sentence claims personal experience with agents; edit to match your own. -->
+One of the recurring themes on the [Tech Weekly podcast](/weekly/) lately is simple: learn fundamentals, not frameworks, because when AI-generated code breaks, fundamentals are what saves you.
 I agree, and for a specific reason.
 
 AI shifted the bottleneck from *producing* code to *evaluating* code. Evaluating code is a fundamentals skill.

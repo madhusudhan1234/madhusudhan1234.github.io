@@ -49,8 +49,7 @@ To notice that a generated loop is quadratic, that a cache key is wrong, or that
 
 Understanding the real problem, choosing trade-offs, designing for failure, keeping a system operable over years, and communicating with people: none of that got automated. If anything, producing more code faster makes it easier to build the wrong thing at speed.
 
-<!-- TODO(confirm): the delegation table reflects a general view, not necessarily your own practice. Edit before publishing. -->
-## How I'd think about delegating to an agent
+## How to think about delegating to an agent
 
 A useful mental model is a fast, tireless, confident junior engineer who has read a lot but has never seen your production system. That framing suggests a sensible split:
 

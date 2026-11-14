@@ -54,7 +54,7 @@ All colors use CSS custom properties defined in `src/styles/global.css`. Light m
 
 ### Content conventions
 
-- Anything in the copy that makes a first-person claim about the author's own AI workflow is marked `TODO(confirm)` (HTML comment in markdown/Astro, `//` in frontmatter code). Grep for `TODO(confirm)` and resolve each before treating the content as final.
+- Don't state specific personal AI tools, workflows or experience as fact unless the author has confirmed them. Opinions, general guidance and topics the site covers are fine. If an unconfirmed first-person claim is unavoidable, mark it `TODO(confirm)` (HTML comment in markdown/Astro, `//` in frontmatter code) and grep for it before finalising.
 - AI-assisted articles carry a `> Note:` disclosure line at the top.
 
 ### SEO / AIO
